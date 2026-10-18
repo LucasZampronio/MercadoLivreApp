@@ -47,12 +47,12 @@ App para ver os produtos mais vendidos no Mercado Livre e métricas completas de
 - **`GET /reviews/item/{id}`**: `403 Forbidden`.
 
 ## Estado atual
-- App configurado com exportação estática (`output: "export"`) para **GitHub Pages** e pipeline automática em `.github/workflows/deploy-pages.yml`.
-- `npm run update-data:local` gera `public/data/meli-snapshot.json` com todas as 32 categorias e seus produtos enriquecidos.
+- App configurado para publicar no **GitHub Pages direto da branch `main`**. O comando `npm run build` exporta `index.html`, `404.html`, `_next/` e `.nojekyll` direto na raiz do repositório.
+- `npm run update-data:local` gera `public/data/meli-snapshot.json` com todas as 32 categorias e seus 560 produtos enriquecidos.
 - Aviso de múltiplos lockfiles do Next resolvido com `outputFileTracingRoot` em `next.config.mjs`.
 
 ## Decisões
-- Como o GitHub Pages é estático (sem servidor Node.js e sem expor `MELI_CLIENT_SECRET` no navegador), a pipeline do GitHub Actions roda `scripts/update-data.ts`, atualiza e commita `public/data/meli-snapshot.json`, gera o bundle estático (`out/`) e publica no GitHub Pages.
+- O GitHub Pages serve direto da branch `main` (`/`). A pipeline `.github/workflows/deploy-pages.yml` roda a cada 6h (ou manualmente), atualiza `public/data/meli-snapshot.json`, roda `npm run build` (que atualiza `index.html` e `_next/` na raiz) e faz commit + push direto na `main`.
 - Métricas estilo Avantpro calculadas sobre os endpoints oficiais:
   - **Recebimento líquido do anúncio**: `Preço - Tarifa ML (/listing_prices) - Frete vendedor (/shipping_options/free)`.
   - **Imposto e Faixa de preço para lucro (15%–25%)**: calculados sobre a tarifa real da categoria + Simples Nacional (6% ref.) + CMV estimado (45%).
@@ -61,7 +61,7 @@ App para ver os produtos mais vendidos no Mercado Livre e métricas completas de
 - `.env`, `.meli-tokens.json`, `.meli-pkce.json` e `out` estão no `.gitignore`.
 
 ## Pendências
-- [ ] Cadastrar os Secrets `MELI_APP_ID` e `MELI_CLIENT_SECRET` em Settings > Secrets and variables > Actions no GitHub e ativar Settings > Pages > Source: **GitHub Actions**.
-- [ ] Fazer commit e `git push origin main` do `package-lock.json`, `.npmrc` e `.github/workflows/deploy-pages.yml` para publicar o site no GitHub Pages.
+- [ ] Cadastrar os Secrets `MELI_APP_ID` e `MELI_CLIENT_SECRET` em Settings > Secrets and variables > Actions no GitHub para a atualização automática de 6 em 6 horas.
+- [ ] Fazer commit e `git push origin main` para subir `index.html`, `_next/`, `.nojekyll`, `.npmrc` e `package-lock.json`.
 - [ ] Reiniciar o Antigravity e conferir se o MCP conecta em Additional Options > MCP Servers.
 - [ ] Considerar `npm audit` (2 vulnerabilidades reportadas na instalação).

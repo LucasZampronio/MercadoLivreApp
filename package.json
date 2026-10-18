@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "GITHUB_ACTIONS=true next build && rm -rf _next && cp -R out/index.html out/404.html out/_next . && touch .nojekyll",
     "start": "next start",
     "update-data": "node scripts/update-data.ts",
     "update-data:local": "node --env-file=.env scripts/update-data.ts"
