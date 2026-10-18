@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
-import DashboardClient from "./DashboardClient";
+import DashboardClient from "@/components/dashboard/DashboardClient";
 import {
   getBestSellers,
   getCategories,

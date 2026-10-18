@@ -12,14 +12,30 @@ App para ver os produtos mais vendidos no Mercado Livre e métricas completas de
 - Node v24, npm 11
 
 ## Estrutura
-- `lib/meli.ts`: cliente da API enriquecido com catálogo, ofertas, subcategorias, tarifas de venda, frete do vendedor, perguntas/demanda, reputação do vendedor, tendências de busca e gerador de snapshot completo (`generateFullSnapshot`)
-- `app/page.tsx` e `app/DashboardClient.tsx`: página estática/client-side que lê `public/data/meli-snapshot.json` (com fallback para API ao vivo), permitindo trocar entre "Todas as categorias" e qualquer uma das 32 categorias instantaneamente no GitHub Pages
-- `app/layout.tsx`, `app/globals.css`: layout e estilos
+- `lib/meli/`: domínio e integração com a API do Mercado Livre
+  - `lib/meli/types.ts`: contratos TypeScript (`Product`, `Category`, `CategoryDetails`, `Trend`, `MeliSnapshot`)
+  - `lib/meli/client.ts`: autenticação OAuth (`client_credentials`), cache em memória e pool de concorrência (`mapPool`)
+  - `lib/meli/formulas.ts`: fórmulas matemáticas e financeiras isoladas (`calculateSalesEstimates`, `calculateFinancialBreakdown`)
+  - `lib/meli/service.ts`: coleta, enriquecimento de produtos e gerador de snapshot completo (`generateFullSnapshot`)
+  - `lib/meli/index.ts` e `lib/meli.ts`: barrel exports
+- `components/dashboard/`: componentes modulares de interface
+  - `DashboardClient.tsx`: orquestrador client-side (estado, filtros, ordenação e paginação)
+  - `ControlPanel.tsx`: menu de categorias/visão, busca, ordenação, filtros rápidos, sliders de Imposto/CMV e KPIs
+  - `ProductCard.tsx`: card individual de produto com fallback de imagem SVG, especificações, demanda e breakdown financeiro
+  - `PaginationBar.tsx`: barra de paginação superior e inferior
+  - `MethodologyPanel.tsx`: painel explicativo das fórmulas e estimativas
+  - `formatters.ts`: formatadores monetários/numéricos e tipos de filtro/ordenação
+- `docs/` e `README.md`: documentação completa do projeto
+  - `docs/README.md`: índice geral da documentação
+  - `docs/formulas-e-estimativas.md`: documentação detalhada de todas as fórmulas financeiras e de estimativa de vendas
+  - `docs/api-mercado-livre.md`: auditoria completa dos endpoints públicos vs. bloqueados (`200 OK` vs `403`)
+  - `docs/arquitetura-e-pastas.md`: fluxo de dados, arquitetura de pastas e deploy no GitHub Pages
+  - `docs/mcp-server.md`: configuração do servidor MCP oficial do Mercado Livre
+- `app/page.tsx`, `app/layout.tsx`, `app/globals.css`: rotas e estilos globais do App Router
 - `next.config.mjs`: configuração `output: "export"`, `basePath` dinâmico para GitHub Actions e `outputFileTracingRoot`
 - `scripts/update-data.ts`: script da pipeline (`npm run update-data` / `npm run update-data:local`) que coleta as 32 categorias e atualiza `public/data/meli-snapshot.json`
 - `.github/workflows/deploy-pages.yml`: pipeline do GitHub Actions que atualiza `public/data/meli-snapshot.json` (a cada 6h, em cada push ou manualmente), faz commit do JSON atualizado e publica no GitHub Pages
-- `scripts/list-mcp-tools.mjs`: lista as tools do MCP do ML
-- `scripts/meli-login.mjs`: login OAuth de usuário (PKCE) em 2 passos (`start` / `finish "<url>"`); salva `.meli-tokens.json`
+- `scripts/list-mcp-tools.mjs` e `scripts/meli-login.mjs`: utilitários do MCP e login OAuth PKCE
 - `.env` (local, não versionado): `MELI_APP_ID`, `MELI_CLIENT_SECRET`, `MELI_SITE_ID=MLB`. Não existe `.env.example`.
 
 ## Mapa completo da API do Mercado Livre (auditado)
