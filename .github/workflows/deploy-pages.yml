@@ -4,9 +4,9 @@ on:
   push:
     branches: ["main"]
   schedule:
-    # Atualiza automaticamente a cada 1 hora (00:00, 01:00, 02:00, ..., 23:00 UTC)
-    - cron: "0 */1 * * *"
-  workflow_dispatch: # Permite rodar manualmente pelo botão "Run workflow" no GitHub
+    # Atualiza automaticamente a cada 6 horas (00:00, 06:00, 12:00, 18:00 UTC)
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -28,10 +28,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "24"
-          cache: "npm"
 
-      - name: Instalar dependências
-        run: npm ci
+      - name: Instalar dependências (registry público npmjs)
+        run: npm install --no-audit --no-fund --registry=https://registry.npmjs.org
 
       - name: Atualizar arquivo de dados (public/data/meli-snapshot.json)
         env:
@@ -61,7 +60,16 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Gerar build estático (Next.js export -> out/)
-        run: npm run build
+        run: |
+          npm run build
+          touch out/.nojekyll
+
+      - name: Publicar branch gh-pages (caso Pages esteja em 'Deploy from a branch')
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          force_orphan: true
 
       - name: Upload do artefato para o GitHub Pages
         uses: actions/upload-pages-artifact@v3
@@ -78,4 +86,3 @@ jobs:
       - name: Publicar no GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-

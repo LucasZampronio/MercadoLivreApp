@@ -57,10 +57,11 @@ App para ver os produtos mais vendidos no Mercado Livre e métricas completas de
   - **Recebimento líquido do anúncio**: `Preço - Tarifa ML (/listing_prices) - Frete vendedor (/shipping_options/free)`.
   - **Imposto e Faixa de preço para lucro (15%–25%)**: calculados sobre a tarifa real da categoria + Simples Nacional (6% ref.) + CMV estimado (45%).
   - **Vendas estimadas, ritmo/dia, vendas/mês e faturamento**: estimados a partir do total real de perguntas do anúncio (`/questions/search`, benchmark ~8 vendas/pergunta) dividido pelos dias ativos do produto (`date_created`).
+- **Isolamento total de configurações corporativas (SAP)**: o projeto possui `.npmrc` forçando `registry=https://registry.npmjs.org/`. **JAMAIS** usar Artifactory, email, proxy ou qualquer configuração da SAP neste projeto.
 - `.env`, `.meli-tokens.json`, `.meli-pkce.json` e `out` estão no `.gitignore`.
 
 ## Pendências
 - [ ] Cadastrar os Secrets `MELI_APP_ID` e `MELI_CLIENT_SECRET` em Settings > Secrets and variables > Actions no GitHub e ativar Settings > Pages > Source: **GitHub Actions**.
-- [ ] Fazer commit e `git push origin main` para disparar a primeira execução da pipeline.
+- [ ] Fazer commit e `git push origin main` do `package-lock.json`, `.npmrc` e `.github/workflows/deploy-pages.yml` para publicar o site no GitHub Pages.
 - [ ] Reiniciar o Antigravity e conferir se o MCP conecta em Additional Options > MCP Servers.
 - [ ] Considerar `npm audit` (2 vulnerabilidades reportadas na instalação).
