@@ -4,8 +4,8 @@ on:
   push:
     branches: ["main"]
   schedule:
-    # Atualiza automaticamente a cada 6 horas (00:00, 06:00, 12:00, 18:00 UTC)
-    - cron: "0 */6 * * *"
+    # Atualiza automaticamente a cada 1 hora (00:00, 01:00, 02:00, ..., 23:00 UTC)
+    - cron: "0 */1 * * *"
   workflow_dispatch: # Permite rodar manualmente pelo botão "Run workflow" no GitHub
 
 permissions:
@@ -38,7 +38,12 @@ jobs:
           MELI_APP_ID: ${{ secrets.MELI_APP_ID }}
           MELI_CLIENT_SECRET: ${{ secrets.MELI_CLIENT_SECRET }}
           MELI_SITE_ID: MLB
-        run: npm run update-data
+        run: |
+          if [ -n "$MELI_APP_ID" ] && [ -n "$MELI_CLIENT_SECRET" ]; then
+            npm run update-data
+          else
+            echo "Secrets MELI_APP_ID/MELI_CLIENT_SECRET ainda não configurados; mantendo public/data/meli-snapshot.json atual."
+          fi
 
       - name: Commit e Push do arquivo de dados atualizado
         run: |
