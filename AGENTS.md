@@ -47,21 +47,20 @@ App para ver os produtos mais vendidos no Mercado Livre e métricas completas de
 - **`GET /reviews/item/{id}`**: `403 Forbidden`.
 
 ## Estado atual
-- App configurado para publicar no **GitHub Pages direto da branch `main`**. O comando `npm run build` exporta `index.html`, `404.html`, `_next/` e `.nojekyll` direto na raiz do repositório.
-- `npm run update-data:local` gera `public/data/meli-snapshot.json` com todas as 32 categorias e seus 560 produtos enriquecidos.
-- Aviso de múltiplos lockfiles do Next resolvido com `outputFileTracingRoot` em `next.config.mjs`.
+- App publicado e funcionando no **GitHub Pages direto da branch `main`** (`https://lucaszampronio.github.io/MercadoLivreApp/`).
+- **100% dos 560 produtos possuem imagem** (para `USER_PRODUCT` e `ITEM`, busca foto representativa da subcategoria/domínio em `/products/search`, mais fallback SVG no cliente).
+- Interface possui **painel de controle interativo** (dropdown de categorias/visão geral de 560 produtos ou top 1 por categoria, busca textual instantânea, ordenação por 8 critérios, filtros rápidos de Full/Frete Grátis/Loja Oficial/Platinum/Clássico/Premium, **simulador em tempo real de Imposto % e CMV %** e **paginação completa** com 12/20/40/60 itens por página).
 
 ## Decisões
 - O GitHub Pages serve direto da branch `main` (`/`). A pipeline `.github/workflows/deploy-pages.yml` roda a cada 6h (ou manualmente), atualiza `public/data/meli-snapshot.json`, roda `npm run build` (que atualiza `index.html` e `_next/` na raiz) e faz commit + push direto na `main`.
-- Métricas estilo Avantpro calculadas sobre os endpoints oficiais:
-  - **Recebimento líquido do anúncio**: `Preço - Tarifa ML (/listing_prices) - Frete vendedor (/shipping_options/free)`.
-  - **Imposto e Faixa de preço para lucro (15%–25%)**: calculados sobre a tarifa real da categoria + Simples Nacional (6% ref.) + CMV estimado (45%).
-  - **Vendas estimadas, ritmo/dia, vendas/mês e faturamento**: estimados a partir do total real de perguntas do anúncio (`/questions/search`, benchmark ~8 vendas/pergunta) dividido pelos dias ativos do produto (`date_created`).
+- **Como as métricas estilo Avantpro são calculadas**:
+  - **Recebimento líquido do anúncio (100% oficial)**: `Preço - Tarifa ML (/listing_prices) - Frete vendedor (/shipping_options/free)`.
+  - **Imposto, Lucro Líquido e Faixa de preço para lucro (15%–25%)**: calculados dinamicamente com os sliders de Imposto (padrão 6% Simples) e CMV (padrão 45%) usando a fórmula inversa `(Custo + Frete + Taxa Fixa) / (1 - %TarifaML - %Imposto - %Margem)`.
+  - **Vendas estimadas, ritmo/dia, vendas/mês e faturamento**: modelo híbrido que combina (a) o total histórico de perguntas do anúncio (`/questions/search`, benchmark ~8 vendas/pergunta) + a velocidade das últimas 50 perguntas (`date_created` do lote recente, peso 60%) com a média desde a criação do catálogo (peso 40%), e (b) curva de Pareto/Zipf pela posição `#1..#20` quando a oferta atual do buybox ainda tem 0 perguntas.
 - **Isolamento total de configurações corporativas (SAP)**: o projeto possui `.npmrc` forçando `registry=https://registry.npmjs.org/`. **JAMAIS** usar Artifactory, email, proxy ou qualquer configuração da SAP neste projeto.
 - `.env`, `.meli-tokens.json`, `.meli-pkce.json` e `out` estão no `.gitignore`.
 
 ## Pendências
 - [ ] Cadastrar os Secrets `MELI_APP_ID` e `MELI_CLIENT_SECRET` em Settings > Secrets and variables > Actions no GitHub para a atualização automática de 6 em 6 horas.
-- [ ] Fazer commit e `git push origin main` para subir `index.html`, `_next/`, `.nojekyll`, `.npmrc` e `package-lock.json`.
 - [ ] Reiniciar o Antigravity e conferir se o MCP conecta em Additional Options > MCP Servers.
 - [ ] Considerar `npm audit` (2 vulnerabilidades reportadas na instalação).

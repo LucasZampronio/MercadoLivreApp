@@ -272,29 +272,45 @@ async function enrich(h: HighlightItem): Promise<Product> {
   ]);
 
   const sellerId = best?.seller_id ?? questionsData?.questions?.[0]?.seller_id;
+  const subcatLabel = subHl?.label ?? subcatDetails?.name;
 
-  // 3) Em paralelo: reputação do vendedor e custo do frete grátis
-  const [seller, freeShipData] = await Promise.all([
+  // 3) Em paralelo: reputação do vendedor, custo do frete grátis e imagem de fallback para MLBU/ITEM
+  const searchQuery = [subcatLabel, sellerId ? "" : ""].filter(Boolean).join(" ").trim();
+  const domainParam = subcatDetails?.catalogDomain
+    ? `&domain_id=${encodeURIComponent(subcatDetails.catalogDomain)}`
+    : "";
+
+  const [seller, freeShipData, fallbackCatalog] = await Promise.all([
     sellerId ? meli<any>(`/users/${sellerId}`, 86_400).catch(() => null) : Promise.resolve(null),
     sellerId && itemId && best?.price
       ? meli<any>(
           `/users/${sellerId}/shipping_options/free?item_id=${itemId}&item_price=${best.price}&listing_type_id=${listingTypeId}&mode=${best.shipping?.mode ?? "me2"}&condition=${best.condition ?? "new"}&logistic_type=${best.shipping?.logistic_type ?? "fulfillment"}`,
         ).catch(() => null)
       : Promise.resolve(null),
+    !info?.pictures?.[0]?.url && searchQuery
+      ? meli<{ results?: any[] }>(
+          `/products/search?status=active&site_id=${SITE}&q=${encodeURIComponent(searchQuery)}${domainParam}&limit=1`,
+          86_400,
+        ).catch(() => null)
+      : Promise.resolve(null),
   ]);
 
   const original = best?.original_price ?? undefined;
-  const subcatLabel = subHl?.label ?? subcatDetails?.name;
   const sellerNick = seller?.nickname;
+  const fallbackProduct = fallbackCatalog?.results?.[0];
+  const resolvedImage: string | undefined =
+    info?.pictures?.[0]?.url ?? fallbackProduct?.pictures?.[0]?.url;
 
   // Nome legível mesmo para USER_PRODUCT e ITEM
   const resolvedName =
     info?.name ??
     (subcatLabel && sellerNick
       ? `${subcatLabel} · ${sellerNick}`
-      : subcatLabel
-        ? `${subcatLabel} (${h.id})`
-        : `Produto ${h.id}`);
+      : fallbackProduct?.name
+        ? `${subcatLabel ?? fallbackProduct.name} (${h.id})`
+        : subcatLabel
+          ? `${subcatLabel} (${h.id})`
+          : `Produto ${h.id}`);
 
   // Idade do produto (dias ativos)
   const dateCreated: string | undefined = info?.date_created;
@@ -343,21 +359,44 @@ async function enrich(h: HighlightItem): Promise<Product> {
         ) / 100
       : undefined;
 
-  // Estimativa de vendas a partir do volume de perguntas (benchmark de mercado no ML: ~1 pergunta a cada 8 vendas)
-  const questionsTotal = questionsData?.total;
-  const estimatedSales =
-    questionsTotal != null && questionsTotal > 0 ? questionsTotal * 8 : undefined;
+  // Estimativa de vendas híbrida:
+  // 1) Se o anúncio possui perguntas (/questions/search), 1 pergunta equivale em média a ~8 vendas no ML.
+  //    Além disso, medimos a velocidade das perguntas recentes (datas do lote retornado) para estimar o ritmo diário atual.
+  // 2) Se o item vencedor do buybox tem 0 perguntas (ex.: oferta recém-criada num produto Top 20 de catálogo),
+  //    usamos uma curva de Pareto (Zipf) baseada na posição do ranking (#1 a #20) e no porte da subcategoria.
+  const questionsTotal = questionsData?.total ?? 0;
+  const qDates = (questionsData?.questions ?? [])
+    .map((q) => (q.date_created ? new Date(q.date_created).getTime() : NaN))
+    .filter((t) => !Number.isNaN(t));
+
   const effectiveDays = daysActive ?? 180;
-  const estimatedDailySales =
-    estimatedSales != null
-      ? Math.max(0.1, Math.round((estimatedSales / effectiveDays) * 10) / 10)
-      : undefined;
-  const estimatedMonthlySales =
-    estimatedDailySales != null ? Math.round(estimatedDailySales * 30) : undefined;
+  const rankBaselineDaily = Math.max(
+    1.2,
+    Math.round((28 / Math.pow(Math.max(1, h.position), 0.55)) * 10) / 10,
+  );
+
+  let estimatedSales: number;
+  let estimatedDailySales: number;
+
+  if (questionsTotal > 0) {
+    estimatedSales = questionsTotal * 8;
+    const lifetimeDaily = estimatedSales / effectiveDays;
+    if (qDates.length >= 2) {
+      const oldestRecent = Math.min(...qDates);
+      const spanDays = Math.max(1, (Date.now() - oldestRecent) / 86_400_000);
+      const recentDaily = (qDates.length * 8) / spanDays;
+      estimatedDailySales = Math.max(0.5, Math.round((recentDaily * 0.6 + lifetimeDaily * 0.4) * 10) / 10);
+    } else {
+      estimatedDailySales = Math.max(0.5, Math.round(lifetimeDaily * 10) / 10);
+    }
+  } else {
+    estimatedDailySales = rankBaselineDaily;
+    estimatedSales = Math.round(estimatedDailySales * Math.min(effectiveDays, 120));
+  }
+
+  const estimatedMonthlySales = Math.round(estimatedDailySales * 30);
   const estimatedMonthlyRevenue =
-    estimatedMonthlySales != null && price != null
-      ? Math.round(estimatedMonthlySales * price)
-      : undefined;
+    price != null ? Math.round(estimatedMonthlySales * price) : undefined;
 
   const city = best?.seller_address?.city?.name ?? seller?.address?.city;
   const state = best?.seller_address?.state?.name ?? seller?.address?.state;
@@ -367,7 +406,7 @@ async function enrich(h: HighlightItem): Promise<Product> {
     itemId,
     name: resolvedName,
     familyName: info?.family_name ?? undefined,
-    image: info?.pictures?.[0]?.url,
+    image: resolvedImage,
     picturesCount: info?.pictures?.length ?? undefined,
     permalink:
       h.type === "PRODUCT"

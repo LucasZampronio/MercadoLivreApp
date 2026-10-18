@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-18T22:48:29.607Z",
+  "updatedAt": "2026-10-18T23:02:03.992Z",
   "siteId": "MLB",
   "generalTrends": [
     {
@@ -228,7 +228,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 250058,
           "categoryId": "MLB5672",
-          "categoryName": "Acessórios para Veículos"
+          "categoryName": "Acessórios para Veículos",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_768797-MLA80704288566_112024-F.jpg"
         },
         {
           "position": 2,
@@ -355,7 +356,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB5672",
-          "categoryName": "Acessórios para Veículos"
+          "categoryName": "Acessórios para Veículos",
+          "estimatedDailySales": 15.3,
+          "estimatedSales": 1836,
+          "estimatedMonthlySales": 459,
+          "estimatedMonthlyRevenue": 48195
         },
         {
           "position": 4,
@@ -383,7 +388,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 614011,
           "categoryId": "MLB5672",
-          "categoryName": "Acessórios para Veículos"
+          "categoryName": "Acessórios para Veículos",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_854366-MLU70700473601_072023-F.jpg"
         },
         {
           "position": 5,
@@ -436,7 +442,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 177853,
           "categoryId": "MLB5672",
-          "categoryName": "Acessórios para Veículos"
+          "categoryName": "Acessórios para Veículos",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_854366-MLU70700473601_072023-F.jpg"
         },
         {
           "position": 6,
@@ -561,7 +568,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 1,
           "categoryId": "MLB5672",
-          "categoryName": "Acessórios para Veículos"
+          "categoryName": "Acessórios para Veículos",
+          "estimatedDailySales": 9.6,
+          "estimatedSales": 1152,
+          "estimatedMonthlySales": 288,
+          "estimatedMonthlyRevenue": 6307
         },
         {
           "position": 8,
@@ -575,7 +586,11 @@
           "subcategoryTotalItems": 563620,
           "estimatedTaxPercent": 6,
           "categoryId": "MLB5672",
-          "categoryName": "Acessórios para Veículos"
+          "categoryName": "Acessórios para Veículos",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_915520-MLA83038196781_032025-F.jpg",
+          "estimatedDailySales": 8.9,
+          "estimatedSales": 1068,
+          "estimatedMonthlySales": 267
         },
         {
           "position": 9,
@@ -694,7 +709,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 111055,
           "categoryId": "MLB5672",
-          "categoryName": "Acessórios para Veículos"
+          "categoryName": "Acessórios para Veículos",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_718492-MLA114447781393_072026-F.jpg"
         },
         {
           "position": 11,
@@ -708,7 +724,11 @@
           "subcategoryTotalItems": 99237,
           "estimatedTaxPercent": 6,
           "categoryId": "MLB5672",
-          "categoryName": "Acessórios para Veículos"
+          "categoryName": "Acessórios para Veículos",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_854366-MLU70700473601_072023-F.jpg",
+          "estimatedDailySales": 7.5,
+          "estimatedSales": 900,
+          "estimatedMonthlySales": 225
         },
         {
           "position": 12,
@@ -765,7 +785,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 2,
           "categoryId": "MLB5672",
-          "categoryName": "Acessórios para Veículos"
+          "categoryName": "Acessórios para Veículos",
+          "estimatedDailySales": 7.1,
+          "estimatedSales": 852,
+          "estimatedMonthlySales": 213,
+          "estimatedMonthlyRevenue": 9866
         },
         {
           "position": 13,
@@ -824,7 +848,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 2,
           "categoryId": "MLB5672",
-          "categoryName": "Acessórios para Veículos"
+          "categoryName": "Acessórios para Veículos",
+          "estimatedDailySales": 6.8,
+          "estimatedSales": 816,
+          "estimatedMonthlySales": 204,
+          "estimatedMonthlyRevenue": 38740
         },
         {
           "position": 14,
@@ -883,7 +911,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 1,
           "categoryId": "MLB5672",
-          "categoryName": "Acessórios para Veículos"
+          "categoryName": "Acessórios para Veículos",
+          "estimatedDailySales": 6.6,
+          "estimatedSales": 792,
+          "estimatedMonthlySales": 198,
+          "estimatedMonthlyRevenue": 19364
         },
         {
           "position": 15,
@@ -935,7 +967,8 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 78145,
           "categoryId": "MLB5672",
-          "categoryName": "Acessórios para Veículos"
+          "categoryName": "Acessórios para Veículos",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_854366-MLU70700473601_072023-F.jpg"
         },
         {
           "position": 16,
@@ -995,7 +1028,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 1,
           "categoryId": "MLB5672",
-          "categoryName": "Acessórios para Veículos"
+          "categoryName": "Acessórios para Veículos",
+          "estimatedDailySales": 6.1,
+          "estimatedSales": 732,
+          "estimatedMonthlySales": 183,
+          "estimatedMonthlyRevenue": 31110
         },
         {
           "position": 17,
@@ -1116,7 +1153,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 42680,
           "categoryId": "MLB5672",
-          "categoryName": "Acessórios para Veículos"
+          "categoryName": "Acessórios para Veículos",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_893835-MLA89233547997_082025-F.jpg"
         },
         {
           "position": 19,
@@ -1234,7 +1272,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 59635,
           "categoryId": "MLB5672",
-          "categoryName": "Acessórios para Veículos"
+          "categoryName": "Acessórios para Veículos",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_644304-MLA88982195867_072025-F.jpg"
         }
       ]
     },
@@ -1391,7 +1430,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 8,
           "categoryId": "MLB271599",
-          "categoryName": "Agro"
+          "categoryName": "Agro",
+          "estimatedDailySales": 28,
+          "estimatedSales": 3360,
+          "estimatedMonthlySales": 840,
+          "estimatedMonthlyRevenue": 95668
         },
         {
           "position": 2,
@@ -1517,7 +1560,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 1,
           "categoryId": "MLB271599",
-          "categoryName": "Agro"
+          "categoryName": "Agro",
+          "estimatedDailySales": 15.3,
+          "estimatedSales": 1836,
+          "estimatedMonthlySales": 459,
+          "estimatedMonthlyRevenue": 132288
         },
         {
           "position": 4,
@@ -1576,7 +1623,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 4,
           "categoryId": "MLB271599",
-          "categoryName": "Agro"
+          "categoryName": "Agro",
+          "estimatedDailySales": 13.1,
+          "estimatedSales": 1572,
+          "estimatedMonthlySales": 393,
+          "estimatedMonthlyRevenue": 104459
         },
         {
           "position": 5,
@@ -1695,7 +1746,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 154,
           "categoryId": "MLB271599",
-          "categoryName": "Agro"
+          "categoryName": "Agro",
+          "estimatedDailySales": 10.5,
+          "estimatedSales": 1260,
+          "estimatedMonthlySales": 315,
+          "estimatedMonthlyRevenue": 61110
         },
         {
           "position": 7,
@@ -1756,7 +1811,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 238580,
           "categoryId": "MLB271599",
-          "categoryName": "Agro"
+          "categoryName": "Agro",
+          "estimatedDailySales": 9.6,
+          "estimatedSales": 1152,
+          "estimatedMonthlySales": 288,
+          "estimatedMonthlyRevenue": 48067
         },
         {
           "position": 8,
@@ -1880,7 +1939,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 344,
           "categoryId": "MLB271599",
-          "categoryName": "Agro"
+          "categoryName": "Agro",
+          "estimatedDailySales": 8.4,
+          "estimatedSales": 1008,
+          "estimatedMonthlySales": 252,
+          "estimatedMonthlyRevenue": 10584
         },
         {
           "position": 10,
@@ -2072,7 +2135,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 42542,
           "categoryId": "MLB271599",
-          "categoryName": "Agro"
+          "categoryName": "Agro",
+          "estimatedDailySales": 7.1,
+          "estimatedSales": 852,
+          "estimatedMonthlySales": 213,
+          "estimatedMonthlyRevenue": 79849
         },
         {
           "position": 13,
@@ -2193,7 +2260,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 16995,
           "categoryId": "MLB271599",
-          "categoryName": "Agro"
+          "categoryName": "Agro",
+          "estimatedDailySales": 6.6,
+          "estimatedSales": 792,
+          "estimatedMonthlySales": 198,
+          "estimatedMonthlyRevenue": 31789
         },
         {
           "position": 15,
@@ -2248,7 +2319,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 1243,
           "categoryId": "MLB271599",
-          "categoryName": "Agro"
+          "categoryName": "Agro",
+          "estimatedDailySales": 6.3,
+          "estimatedSales": 756,
+          "estimatedMonthlySales": 189,
+          "estimatedMonthlyRevenue": 7700
         },
         {
           "position": 16,
@@ -2307,7 +2382,11 @@
           "sellerPowerStatus": "gold",
           "sellerTotalTransactions": 4255,
           "categoryId": "MLB271599",
-          "categoryName": "Agro"
+          "categoryName": "Agro",
+          "estimatedDailySales": 6.1,
+          "estimatedSales": 732,
+          "estimatedMonthlySales": 183,
+          "estimatedMonthlyRevenue": 116022
         },
         {
           "position": 17,
@@ -2428,7 +2507,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 3,
           "categoryId": "MLB271599",
-          "categoryName": "Agro"
+          "categoryName": "Agro",
+          "estimatedDailySales": 5.7,
+          "estimatedSales": 684,
+          "estimatedMonthlySales": 171,
+          "estimatedMonthlyRevenue": 2661
         },
         {
           "position": 19,
@@ -2551,7 +2634,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB271599",
-          "categoryName": "Agro"
+          "categoryName": "Agro",
+          "estimatedDailySales": 5.4,
+          "estimatedSales": 648,
+          "estimatedMonthlySales": 162,
+          "estimatedMonthlyRevenue": 24300
         }
       ]
     },
@@ -2768,7 +2855,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 1,
           "categoryId": "MLB1403",
-          "categoryName": "Alimentos e Bebidas"
+          "categoryName": "Alimentos e Bebidas",
+          "estimatedDailySales": 19.1,
+          "estimatedSales": 2292,
+          "estimatedMonthlySales": 573,
+          "estimatedMonthlyRevenue": 8538
         },
         {
           "position": 3,
@@ -2824,7 +2915,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1403",
-          "categoryName": "Alimentos e Bebidas"
+          "categoryName": "Alimentos e Bebidas",
+          "estimatedDailySales": 15.3,
+          "estimatedSales": 1836,
+          "estimatedMonthlySales": 459,
+          "estimatedMonthlyRevenue": 9175
         },
         {
           "position": 4,
@@ -2946,7 +3041,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 44215,
           "categoryId": "MLB1403",
-          "categoryName": "Alimentos e Bebidas"
+          "categoryName": "Alimentos e Bebidas",
+          "estimatedDailySales": 11.6,
+          "estimatedSales": 1392,
+          "estimatedMonthlySales": 348,
+          "estimatedMonthlyRevenue": 38280
         },
         {
           "position": 6,
@@ -3004,7 +3103,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 100,
           "categoryId": "MLB1403",
-          "categoryName": "Alimentos e Bebidas"
+          "categoryName": "Alimentos e Bebidas",
+          "estimatedDailySales": 10.5,
+          "estimatedSales": 1260,
+          "estimatedMonthlySales": 315,
+          "estimatedMonthlyRevenue": 2520
         },
         {
           "position": 7,
@@ -3125,7 +3228,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 6,
           "categoryId": "MLB1403",
-          "categoryName": "Alimentos e Bebidas"
+          "categoryName": "Alimentos e Bebidas",
+          "estimatedDailySales": 8.9,
+          "estimatedSales": 1068,
+          "estimatedMonthlySales": 267,
+          "estimatedMonthlyRevenue": 2136
         },
         {
           "position": 9,
@@ -3181,7 +3288,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 21,
           "categoryId": "MLB1403",
-          "categoryName": "Alimentos e Bebidas"
+          "categoryName": "Alimentos e Bebidas",
+          "estimatedDailySales": 8.4,
+          "estimatedSales": 1008,
+          "estimatedMonthlySales": 252,
+          "estimatedMonthlyRevenue": 14112
         },
         {
           "position": 10,
@@ -3238,7 +3349,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 53341,
           "categoryId": "MLB1403",
-          "categoryName": "Alimentos e Bebidas"
+          "categoryName": "Alimentos e Bebidas",
+          "estimatedDailySales": 7.9,
+          "estimatedSales": 948,
+          "estimatedMonthlySales": 237,
+          "estimatedMonthlyRevenue": 5423
         },
         {
           "position": 11,
@@ -3359,7 +3474,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1403",
-          "categoryName": "Alimentos e Bebidas"
+          "categoryName": "Alimentos e Bebidas",
+          "estimatedDailySales": 7.1,
+          "estimatedSales": 852,
+          "estimatedMonthlySales": 213,
+          "estimatedMonthlyRevenue": 5304
         },
         {
           "position": 13,
@@ -3415,7 +3534,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 7,
           "categoryId": "MLB1403",
-          "categoryName": "Alimentos e Bebidas"
+          "categoryName": "Alimentos e Bebidas",
+          "estimatedDailySales": 6.8,
+          "estimatedSales": 816,
+          "estimatedMonthlySales": 204,
+          "estimatedMonthlyRevenue": 3058
         },
         {
           "position": 14,
@@ -3470,7 +3593,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 6,
           "categoryId": "MLB1403",
-          "categoryName": "Alimentos e Bebidas"
+          "categoryName": "Alimentos e Bebidas",
+          "estimatedDailySales": 6.6,
+          "estimatedSales": 792,
+          "estimatedMonthlySales": 198,
+          "estimatedMonthlyRevenue": 26730
         },
         {
           "position": 15,
@@ -3527,7 +3654,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 142,
           "categoryId": "MLB1403",
-          "categoryName": "Alimentos e Bebidas"
+          "categoryName": "Alimentos e Bebidas",
+          "estimatedDailySales": 6.3,
+          "estimatedSales": 756,
+          "estimatedMonthlySales": 189,
+          "estimatedMonthlyRevenue": 2833
         },
         {
           "position": 16,
@@ -3582,7 +3713,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1403",
-          "categoryName": "Alimentos e Bebidas"
+          "categoryName": "Alimentos e Bebidas",
+          "estimatedDailySales": 6.1,
+          "estimatedSales": 732,
+          "estimatedMonthlySales": 183,
+          "estimatedMonthlyRevenue": 1007
         },
         {
           "position": 17,
@@ -3829,7 +3964,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 3,
           "categoryId": "MLB1403",
-          "categoryName": "Alimentos e Bebidas"
+          "categoryName": "Alimentos e Bebidas",
+          "estimatedDailySales": 5.4,
+          "estimatedSales": 648,
+          "estimatedMonthlySales": 162,
+          "estimatedMonthlyRevenue": 3674
         }
       ]
     },
@@ -3983,7 +4122,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 47,
           "categoryId": "MLB1071",
-          "categoryName": "Animais"
+          "categoryName": "Animais",
+          "estimatedDailySales": 28,
+          "estimatedSales": 3360,
+          "estimatedMonthlySales": 840,
+          "estimatedMonthlyRevenue": 32281
         },
         {
           "position": 2,
@@ -4238,7 +4381,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1071",
-          "categoryName": "Animais"
+          "categoryName": "Animais",
+          "estimatedDailySales": 11.6,
+          "estimatedSales": 1392,
+          "estimatedMonthlySales": 348,
+          "estimatedMonthlyRevenue": 10788
         },
         {
           "position": 6,
@@ -4295,7 +4442,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 264,
           "categoryId": "MLB1071",
-          "categoryName": "Animais"
+          "categoryName": "Animais",
+          "estimatedDailySales": 10.5,
+          "estimatedSales": 1260,
+          "estimatedMonthlySales": 315,
+          "estimatedMonthlyRevenue": 19530
         },
         {
           "position": 7,
@@ -4352,7 +4503,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 19,
           "categoryId": "MLB1071",
-          "categoryName": "Animais"
+          "categoryName": "Animais",
+          "estimatedDailySales": 9.6,
+          "estimatedSales": 1152,
+          "estimatedMonthlySales": 288,
+          "estimatedMonthlyRevenue": 5760
         },
         {
           "position": 8,
@@ -4541,7 +4696,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 72258,
           "categoryId": "MLB1071",
-          "categoryName": "Animais"
+          "categoryName": "Animais",
+          "estimatedDailySales": 7.9,
+          "estimatedSales": 948,
+          "estimatedMonthlySales": 237,
+          "estimatedMonthlyRevenue": 13767
         },
         {
           "position": 11,
@@ -4600,7 +4759,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 221,
           "categoryId": "MLB1071",
-          "categoryName": "Animais"
+          "categoryName": "Animais",
+          "estimatedDailySales": 7.5,
+          "estimatedSales": 900,
+          "estimatedMonthlySales": 225,
+          "estimatedMonthlyRevenue": 11635
         },
         {
           "position": 12,
@@ -4723,7 +4886,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 40108,
           "categoryId": "MLB1071",
-          "categoryName": "Animais"
+          "categoryName": "Animais",
+          "estimatedDailySales": 6.8,
+          "estimatedSales": 816,
+          "estimatedMonthlySales": 204,
+          "estimatedMonthlyRevenue": 11650
         },
         {
           "position": 14,
@@ -4844,7 +5011,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 272,
           "categoryId": "MLB1071",
-          "categoryName": "Animais"
+          "categoryName": "Animais",
+          "estimatedDailySales": 6.3,
+          "estimatedSales": 756,
+          "estimatedMonthlySales": 189,
+          "estimatedMonthlyRevenue": 25685
         },
         {
           "position": 16,
@@ -4904,7 +5075,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 33576,
           "categoryId": "MLB1071",
-          "categoryName": "Animais"
+          "categoryName": "Animais",
+          "estimatedDailySales": 6.1,
+          "estimatedSales": 732,
+          "estimatedMonthlySales": 183,
+          "estimatedMonthlyRevenue": 3819
         },
         {
           "position": 17,
@@ -4961,7 +5136,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 1,
           "categoryId": "MLB1071",
-          "categoryName": "Animais"
+          "categoryName": "Animais",
+          "estimatedDailySales": 5.9,
+          "estimatedSales": 708,
+          "estimatedMonthlySales": 177,
+          "estimatedMonthlyRevenue": 7965
         },
         {
           "position": 18,
@@ -5019,7 +5198,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 48,
           "categoryId": "MLB1071",
-          "categoryName": "Animais"
+          "categoryName": "Animais",
+          "estimatedDailySales": 5.7,
+          "estimatedSales": 684,
+          "estimatedMonthlySales": 171,
+          "estimatedMonthlyRevenue": 24795
         },
         {
           "position": 19,
@@ -5082,7 +5265,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 110600,
           "categoryId": "MLB1071",
-          "categoryName": "Animais"
+          "categoryName": "Animais",
+          "estimatedDailySales": 5.5,
+          "estimatedSales": 660,
+          "estimatedMonthlySales": 165,
+          "estimatedMonthlyRevenue": 8202
         },
         {
           "position": 20,
@@ -5303,7 +5490,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1367",
-          "categoryName": "Antiguidades e Coleções"
+          "categoryName": "Antiguidades e Coleções",
+          "estimatedDailySales": 28,
+          "estimatedSales": 3360,
+          "estimatedMonthlySales": 840,
+          "estimatedMonthlyRevenue": 151536
         },
         {
           "position": 2,
@@ -5363,7 +5554,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1367",
-          "categoryName": "Antiguidades e Coleções"
+          "categoryName": "Antiguidades e Coleções",
+          "estimatedDailySales": 19.1,
+          "estimatedSales": 2292,
+          "estimatedMonthlySales": 573,
+          "estimatedMonthlyRevenue": 80214
         },
         {
           "position": 3,
@@ -5377,7 +5572,11 @@
           "subcategoryTotalItems": 109955,
           "estimatedTaxPercent": 6,
           "categoryId": "MLB1367",
-          "categoryName": "Antiguidades e Coleções"
+          "categoryName": "Antiguidades e Coleções",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_833933-MLA110956725665_042026-F.jpg",
+          "estimatedDailySales": 15.3,
+          "estimatedSales": 1836,
+          "estimatedMonthlySales": 459
         },
         {
           "position": 4,
@@ -5391,7 +5590,11 @@
           "subcategoryTotalItems": 109955,
           "estimatedTaxPercent": 6,
           "categoryId": "MLB1367",
-          "categoryName": "Antiguidades e Coleções"
+          "categoryName": "Antiguidades e Coleções",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_833933-MLA110956725665_042026-F.jpg",
+          "estimatedDailySales": 13.1,
+          "estimatedSales": 1572,
+          "estimatedMonthlySales": 393
         },
         {
           "position": 5,
@@ -5453,7 +5656,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 105346,
           "categoryId": "MLB1367",
-          "categoryName": "Antiguidades e Coleções"
+          "categoryName": "Antiguidades e Coleções",
+          "estimatedDailySales": 11.6,
+          "estimatedSales": 1392,
+          "estimatedMonthlySales": 348,
+          "estimatedMonthlyRevenue": 25936
         },
         {
           "position": 6,
@@ -5467,7 +5674,11 @@
           "subcategoryTotalItems": 109955,
           "estimatedTaxPercent": 6,
           "categoryId": "MLB1367",
-          "categoryName": "Antiguidades e Coleções"
+          "categoryName": "Antiguidades e Coleções",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_833933-MLA110956725665_042026-F.jpg",
+          "estimatedDailySales": 10.5,
+          "estimatedSales": 1260,
+          "estimatedMonthlySales": 315
         },
         {
           "position": 7,
@@ -5525,7 +5736,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 10304,
           "categoryId": "MLB1367",
-          "categoryName": "Antiguidades e Coleções"
+          "categoryName": "Antiguidades e Coleções",
+          "estimatedDailySales": 9.6,
+          "estimatedSales": 1152,
+          "estimatedMonthlySales": 288,
+          "estimatedMonthlyRevenue": 5472
         },
         {
           "position": 8,
@@ -5699,7 +5914,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 10285,
           "categoryId": "MLB1367",
-          "categoryName": "Antiguidades e Coleções"
+          "categoryName": "Antiguidades e Coleções",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_833933-MLA110956725665_042026-F.jpg"
         },
         {
           "position": 11,
@@ -5809,7 +6025,12 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 25291,
           "categoryId": "MLB1367",
-          "categoryName": "Antiguidades e Coleções"
+          "categoryName": "Antiguidades e Coleções",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_833933-MLA110956725665_042026-F.jpg",
+          "estimatedDailySales": 7.1,
+          "estimatedSales": 852,
+          "estimatedMonthlySales": 213,
+          "estimatedMonthlyRevenue": 4633
         },
         {
           "position": 13,
@@ -5867,7 +6088,11 @@
           "sellerPowerStatus": "gold",
           "sellerTotalTransactions": 2378,
           "categoryId": "MLB1367",
-          "categoryName": "Antiguidades e Coleções"
+          "categoryName": "Antiguidades e Coleções",
+          "estimatedDailySales": 6.8,
+          "estimatedSales": 184,
+          "estimatedMonthlySales": 204,
+          "estimatedMonthlyRevenue": 34476
         },
         {
           "position": 14,
@@ -5917,7 +6142,8 @@
           "sellerPowerStatus": "gold",
           "sellerTotalTransactions": 26323,
           "categoryId": "MLB1367",
-          "categoryName": "Antiguidades e Coleções"
+          "categoryName": "Antiguidades e Coleções",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_833933-MLA110956725665_042026-F.jpg"
         },
         {
           "position": 15,
@@ -5966,7 +6192,12 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 25291,
           "categoryId": "MLB1367",
-          "categoryName": "Antiguidades e Coleções"
+          "categoryName": "Antiguidades e Coleções",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_833933-MLA110956725665_042026-F.jpg",
+          "estimatedDailySales": 6.3,
+          "estimatedSales": 756,
+          "estimatedMonthlySales": 189,
+          "estimatedMonthlyRevenue": 4328
         },
         {
           "position": 16,
@@ -6019,7 +6250,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 20770,
           "categoryId": "MLB1367",
-          "categoryName": "Antiguidades e Coleções"
+          "categoryName": "Antiguidades e Coleções",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_833933-MLA110956725665_042026-F.jpg"
         },
         {
           "position": 17,
@@ -6139,7 +6371,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 6,
           "categoryId": "MLB1367",
-          "categoryName": "Antiguidades e Coleções"
+          "categoryName": "Antiguidades e Coleções",
+          "estimatedDailySales": 5.7,
+          "estimatedSales": 684,
+          "estimatedMonthlySales": 171,
+          "estimatedMonthlyRevenue": 6990
         },
         {
           "position": 19,
@@ -6198,7 +6434,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 527,
           "categoryId": "MLB1367",
-          "categoryName": "Antiguidades e Coleções"
+          "categoryName": "Antiguidades e Coleções",
+          "estimatedDailySales": 5.5,
+          "estimatedSales": 660,
+          "estimatedMonthlySales": 165,
+          "estimatedMonthlyRevenue": 3082
         },
         {
           "position": 20,
@@ -6250,7 +6490,8 @@
           "sellerPowerStatus": "silver",
           "sellerTotalTransactions": 10149,
           "categoryId": "MLB1367",
-          "categoryName": "Antiguidades e Coleções"
+          "categoryName": "Antiguidades e Coleções",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_657506-MLA118488926159_092026-F.jpg"
         }
       ]
     },
@@ -6406,7 +6647,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 4,
           "categoryId": "MLB1368",
-          "categoryName": "Arte, Papelaria e Armarinho"
+          "categoryName": "Arte, Papelaria e Armarinho",
+          "estimatedDailySales": 28,
+          "estimatedSales": 3360,
+          "estimatedMonthlySales": 840,
+          "estimatedMonthlyRevenue": 23436
         },
         {
           "position": 2,
@@ -6459,7 +6704,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 142778,
           "categoryId": "MLB1368",
-          "categoryName": "Arte, Papelaria e Armarinho"
+          "categoryName": "Arte, Papelaria e Armarinho",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_838669-MLA108805416203_032026-F.jpg"
         },
         {
           "position": 3,
@@ -6518,7 +6764,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1368",
-          "categoryName": "Arte, Papelaria e Armarinho"
+          "categoryName": "Arte, Papelaria e Armarinho",
+          "estimatedDailySales": 15.3,
+          "estimatedSales": 1836,
+          "estimatedMonthlySales": 459,
+          "estimatedMonthlyRevenue": 3213
         },
         {
           "position": 4,
@@ -6578,7 +6828,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 95532,
           "categoryId": "MLB1368",
-          "categoryName": "Arte, Papelaria e Armarinho"
+          "categoryName": "Arte, Papelaria e Armarinho",
+          "estimatedDailySales": 13.1,
+          "estimatedSales": 1572,
+          "estimatedMonthlySales": 393,
+          "estimatedMonthlyRevenue": 3891
         },
         {
           "position": 5,
@@ -6636,7 +6890,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 43382,
           "categoryId": "MLB1368",
-          "categoryName": "Arte, Papelaria e Armarinho"
+          "categoryName": "Arte, Papelaria e Armarinho",
+          "estimatedDailySales": 11.6,
+          "estimatedSales": 1392,
+          "estimatedMonthlySales": 348,
+          "estimatedMonthlyRevenue": 85608
         },
         {
           "position": 6,
@@ -6664,7 +6922,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 29414,
           "categoryId": "MLB1368",
-          "categoryName": "Arte, Papelaria e Armarinho"
+          "categoryName": "Arte, Papelaria e Armarinho",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_761990-MLA114842685320_082026-F.jpg"
         },
         {
           "position": 7,
@@ -6714,7 +6973,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 27066,
           "categoryId": "MLB1368",
-          "categoryName": "Arte, Papelaria e Armarinho"
+          "categoryName": "Arte, Papelaria e Armarinho",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_765320-MLA82093637452_022025-F.jpg"
         },
         {
           "position": 8,
@@ -6836,7 +7096,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 14,
           "categoryId": "MLB1368",
-          "categoryName": "Arte, Papelaria e Armarinho"
+          "categoryName": "Arte, Papelaria e Armarinho",
+          "estimatedDailySales": 8.4,
+          "estimatedSales": 1008,
+          "estimatedMonthlySales": 252,
+          "estimatedMonthlyRevenue": 6489
         },
         {
           "position": 10,
@@ -6888,7 +7152,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 76211,
           "categoryId": "MLB1368",
-          "categoryName": "Arte, Papelaria e Armarinho"
+          "categoryName": "Arte, Papelaria e Armarinho",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_938740-MLU78057520625_072024-F.jpg"
         },
         {
           "position": 11,
@@ -7068,7 +7333,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 157512,
           "categoryId": "MLB1368",
-          "categoryName": "Arte, Papelaria e Armarinho"
+          "categoryName": "Arte, Papelaria e Armarinho",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_838669-MLA108805416203_032026-F.jpg"
         },
         {
           "position": 14,
@@ -7257,7 +7523,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1368",
-          "categoryName": "Arte, Papelaria e Armarinho"
+          "categoryName": "Arte, Papelaria e Armarinho",
+          "estimatedDailySales": 6.1,
+          "estimatedSales": 732,
+          "estimatedMonthlySales": 183,
+          "estimatedMonthlyRevenue": 6954
         },
         {
           "position": 17,
@@ -7376,7 +7646,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 142778,
           "categoryId": "MLB1368",
-          "categoryName": "Arte, Papelaria e Armarinho"
+          "categoryName": "Arte, Papelaria e Armarinho",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_838669-MLA108805416203_032026-F.jpg"
         },
         {
           "position": 19,
@@ -7434,7 +7705,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 12,
           "categoryId": "MLB1368",
-          "categoryName": "Arte, Papelaria e Armarinho"
+          "categoryName": "Arte, Papelaria e Armarinho",
+          "estimatedDailySales": 5.5,
+          "estimatedSales": 660,
+          "estimatedMonthlySales": 165,
+          "estimatedMonthlyRevenue": 4043
         },
         {
           "position": 20,
@@ -7651,7 +7926,11 @@
           "sellerPowerStatus": "gold",
           "sellerTotalTransactions": 2182,
           "categoryId": "MLB1384",
-          "categoryName": "Bebês"
+          "categoryName": "Bebês",
+          "estimatedDailySales": 28,
+          "estimatedSales": 3360,
+          "estimatedMonthlySales": 840,
+          "estimatedMonthlyRevenue": 31912
         },
         {
           "position": 2,
@@ -7710,7 +7989,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 1178,
           "categoryId": "MLB1384",
-          "categoryName": "Bebês"
+          "categoryName": "Bebês",
+          "estimatedDailySales": 19.1,
+          "estimatedSales": 2292,
+          "estimatedMonthlySales": 573,
+          "estimatedMonthlyRevenue": 17763
         },
         {
           "position": 3,
@@ -7770,7 +8053,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 35032250,
           "categoryId": "MLB1384",
-          "categoryName": "Bebês"
+          "categoryName": "Bebês",
+          "estimatedDailySales": 15.3,
+          "estimatedSales": 1836,
+          "estimatedMonthlySales": 459,
+          "estimatedMonthlyRevenue": 18424
         },
         {
           "position": 4,
@@ -7955,7 +8242,11 @@
           "sellerPowerStatus": "gold",
           "sellerTotalTransactions": 28097,
           "categoryId": "MLB1384",
-          "categoryName": "Bebês"
+          "categoryName": "Bebês",
+          "estimatedDailySales": 10.5,
+          "estimatedSales": 1250,
+          "estimatedMonthlySales": 315,
+          "estimatedMonthlyRevenue": 16692
         },
         {
           "position": 7,
@@ -8011,7 +8302,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 25,
           "categoryId": "MLB1384",
-          "categoryName": "Bebês"
+          "categoryName": "Bebês",
+          "estimatedDailySales": 9.6,
+          "estimatedSales": 1152,
+          "estimatedMonthlySales": 288,
+          "estimatedMonthlyRevenue": 2719
         },
         {
           "position": 8,
@@ -8195,7 +8490,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 3,
           "categoryId": "MLB1384",
-          "categoryName": "Bebês"
+          "categoryName": "Bebês",
+          "estimatedDailySales": 7.9,
+          "estimatedSales": 948,
+          "estimatedMonthlySales": 237,
+          "estimatedMonthlyRevenue": 13033
         },
         {
           "position": 11,
@@ -8316,7 +8615,11 @@
           "sellerPowerStatus": "gold",
           "sellerTotalTransactions": 4650,
           "categoryId": "MLB1384",
-          "categoryName": "Bebês"
+          "categoryName": "Bebês",
+          "estimatedDailySales": 7.1,
+          "estimatedSales": 852,
+          "estimatedMonthlySales": 213,
+          "estimatedMonthlyRevenue": 14652
         },
         {
           "position": 13,
@@ -8373,7 +8676,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 1,
           "categoryId": "MLB1384",
-          "categoryName": "Bebês"
+          "categoryName": "Bebês",
+          "estimatedDailySales": 6.8,
+          "estimatedSales": 816,
+          "estimatedMonthlySales": 204,
+          "estimatedMonthlyRevenue": 5712
         },
         {
           "position": 14,
@@ -8556,7 +8863,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 1,
           "categoryId": "MLB1384",
-          "categoryName": "Bebês"
+          "categoryName": "Bebês",
+          "estimatedDailySales": 6.1,
+          "estimatedSales": 732,
+          "estimatedMonthlySales": 183,
+          "estimatedMonthlyRevenue": 6021
         },
         {
           "position": 17,
@@ -8614,7 +8925,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1384",
-          "categoryName": "Bebês"
+          "categoryName": "Bebês",
+          "estimatedDailySales": 5.9,
+          "estimatedSales": 708,
+          "estimatedMonthlySales": 177,
+          "estimatedMonthlyRevenue": 6570
         },
         {
           "position": 18,
@@ -8671,7 +8986,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 2,
           "categoryId": "MLB1384",
-          "categoryName": "Bebês"
+          "categoryName": "Bebês",
+          "estimatedDailySales": 5.7,
+          "estimatedSales": 684,
+          "estimatedMonthlySales": 171,
+          "estimatedMonthlyRevenue": 6031
         },
         {
           "position": 19,
@@ -8730,7 +9049,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 53074,
           "categoryId": "MLB1384",
-          "categoryName": "Bebês"
+          "categoryName": "Bebês",
+          "estimatedDailySales": 5.5,
+          "estimatedSales": 660,
+          "estimatedMonthlySales": 165,
+          "estimatedMonthlyRevenue": 6353
         },
         {
           "position": 20,
@@ -8789,7 +9112,11 @@
           "sellerPowerStatus": "gold",
           "sellerTotalTransactions": 12632,
           "categoryId": "MLB1384",
-          "categoryName": "Bebês"
+          "categoryName": "Bebês",
+          "estimatedDailySales": 5.4,
+          "estimatedSales": 648,
+          "estimatedMonthlySales": 162,
+          "estimatedMonthlyRevenue": 8084
         }
       ]
     },
@@ -8944,7 +9271,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 1,
           "categoryId": "MLB1246",
-          "categoryName": "Beleza e Cuidado Pessoal"
+          "categoryName": "Beleza e Cuidado Pessoal",
+          "estimatedDailySales": 28,
+          "estimatedSales": 3360,
+          "estimatedMonthlySales": 840,
+          "estimatedMonthlyRevenue": 24276
         },
         {
           "position": 2,
@@ -9065,7 +9396,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 13,
           "categoryId": "MLB1246",
-          "categoryName": "Beleza e Cuidado Pessoal"
+          "categoryName": "Beleza e Cuidado Pessoal",
+          "estimatedDailySales": 15.3,
+          "estimatedSales": 1836,
+          "estimatedMonthlySales": 459,
+          "estimatedMonthlyRevenue": 8675
         },
         {
           "position": 4,
@@ -9118,7 +9453,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1246",
-          "categoryName": "Beleza e Cuidado Pessoal"
+          "categoryName": "Beleza e Cuidado Pessoal",
+          "estimatedDailySales": 13.1,
+          "estimatedSales": 1572,
+          "estimatedMonthlySales": 393,
+          "estimatedMonthlyRevenue": 32147
         },
         {
           "position": 5,
@@ -9177,7 +9516,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 1178,
           "categoryId": "MLB1246",
-          "categoryName": "Beleza e Cuidado Pessoal"
+          "categoryName": "Beleza e Cuidado Pessoal",
+          "estimatedDailySales": 11.6,
+          "estimatedSales": 1392,
+          "estimatedMonthlySales": 348,
+          "estimatedMonthlyRevenue": 10788
         },
         {
           "position": 6,
@@ -9233,7 +9576,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 13123,
           "categoryId": "MLB1246",
-          "categoryName": "Beleza e Cuidado Pessoal"
+          "categoryName": "Beleza e Cuidado Pessoal",
+          "estimatedDailySales": 10.5,
+          "estimatedSales": 1260,
+          "estimatedMonthlySales": 315,
+          "estimatedMonthlyRevenue": 13290
         },
         {
           "position": 7,
@@ -9354,7 +9701,11 @@
           "sellerPowerStatus": "gold",
           "sellerTotalTransactions": 2247,
           "categoryId": "MLB1246",
-          "categoryName": "Beleza e Cuidado Pessoal"
+          "categoryName": "Beleza e Cuidado Pessoal",
+          "estimatedDailySales": 8.9,
+          "estimatedSales": 1068,
+          "estimatedMonthlySales": 267,
+          "estimatedMonthlyRevenue": 25400
         },
         {
           "position": 9,
@@ -9412,7 +9763,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 6,
           "categoryId": "MLB1246",
-          "categoryName": "Beleza e Cuidado Pessoal"
+          "categoryName": "Beleza e Cuidado Pessoal",
+          "estimatedDailySales": 8.4,
+          "estimatedSales": 1008,
+          "estimatedMonthlySales": 252,
+          "estimatedMonthlyRevenue": 6297
         },
         {
           "position": 10,
@@ -9472,7 +9827,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1246",
-          "categoryName": "Beleza e Cuidado Pessoal"
+          "categoryName": "Beleza e Cuidado Pessoal",
+          "estimatedDailySales": 7.9,
+          "estimatedSales": 356,
+          "estimatedMonthlySales": 237,
+          "estimatedMonthlyRevenue": 2607
         },
         {
           "position": 11,
@@ -9532,7 +9891,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1246",
-          "categoryName": "Beleza e Cuidado Pessoal"
+          "categoryName": "Beleza e Cuidado Pessoal",
+          "estimatedDailySales": 7.5,
+          "estimatedSales": 900,
+          "estimatedMonthlySales": 225,
+          "estimatedMonthlyRevenue": 17998
         },
         {
           "position": 12,
@@ -9720,7 +10083,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 1,
           "categoryId": "MLB1246",
-          "categoryName": "Beleza e Cuidado Pessoal"
+          "categoryName": "Beleza e Cuidado Pessoal",
+          "estimatedDailySales": 6.6,
+          "estimatedSales": 792,
+          "estimatedMonthlySales": 198,
+          "estimatedMonthlyRevenue": 11286
         },
         {
           "position": 15,
@@ -9778,7 +10145,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 1,
           "categoryId": "MLB1246",
-          "categoryName": "Beleza e Cuidado Pessoal"
+          "categoryName": "Beleza e Cuidado Pessoal",
+          "estimatedDailySales": 6.3,
+          "estimatedSales": 756,
+          "estimatedMonthlySales": 189,
+          "estimatedMonthlyRevenue": 3780
         },
         {
           "position": 16,
@@ -9835,7 +10206,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 24,
           "categoryId": "MLB1246",
-          "categoryName": "Beleza e Cuidado Pessoal"
+          "categoryName": "Beleza e Cuidado Pessoal",
+          "estimatedDailySales": 6.1,
+          "estimatedSales": 732,
+          "estimatedMonthlySales": 183,
+          "estimatedMonthlyRevenue": 18300
         },
         {
           "position": 17,
@@ -9948,7 +10323,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 257417,
           "categoryId": "MLB1246",
-          "categoryName": "Beleza e Cuidado Pessoal"
+          "categoryName": "Beleza e Cuidado Pessoal",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_600448-MLA91283126133_082025-F.jpg"
         },
         {
           "position": 19,
@@ -10432,7 +10808,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 1,
           "categoryId": "MLB1132",
-          "categoryName": "Brinquedos e Hobbies"
+          "categoryName": "Brinquedos e Hobbies",
+          "estimatedDailySales": 13.1,
+          "estimatedSales": 1572,
+          "estimatedMonthlySales": 393,
+          "estimatedMonthlyRevenue": 30520
         },
         {
           "position": 5,
@@ -10490,7 +10870,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 22,
           "categoryId": "MLB1132",
-          "categoryName": "Brinquedos e Hobbies"
+          "categoryName": "Brinquedos e Hobbies",
+          "estimatedDailySales": 11.6,
+          "estimatedSales": 1346,
+          "estimatedMonthlySales": 348,
+          "estimatedMonthlyRevenue": 14581
         },
         {
           "position": 6,
@@ -10680,7 +11064,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1132",
-          "categoryName": "Brinquedos e Hobbies"
+          "categoryName": "Brinquedos e Hobbies",
+          "estimatedDailySales": 8.9,
+          "estimatedSales": 1068,
+          "estimatedMonthlySales": 267,
+          "estimatedMonthlyRevenue": 18663
         },
         {
           "position": 9,
@@ -10792,7 +11180,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 28471,
           "categoryId": "MLB1132",
-          "categoryName": "Brinquedos e Hobbies"
+          "categoryName": "Brinquedos e Hobbies",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_722118-MLA94450395526_102025-F.jpg"
         },
         {
           "position": 11,
@@ -10914,7 +11303,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1132",
-          "categoryName": "Brinquedos e Hobbies"
+          "categoryName": "Brinquedos e Hobbies",
+          "estimatedDailySales": 7.1,
+          "estimatedSales": 220,
+          "estimatedMonthlySales": 213,
+          "estimatedMonthlyRevenue": 4239
         },
         {
           "position": 13,
@@ -10966,7 +11359,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 30153,
           "categoryId": "MLB1132",
-          "categoryName": "Brinquedos e Hobbies"
+          "categoryName": "Brinquedos e Hobbies",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_603052-MLU75288779318_032024-F.jpg"
         },
         {
           "position": 14,
@@ -11021,7 +11415,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1132",
-          "categoryName": "Brinquedos e Hobbies"
+          "categoryName": "Brinquedos e Hobbies",
+          "estimatedDailySales": 6.6,
+          "estimatedSales": 224,
+          "estimatedMonthlySales": 198,
+          "estimatedMonthlyRevenue": 5306
         },
         {
           "position": 15,
@@ -11277,7 +11675,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 2,
           "categoryId": "MLB1132",
-          "categoryName": "Brinquedos e Hobbies"
+          "categoryName": "Brinquedos e Hobbies",
+          "estimatedDailySales": 5.7,
+          "estimatedSales": 684,
+          "estimatedMonthlySales": 171,
+          "estimatedMonthlyRevenue": 3418
         },
         {
           "position": 19,
@@ -11563,7 +11965,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1430",
-          "categoryName": "Calçados, Roupas e Bolsas"
+          "categoryName": "Calçados, Roupas e Bolsas",
+          "estimatedDailySales": 28,
+          "estimatedSales": 3360,
+          "estimatedMonthlySales": 840,
+          "estimatedMonthlyRevenue": 24696
         },
         {
           "position": 2,
@@ -11591,7 +11997,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 636144,
           "categoryId": "MLB1430",
-          "categoryName": "Calçados, Roupas e Bolsas"
+          "categoryName": "Calçados, Roupas e Bolsas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_837796-MLU78678239851_082024-F.jpg"
         },
         {
           "position": 3,
@@ -11643,7 +12050,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 281325,
           "categoryId": "MLB1430",
-          "categoryName": "Calçados, Roupas e Bolsas"
+          "categoryName": "Calçados, Roupas e Bolsas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_845940-MLU73462698790_122023-F.jpg"
         },
         {
           "position": 4,
@@ -11671,7 +12079,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 840363,
           "categoryId": "MLB1430",
-          "categoryName": "Calçados, Roupas e Bolsas"
+          "categoryName": "Calçados, Roupas e Bolsas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_912471-MLA110059249805_042026-F.jpg"
         },
         {
           "position": 5,
@@ -11699,7 +12108,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 576894,
           "categoryId": "MLB1430",
-          "categoryName": "Calçados, Roupas e Bolsas"
+          "categoryName": "Calçados, Roupas e Bolsas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_660956-MLA79830113797_102024-F.jpg"
         },
         {
           "position": 6,
@@ -11709,7 +12119,11 @@
           "mainFeatures": [],
           "estimatedTaxPercent": 6,
           "categoryId": "MLB1430",
-          "categoryName": "Calçados, Roupas e Bolsas"
+          "categoryName": "Calçados, Roupas e Bolsas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_924303-MLA93510438189_092025-F.jpg",
+          "estimatedDailySales": 10.5,
+          "estimatedSales": 1260,
+          "estimatedMonthlySales": 315
         },
         {
           "position": 7,
@@ -11737,7 +12151,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 461636,
           "categoryId": "MLB1430",
-          "categoryName": "Calçados, Roupas e Bolsas"
+          "categoryName": "Calçados, Roupas e Bolsas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_845940-MLU73462698790_122023-F.jpg"
         },
         {
           "position": 8,
@@ -11765,7 +12180,8 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 474676,
           "categoryId": "MLB1430",
-          "categoryName": "Calçados, Roupas e Bolsas"
+          "categoryName": "Calçados, Roupas e Bolsas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_912471-MLA110059249805_042026-F.jpg"
         },
         {
           "position": 9,
@@ -11793,7 +12209,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 840363,
           "categoryId": "MLB1430",
-          "categoryName": "Calçados, Roupas e Bolsas"
+          "categoryName": "Calçados, Roupas e Bolsas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_912471-MLA110059249805_042026-F.jpg"
         },
         {
           "position": 10,
@@ -11846,7 +12263,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 136301,
           "categoryId": "MLB1430",
-          "categoryName": "Calçados, Roupas e Bolsas"
+          "categoryName": "Calçados, Roupas e Bolsas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_660956-MLA79830113797_102024-F.jpg"
         },
         {
           "position": 11,
@@ -11874,7 +12292,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 205616,
           "categoryId": "MLB1430",
-          "categoryName": "Calçados, Roupas e Bolsas"
+          "categoryName": "Calçados, Roupas e Bolsas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_663000-MLA83826604535_042025-F.jpg"
         },
         {
           "position": 12,
@@ -11902,7 +12321,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 302939,
           "categoryId": "MLB1430",
-          "categoryName": "Calçados, Roupas e Bolsas"
+          "categoryName": "Calçados, Roupas e Bolsas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_831126-MLA115360097962_082026-F.jpg"
         },
         {
           "position": 13,
@@ -11963,7 +12383,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 483476,
           "categoryId": "MLB1430",
-          "categoryName": "Calçados, Roupas e Bolsas"
+          "categoryName": "Calçados, Roupas e Bolsas",
+          "estimatedDailySales": 6.8,
+          "estimatedSales": 816,
+          "estimatedMonthlySales": 204,
+          "estimatedMonthlyRevenue": 8974
         },
         {
           "position": 14,
@@ -12016,7 +12440,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 194690,
           "categoryId": "MLB1430",
-          "categoryName": "Calçados, Roupas e Bolsas"
+          "categoryName": "Calçados, Roupas e Bolsas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_660956-MLA79830113797_102024-F.jpg"
         },
         {
           "position": 15,
@@ -12044,7 +12469,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 442355,
           "categoryId": "MLB1430",
-          "categoryName": "Calçados, Roupas e Bolsas"
+          "categoryName": "Calçados, Roupas e Bolsas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_845940-MLU73462698790_122023-F.jpg"
         },
         {
           "position": 16,
@@ -12072,7 +12498,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 688128,
           "categoryId": "MLB1430",
-          "categoryName": "Calçados, Roupas e Bolsas"
+          "categoryName": "Calçados, Roupas e Bolsas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_845940-MLU73462698790_122023-F.jpg"
         },
         {
           "position": 17,
@@ -12100,7 +12527,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 1286667,
           "categoryId": "MLB1430",
-          "categoryName": "Calçados, Roupas e Bolsas"
+          "categoryName": "Calçados, Roupas e Bolsas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_660956-MLA79830113797_102024-F.jpg"
         },
         {
           "position": 18,
@@ -12128,7 +12556,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 461636,
           "categoryId": "MLB1430",
-          "categoryName": "Calçados, Roupas e Bolsas"
+          "categoryName": "Calçados, Roupas e Bolsas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_845940-MLU73462698790_122023-F.jpg"
         },
         {
           "position": 19,
@@ -12156,7 +12585,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 483476,
           "categoryId": "MLB1430",
-          "categoryName": "Calçados, Roupas e Bolsas"
+          "categoryName": "Calçados, Roupas e Bolsas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_639542-MLA80954127374_122024-F.jpg"
         },
         {
           "position": 20,
@@ -12184,7 +12614,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 2484333,
           "categoryId": "MLB1430",
-          "categoryName": "Calçados, Roupas e Bolsas"
+          "categoryName": "Calçados, Roupas e Bolsas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_846413-MLA106605932014_022026-F.jpg"
         }
       ]
     },
@@ -12339,7 +12770,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 2,
           "categoryId": "MLB1039",
-          "categoryName": "Câmeras e Acessórios"
+          "categoryName": "Câmeras e Acessórios",
+          "estimatedDailySales": 28,
+          "estimatedSales": 3360,
+          "estimatedMonthlySales": 840,
+          "estimatedMonthlyRevenue": 50870
         },
         {
           "position": 2,
@@ -12594,7 +13029,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1039",
-          "categoryName": "Câmeras e Acessórios"
+          "categoryName": "Câmeras e Acessórios",
+          "estimatedDailySales": 11.6,
+          "estimatedSales": 1392,
+          "estimatedMonthlySales": 348,
+          "estimatedMonthlyRevenue": 19140
         },
         {
           "position": 6,
@@ -12654,7 +13093,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 3,
           "categoryId": "MLB1039",
-          "categoryName": "Câmeras e Acessórios"
+          "categoryName": "Câmeras e Acessórios",
+          "estimatedDailySales": 10.5,
+          "estimatedSales": 1260,
+          "estimatedMonthlySales": 315,
+          "estimatedMonthlyRevenue": 6612
         },
         {
           "position": 7,
@@ -12778,7 +13221,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 2,
           "categoryId": "MLB1039",
-          "categoryName": "Câmeras e Acessórios"
+          "categoryName": "Câmeras e Acessórios",
+          "estimatedDailySales": 8.9,
+          "estimatedSales": 1068,
+          "estimatedMonthlySales": 267,
+          "estimatedMonthlyRevenue": 34139
         },
         {
           "position": 9,
@@ -12896,7 +13343,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 17575,
           "categoryId": "MLB1039",
-          "categoryName": "Câmeras e Acessórios"
+          "categoryName": "Câmeras e Acessórios",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_759724-MLU72147670705_102023-F.jpg"
         },
         {
           "position": 11,
@@ -12948,7 +13396,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 33562,
           "categoryId": "MLB1039",
-          "categoryName": "Câmeras e Acessórios"
+          "categoryName": "Câmeras e Acessórios",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_759724-MLU72147670705_102023-F.jpg"
         },
         {
           "position": 12,
@@ -13006,7 +13455,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1039",
-          "categoryName": "Câmeras e Acessórios"
+          "categoryName": "Câmeras e Acessórios",
+          "estimatedDailySales": 7.1,
+          "estimatedSales": 852,
+          "estimatedMonthlySales": 213,
+          "estimatedMonthlyRevenue": 9796
         },
         {
           "position": 13,
@@ -13189,7 +13642,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 45062,
           "categoryId": "MLB1039",
-          "categoryName": "Câmeras e Acessórios"
+          "categoryName": "Câmeras e Acessórios",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_904877-MLA115919467518_092026-F.jpg"
         },
         {
           "position": 16,
@@ -13249,7 +13703,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 3,
           "categoryId": "MLB1039",
-          "categoryName": "Câmeras e Acessórios"
+          "categoryName": "Câmeras e Acessórios",
+          "estimatedDailySales": 6.1,
+          "estimatedSales": 732,
+          "estimatedMonthlySales": 183,
+          "estimatedMonthlyRevenue": 8702
         },
         {
           "position": 17,
@@ -13308,7 +13766,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 10899,
           "categoryId": "MLB1039",
-          "categoryName": "Câmeras e Acessórios"
+          "categoryName": "Câmeras e Acessórios",
+          "estimatedDailySales": 5.9,
+          "estimatedSales": 708,
+          "estimatedMonthlySales": 177,
+          "estimatedMonthlyRevenue": 12903
         },
         {
           "position": 18,
@@ -13360,7 +13822,8 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 12159,
           "categoryId": "MLB1039",
-          "categoryName": "Câmeras e Acessórios"
+          "categoryName": "Câmeras e Acessórios",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_625960-MLA99463169874_112025-F.jpg"
         },
         {
           "position": 19,
@@ -13486,7 +13949,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 3,
           "categoryId": "MLB1039",
-          "categoryName": "Câmeras e Acessórios"
+          "categoryName": "Câmeras e Acessórios",
+          "estimatedDailySales": 5.4,
+          "estimatedSales": 648,
+          "estimatedMonthlySales": 162,
+          "estimatedMonthlyRevenue": 64800
         }
       ]
     },
@@ -13736,7 +14203,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 11,
           "categoryId": "MLB1574",
-          "categoryName": "Casa, Móveis e Decoração"
+          "categoryName": "Casa, Móveis e Decoração",
+          "estimatedDailySales": 28,
+          "estimatedSales": 3360,
+          "estimatedMonthlySales": 840,
+          "estimatedMonthlyRevenue": 33390
         },
         {
           "position": 2,
@@ -13795,7 +14266,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1574",
-          "categoryName": "Casa, Móveis e Decoração"
+          "categoryName": "Casa, Móveis e Decoração",
+          "estimatedDailySales": 19.1,
+          "estimatedSales": 2292,
+          "estimatedMonthlySales": 573,
+          "estimatedMonthlyRevenue": 37262
         },
         {
           "position": 3,
@@ -13847,7 +14322,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 2146248,
           "categoryId": "MLB1574",
-          "categoryName": "Casa, Móveis e Decoração"
+          "categoryName": "Casa, Móveis e Decoração",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_910451-MLA93506083261_092025-F.jpg"
         },
         {
           "position": 4,
@@ -13905,7 +14381,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 1,
           "categoryId": "MLB1574",
-          "categoryName": "Casa, Móveis e Decoração"
+          "categoryName": "Casa, Móveis e Decoração",
+          "estimatedDailySales": 13.1,
+          "estimatedSales": 1572,
+          "estimatedMonthlySales": 393,
+          "estimatedMonthlyRevenue": 11358
         },
         {
           "position": 5,
@@ -13933,7 +14413,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 2146248,
           "categoryId": "MLB1574",
-          "categoryName": "Casa, Móveis e Decoração"
+          "categoryName": "Casa, Móveis e Decoração",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_910451-MLA93506083261_092025-F.jpg"
         },
         {
           "position": 6,
@@ -14054,7 +14535,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 7,
           "categoryId": "MLB1574",
-          "categoryName": "Casa, Móveis e Decoração"
+          "categoryName": "Casa, Móveis e Decoração",
+          "estimatedDailySales": 9.6,
+          "estimatedSales": 893,
+          "estimatedMonthlySales": 288,
+          "estimatedMonthlyRevenue": 5757
         },
         {
           "position": 8,
@@ -14111,7 +14596,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 13,
           "categoryId": "MLB1574",
-          "categoryName": "Casa, Móveis e Decoração"
+          "categoryName": "Casa, Móveis e Decoração",
+          "estimatedDailySales": 8.9,
+          "estimatedSales": 1068,
+          "estimatedMonthlySales": 267,
+          "estimatedMonthlyRevenue": 5046
         },
         {
           "position": 9,
@@ -14139,7 +14628,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 2146248,
           "categoryId": "MLB1574",
-          "categoryName": "Casa, Móveis e Decoração"
+          "categoryName": "Casa, Móveis e Decoração",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_929257-MLA116826350360_092026-F.jpg"
         },
         {
           "position": 10,
@@ -14331,7 +14821,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 45819,
           "categoryId": "MLB1574",
-          "categoryName": "Casa, Móveis e Decoração"
+          "categoryName": "Casa, Móveis e Decoração",
+          "estimatedDailySales": 7.1,
+          "estimatedSales": 852,
+          "estimatedMonthlySales": 213,
+          "estimatedMonthlyRevenue": 12759
         },
         {
           "position": 13,
@@ -14518,7 +15012,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 22,
           "categoryId": "MLB1574",
-          "categoryName": "Casa, Móveis e Decoração"
+          "categoryName": "Casa, Móveis e Decoração",
+          "estimatedDailySales": 6.3,
+          "estimatedSales": 756,
+          "estimatedMonthlySales": 189,
+          "estimatedMonthlyRevenue": 6424
         },
         {
           "position": 16,
@@ -14546,7 +15044,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 234397,
           "categoryId": "MLB1574",
-          "categoryName": "Casa, Móveis e Decoração"
+          "categoryName": "Casa, Móveis e Decoração",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_910451-MLA93506083261_092025-F.jpg"
         },
         {
           "position": 17,
@@ -14574,7 +15073,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 2146248,
           "categoryId": "MLB1574",
-          "categoryName": "Casa, Móveis e Decoração"
+          "categoryName": "Casa, Móveis e Decoração",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_929257-MLA116826350360_092026-F.jpg"
         },
         {
           "position": 18,
@@ -14987,7 +15487,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1051",
-          "categoryName": "Celulares e Telefones"
+          "categoryName": "Celulares e Telefones",
+          "estimatedDailySales": 19.1,
+          "estimatedSales": 2292,
+          "estimatedMonthlySales": 573,
+          "estimatedMonthlyRevenue": 497937
         },
         {
           "position": 3,
@@ -15235,7 +15739,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 16,
           "categoryId": "MLB1051",
-          "categoryName": "Celulares e Telefones"
+          "categoryName": "Celulares e Telefones",
+          "estimatedDailySales": 10.5,
+          "estimatedSales": 1260,
+          "estimatedMonthlySales": 315,
+          "estimatedMonthlyRevenue": 582750
         },
         {
           "position": 7,
@@ -15294,7 +15802,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 3,
           "categoryId": "MLB1051",
-          "categoryName": "Celulares e Telefones"
+          "categoryName": "Celulares e Telefones",
+          "estimatedDailySales": 9.6,
+          "estimatedSales": 1152,
+          "estimatedMonthlySales": 288,
+          "estimatedMonthlyRevenue": 11520
         },
         {
           "position": 8,
@@ -15354,7 +15866,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 12113,
           "categoryId": "MLB1051",
-          "categoryName": "Celulares e Telefones"
+          "categoryName": "Celulares e Telefones",
+          "estimatedDailySales": 8.9,
+          "estimatedSales": 1068,
+          "estimatedMonthlySales": 267,
+          "estimatedMonthlyRevenue": 253514
         },
         {
           "position": 9,
@@ -15479,7 +15995,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 8,
           "categoryId": "MLB1051",
-          "categoryName": "Celulares e Telefones"
+          "categoryName": "Celulares e Telefones",
+          "estimatedDailySales": 7.9,
+          "estimatedSales": 948,
+          "estimatedMonthlySales": 237,
+          "estimatedMonthlyRevenue": 15877
         },
         {
           "position": 11,
@@ -15603,7 +16123,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 2,
           "categoryId": "MLB1051",
-          "categoryName": "Celulares e Telefones"
+          "categoryName": "Celulares e Telefones",
+          "estimatedDailySales": 7.1,
+          "estimatedSales": 852,
+          "estimatedMonthlySales": 213,
+          "estimatedMonthlyRevenue": 3610
         },
         {
           "position": 13,
@@ -15655,7 +16179,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 207008,
           "categoryId": "MLB1051",
-          "categoryName": "Celulares e Telefones"
+          "categoryName": "Celulares e Telefones",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_878821-MLA104225054272_012026-F.jpg"
         },
         {
           "position": 14,
@@ -15714,7 +16239,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 2,
           "categoryId": "MLB1051",
-          "categoryName": "Celulares e Telefones"
+          "categoryName": "Celulares e Telefones",
+          "estimatedDailySales": 6.6,
+          "estimatedSales": 792,
+          "estimatedMonthlySales": 198,
+          "estimatedMonthlyRevenue": 33640
         },
         {
           "position": 15,
@@ -15774,7 +16303,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 1,
           "categoryId": "MLB1051",
-          "categoryName": "Celulares e Telefones"
+          "categoryName": "Celulares e Telefones",
+          "estimatedDailySales": 6.3,
+          "estimatedSales": 756,
+          "estimatedMonthlySales": 189,
+          "estimatedMonthlyRevenue": 359831
         },
         {
           "position": 16,
@@ -15827,7 +16360,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 118234,
           "categoryId": "MLB1051",
-          "categoryName": "Celulares e Telefones"
+          "categoryName": "Celulares e Telefones",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_878821-MLA104225054272_012026-F.jpg"
         },
         {
           "position": 17,
@@ -16084,7 +16618,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1051",
-          "categoryName": "Celulares e Telefones"
+          "categoryName": "Celulares e Telefones",
+          "estimatedDailySales": 5.4,
+          "estimatedSales": 648,
+          "estimatedMonthlySales": 162,
+          "estimatedMonthlyRevenue": 8570
         }
       ]
     },
@@ -16369,7 +16907,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 5,
           "categoryId": "MLB1500",
-          "categoryName": "Construção"
+          "categoryName": "Construção",
+          "estimatedDailySales": 15.3,
+          "estimatedSales": 1836,
+          "estimatedMonthlySales": 459,
+          "estimatedMonthlyRevenue": 119290
         },
         {
           "position": 4,
@@ -16397,7 +16939,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 70638,
           "categoryId": "MLB1500",
-          "categoryName": "Construção"
+          "categoryName": "Construção",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_770812-MLA87653618187_072025-F.jpg"
         },
         {
           "position": 5,
@@ -16456,7 +16999,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 5,
           "categoryId": "MLB1500",
-          "categoryName": "Construção"
+          "categoryName": "Construção",
+          "estimatedDailySales": 11.6,
+          "estimatedSales": 1392,
+          "estimatedMonthlySales": 348,
+          "estimatedMonthlyRevenue": 15660
         },
         {
           "position": 6,
@@ -16581,7 +17128,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 60682,
           "categoryId": "MLB1500",
-          "categoryName": "Construção"
+          "categoryName": "Construção",
+          "estimatedDailySales": 9.6,
+          "estimatedSales": 1152,
+          "estimatedMonthlySales": 288,
+          "estimatedMonthlyRevenue": 7747
         },
         {
           "position": 8,
@@ -16641,7 +17192,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 372934,
           "categoryId": "MLB1500",
-          "categoryName": "Construção"
+          "categoryName": "Construção",
+          "estimatedDailySales": 8.9,
+          "estimatedSales": 1068,
+          "estimatedMonthlySales": 267,
+          "estimatedMonthlyRevenue": 21090
         },
         {
           "position": 9,
@@ -16702,7 +17257,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 9599402,
           "categoryId": "MLB1500",
-          "categoryName": "Construção"
+          "categoryName": "Construção",
+          "estimatedDailySales": 8.4,
+          "estimatedSales": 1008,
+          "estimatedMonthlySales": 252,
+          "estimatedMonthlyRevenue": 57988
         },
         {
           "position": 10,
@@ -16890,7 +17449,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 11,
           "categoryId": "MLB1500",
-          "categoryName": "Construção"
+          "categoryName": "Construção",
+          "estimatedDailySales": 7.1,
+          "estimatedSales": 852,
+          "estimatedMonthlySales": 213,
+          "estimatedMonthlyRevenue": 4239
         },
         {
           "position": 13,
@@ -17013,7 +17576,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1500",
-          "categoryName": "Construção"
+          "categoryName": "Construção",
+          "estimatedDailySales": 6.6,
+          "estimatedSales": 792,
+          "estimatedMonthlySales": 198,
+          "estimatedMonthlyRevenue": 11082
         },
         {
           "position": 15,
@@ -17137,7 +17704,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1500",
-          "categoryName": "Construção"
+          "categoryName": "Construção",
+          "estimatedDailySales": 6.1,
+          "estimatedSales": 732,
+          "estimatedMonthlySales": 183,
+          "estimatedMonthlyRevenue": 1870
         },
         {
           "position": 17,
@@ -17190,7 +17761,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 109204,
           "categoryId": "MLB1500",
-          "categoryName": "Construção"
+          "categoryName": "Construção",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_996034-MLA110646274192_052026-F.jpg"
         },
         {
           "position": 18,
@@ -17314,7 +17886,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 4,
           "categoryId": "MLB1500",
-          "categoryName": "Construção"
+          "categoryName": "Construção",
+          "estimatedDailySales": 5.5,
+          "estimatedSales": 660,
+          "estimatedMonthlySales": 165,
+          "estimatedMonthlyRevenue": 13604
         },
         {
           "position": 20,
@@ -17536,7 +18112,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB5726",
-          "categoryName": "Eletrodomésticos"
+          "categoryName": "Eletrodomésticos",
+          "estimatedDailySales": 28,
+          "estimatedSales": 3360,
+          "estimatedMonthlySales": 840,
+          "estimatedMonthlyRevenue": 25200
         },
         {
           "position": 2,
@@ -17595,7 +18175,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 12,
           "categoryId": "MLB5726",
-          "categoryName": "Eletrodomésticos"
+          "categoryName": "Eletrodomésticos",
+          "estimatedDailySales": 19.1,
+          "estimatedSales": 2292,
+          "estimatedMonthlySales": 573,
+          "estimatedMonthlyRevenue": 96837
         },
         {
           "position": 3,
@@ -17717,7 +18301,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 6567,
           "categoryId": "MLB5726",
-          "categoryName": "Eletrodomésticos"
+          "categoryName": "Eletrodomésticos",
+          "estimatedDailySales": 13.1,
+          "estimatedSales": 1572,
+          "estimatedMonthlySales": 393,
+          "estimatedMonthlyRevenue": 24366
         },
         {
           "position": 5,
@@ -17777,7 +18365,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 4,
           "categoryId": "MLB5726",
-          "categoryName": "Eletrodomésticos"
+          "categoryName": "Eletrodomésticos",
+          "estimatedDailySales": 11.6,
+          "estimatedSales": 1392,
+          "estimatedMonthlySales": 348,
+          "estimatedMonthlyRevenue": 30972
         },
         {
           "position": 6,
@@ -17837,7 +18429,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB5726",
-          "categoryName": "Eletrodomésticos"
+          "categoryName": "Eletrodomésticos",
+          "estimatedDailySales": 10.5,
+          "estimatedSales": 1260,
+          "estimatedMonthlySales": 315,
+          "estimatedMonthlyRevenue": 56826
         },
         {
           "position": 7,
@@ -17896,7 +18492,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB5726",
-          "categoryName": "Eletrodomésticos"
+          "categoryName": "Eletrodomésticos",
+          "estimatedDailySales": 9.6,
+          "estimatedSales": 1152,
+          "estimatedMonthlySales": 288,
+          "estimatedMonthlyRevenue": 4320
         },
         {
           "position": 8,
@@ -17955,7 +18555,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 5,
           "categoryId": "MLB5726",
-          "categoryName": "Eletrodomésticos"
+          "categoryName": "Eletrodomésticos",
+          "estimatedDailySales": 8.9,
+          "estimatedSales": 1068,
+          "estimatedMonthlySales": 267,
+          "estimatedMonthlyRevenue": 31746
         },
         {
           "position": 9,
@@ -18015,7 +18619,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB5726",
-          "categoryName": "Eletrodomésticos"
+          "categoryName": "Eletrodomésticos",
+          "estimatedDailySales": 8.4,
+          "estimatedSales": 1008,
+          "estimatedMonthlySales": 252,
+          "estimatedMonthlyRevenue": 109665
         },
         {
           "position": 10,
@@ -18074,7 +18682,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 3,
           "categoryId": "MLB5726",
-          "categoryName": "Eletrodomésticos"
+          "categoryName": "Eletrodomésticos",
+          "estimatedDailySales": 7.9,
+          "estimatedSales": 948,
+          "estimatedMonthlySales": 237,
+          "estimatedMonthlyRevenue": 20418
         },
         {
           "position": 11,
@@ -18134,7 +18746,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB5726",
-          "categoryName": "Eletrodomésticos"
+          "categoryName": "Eletrodomésticos",
+          "estimatedDailySales": 7.5,
+          "estimatedSales": 900,
+          "estimatedMonthlySales": 225,
+          "estimatedMonthlyRevenue": 17998
         },
         {
           "position": 12,
@@ -18193,7 +18809,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 4,
           "categoryId": "MLB5726",
-          "categoryName": "Eletrodomésticos"
+          "categoryName": "Eletrodomésticos",
+          "estimatedDailySales": 7.1,
+          "estimatedSales": 682,
+          "estimatedMonthlySales": 213,
+          "estimatedMonthlyRevenue": 6369
         },
         {
           "position": 13,
@@ -18386,7 +19006,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB5726",
-          "categoryName": "Eletrodomésticos"
+          "categoryName": "Eletrodomésticos",
+          "estimatedDailySales": 6.3,
+          "estimatedSales": 756,
+          "estimatedMonthlySales": 189,
+          "estimatedMonthlyRevenue": 16592
         },
         {
           "position": 16,
@@ -18446,7 +19070,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB5726",
-          "categoryName": "Eletrodomésticos"
+          "categoryName": "Eletrodomésticos",
+          "estimatedDailySales": 6.1,
+          "estimatedSales": 732,
+          "estimatedMonthlySales": 183,
+          "estimatedMonthlyRevenue": 25618
         },
         {
           "position": 17,
@@ -18505,7 +19133,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 1,
           "categoryId": "MLB5726",
-          "categoryName": "Eletrodomésticos"
+          "categoryName": "Eletrodomésticos",
+          "estimatedDailySales": 5.9,
+          "estimatedSales": 708,
+          "estimatedMonthlySales": 177,
+          "estimatedMonthlyRevenue": 21700
         },
         {
           "position": 18,
@@ -18565,7 +19197,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB5726",
-          "categoryName": "Eletrodomésticos"
+          "categoryName": "Eletrodomésticos",
+          "estimatedDailySales": 5.7,
+          "estimatedSales": 684,
+          "estimatedMonthlySales": 171,
+          "estimatedMonthlyRevenue": 51481
         },
         {
           "position": 19,
@@ -18851,7 +19487,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1000",
-          "categoryName": "Eletrônicos, Áudio e Vídeo"
+          "categoryName": "Eletrônicos, Áudio e Vídeo",
+          "estimatedDailySales": 28,
+          "estimatedSales": 3360,
+          "estimatedMonthlySales": 840,
+          "estimatedMonthlyRevenue": 11752
         },
         {
           "position": 2,
@@ -18976,7 +19616,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 1,
           "categoryId": "MLB1000",
-          "categoryName": "Eletrônicos, Áudio e Vídeo"
+          "categoryName": "Eletrônicos, Áudio e Vídeo",
+          "estimatedDailySales": 15.3,
+          "estimatedSales": 1836,
+          "estimatedMonthlySales": 459,
+          "estimatedMonthlyRevenue": 31630
         },
         {
           "position": 4,
@@ -19035,7 +19679,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 25,
           "categoryId": "MLB1000",
-          "categoryName": "Eletrônicos, Áudio e Vídeo"
+          "categoryName": "Eletrônicos, Áudio e Vídeo",
+          "estimatedDailySales": 13.1,
+          "estimatedSales": 1572,
+          "estimatedMonthlySales": 393,
+          "estimatedMonthlyRevenue": 9432
         },
         {
           "position": 5,
@@ -19094,7 +19742,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 8,
           "categoryId": "MLB1000",
-          "categoryName": "Eletrônicos, Áudio e Vídeo"
+          "categoryName": "Eletrônicos, Áudio e Vídeo",
+          "estimatedDailySales": 11.6,
+          "estimatedSales": 1392,
+          "estimatedMonthlySales": 348,
+          "estimatedMonthlyRevenue": 23313
         },
         {
           "position": 6,
@@ -19147,7 +19799,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 161622,
           "categoryId": "MLB1000",
-          "categoryName": "Eletrônicos, Áudio e Vídeo"
+          "categoryName": "Eletrônicos, Áudio e Vídeo",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_928519-MLU73287178978_122023-F.jpg"
         },
         {
           "position": 7,
@@ -19207,7 +19860,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 40325,
           "categoryId": "MLB1000",
-          "categoryName": "Eletrônicos, Áudio e Vídeo"
+          "categoryName": "Eletrônicos, Áudio e Vídeo",
+          "estimatedDailySales": 9.6,
+          "estimatedSales": 1152,
+          "estimatedMonthlySales": 288,
+          "estimatedMonthlyRevenue": 49248
         },
         {
           "position": 8,
@@ -19266,7 +19923,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 2,
           "categoryId": "MLB1000",
-          "categoryName": "Eletrônicos, Áudio e Vídeo"
+          "categoryName": "Eletrônicos, Áudio e Vídeo",
+          "estimatedDailySales": 8.9,
+          "estimatedSales": 1068,
+          "estimatedMonthlySales": 267,
+          "estimatedMonthlyRevenue": 4526
         },
         {
           "position": 9,
@@ -19325,7 +19986,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 2,
           "categoryId": "MLB1000",
-          "categoryName": "Eletrônicos, Áudio e Vídeo"
+          "categoryName": "Eletrônicos, Áudio e Vídeo",
+          "estimatedDailySales": 8.4,
+          "estimatedSales": 1008,
+          "estimatedMonthlySales": 252,
+          "estimatedMonthlyRevenue": 42815
         },
         {
           "position": 10,
@@ -19377,7 +20042,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 97063,
           "categoryId": "MLB1000",
-          "categoryName": "Eletrônicos, Áudio e Vídeo"
+          "categoryName": "Eletrônicos, Áudio e Vídeo",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_944957-MLA114602126822_082026-F.jpg"
         },
         {
           "position": 11,
@@ -19496,7 +20162,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 117377,
           "categoryId": "MLB1000",
-          "categoryName": "Eletrônicos, Áudio e Vídeo"
+          "categoryName": "Eletrônicos, Áudio e Vídeo",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_637428-MLA99577788040_122025-F.jpg"
         },
         {
           "position": 13,
@@ -19619,7 +20286,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 2,
           "categoryId": "MLB1000",
-          "categoryName": "Eletrônicos, Áudio e Vídeo"
+          "categoryName": "Eletrônicos, Áudio e Vídeo",
+          "estimatedDailySales": 6.6,
+          "estimatedSales": 792,
+          "estimatedMonthlySales": 198,
+          "estimatedMonthlyRevenue": 39600
         },
         {
           "position": 15,
@@ -19672,7 +20343,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 54040,
           "categoryId": "MLB1000",
-          "categoryName": "Eletrônicos, Áudio e Vídeo"
+          "categoryName": "Eletrônicos, Áudio e Vídeo",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_800300-MLA94264515012_102025-F.jpg"
         },
         {
           "position": 16,
@@ -20153,7 +20825,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 2,
           "categoryId": "MLB1276",
-          "categoryName": "Esportes e Fitness"
+          "categoryName": "Esportes e Fitness",
+          "estimatedDailySales": 28,
+          "estimatedSales": 3360,
+          "estimatedMonthlySales": 840,
+          "estimatedMonthlyRevenue": 25200
         },
         {
           "position": 2,
@@ -20210,7 +20886,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1276",
-          "categoryName": "Esportes e Fitness"
+          "categoryName": "Esportes e Fitness",
+          "estimatedDailySales": 19.1,
+          "estimatedSales": 2292,
+          "estimatedMonthlySales": 573,
+          "estimatedMonthlyRevenue": 21889
         },
         {
           "position": 3,
@@ -20456,7 +21136,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 5,
           "categoryId": "MLB1276",
-          "categoryName": "Esportes e Fitness"
+          "categoryName": "Esportes e Fitness",
+          "estimatedDailySales": 10.5,
+          "estimatedSales": 1260,
+          "estimatedMonthlySales": 315,
+          "estimatedMonthlyRevenue": 22019
         },
         {
           "position": 7,
@@ -20513,7 +21197,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 2,
           "categoryId": "MLB1276",
-          "categoryName": "Esportes e Fitness"
+          "categoryName": "Esportes e Fitness",
+          "estimatedDailySales": 9.6,
+          "estimatedSales": 1152,
+          "estimatedMonthlySales": 288,
+          "estimatedMonthlyRevenue": 15840
         },
         {
           "position": 8,
@@ -20697,7 +21385,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 1333,
           "categoryId": "MLB1276",
-          "categoryName": "Esportes e Fitness"
+          "categoryName": "Esportes e Fitness",
+          "estimatedDailySales": 7.9,
+          "estimatedSales": 948,
+          "estimatedMonthlySales": 237,
+          "estimatedMonthlyRevenue": 8011
         },
         {
           "position": 11,
@@ -20754,7 +21446,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 131,
           "categoryId": "MLB1276",
-          "categoryName": "Esportes e Fitness"
+          "categoryName": "Esportes e Fitness",
+          "estimatedDailySales": 7.5,
+          "estimatedSales": 900,
+          "estimatedMonthlySales": 225,
+          "estimatedMonthlyRevenue": 13824
         },
         {
           "position": 12,
@@ -20782,7 +21478,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 3435442,
           "categoryId": "MLB1276",
-          "categoryName": "Esportes e Fitness"
+          "categoryName": "Esportes e Fitness",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_837796-MLU78678239851_082024-F.jpg"
         },
         {
           "position": 13,
@@ -21030,7 +21727,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 44215,
           "categoryId": "MLB1276",
-          "categoryName": "Esportes e Fitness"
+          "categoryName": "Esportes e Fitness",
+          "estimatedDailySales": 6.1,
+          "estimatedSales": 732,
+          "estimatedMonthlySales": 183,
+          "estimatedMonthlyRevenue": 20130
         },
         {
           "position": 17,
@@ -21149,7 +21850,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 4,
           "categoryId": "MLB1276",
-          "categoryName": "Esportes e Fitness"
+          "categoryName": "Esportes e Fitness",
+          "estimatedDailySales": 5.7,
+          "estimatedSales": 684,
+          "estimatedMonthlySales": 171,
+          "estimatedMonthlyRevenue": 29973
         },
         {
           "position": 19,
@@ -21208,7 +21913,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1276",
-          "categoryName": "Esportes e Fitness"
+          "categoryName": "Esportes e Fitness",
+          "estimatedDailySales": 5.5,
+          "estimatedSales": 660,
+          "estimatedMonthlySales": 165,
+          "estimatedMonthlyRevenue": 7824
         },
         {
           "position": 20,
@@ -21265,7 +21974,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 4,
           "categoryId": "MLB1276",
-          "categoryName": "Esportes e Fitness"
+          "categoryName": "Esportes e Fitness",
+          "estimatedDailySales": 5.4,
+          "estimatedSales": 648,
+          "estimatedMonthlySales": 162,
+          "estimatedMonthlyRevenue": 6477
         }
       ]
     },
@@ -21422,7 +22135,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 8,
           "categoryId": "MLB263532",
-          "categoryName": "Ferramentas"
+          "categoryName": "Ferramentas",
+          "estimatedDailySales": 28,
+          "estimatedSales": 3360,
+          "estimatedMonthlySales": 840,
+          "estimatedMonthlyRevenue": 95668
         },
         {
           "position": 2,
@@ -21475,7 +22192,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 409473,
           "categoryId": "MLB263532",
-          "categoryName": "Ferramentas"
+          "categoryName": "Ferramentas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_734191-MLA114635011825_072026-F.jpg"
         },
         {
           "position": 3,
@@ -21528,7 +22246,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 409473,
           "categoryId": "MLB263532",
-          "categoryName": "Ferramentas"
+          "categoryName": "Ferramentas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_717563-MLA96240476649_102025-F.jpg"
         },
         {
           "position": 4,
@@ -21588,7 +22307,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 5,
           "categoryId": "MLB263532",
-          "categoryName": "Ferramentas"
+          "categoryName": "Ferramentas",
+          "estimatedDailySales": 13.1,
+          "estimatedSales": 1572,
+          "estimatedMonthlySales": 393,
+          "estimatedMonthlyRevenue": 102137
         },
         {
           "position": 5,
@@ -21650,7 +22373,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 238694,
           "categoryId": "MLB263532",
-          "categoryName": "Ferramentas"
+          "categoryName": "Ferramentas",
+          "estimatedDailySales": 11.6,
+          "estimatedSales": 1392,
+          "estimatedMonthlySales": 348,
+          "estimatedMonthlyRevenue": 20616
         },
         {
           "position": 6,
@@ -21843,7 +22570,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 4,
           "categoryId": "MLB263532",
-          "categoryName": "Ferramentas"
+          "categoryName": "Ferramentas",
+          "estimatedDailySales": 8.9,
+          "estimatedSales": 1068,
+          "estimatedMonthlySales": 267,
+          "estimatedMonthlyRevenue": 17729
         },
         {
           "position": 9,
@@ -21900,7 +22631,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 2,
           "categoryId": "MLB263532",
-          "categoryName": "Ferramentas"
+          "categoryName": "Ferramentas",
+          "estimatedDailySales": 8.4,
+          "estimatedSales": 1008,
+          "estimatedMonthlySales": 252,
+          "estimatedMonthlyRevenue": 11673
         },
         {
           "position": 10,
@@ -21959,7 +22694,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 2,
           "categoryId": "MLB263532",
-          "categoryName": "Ferramentas"
+          "categoryName": "Ferramentas",
+          "estimatedDailySales": 7.9,
+          "estimatedSales": 948,
+          "estimatedMonthlySales": 237,
+          "estimatedMonthlyRevenue": 45006
         },
         {
           "position": 11,
@@ -22009,7 +22748,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 17764,
           "categoryId": "MLB263532",
-          "categoryName": "Ferramentas"
+          "categoryName": "Ferramentas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_821967-MLU74413415882_022024-F.jpg"
         },
         {
           "position": 12,
@@ -22069,7 +22809,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB263532",
-          "categoryName": "Ferramentas"
+          "categoryName": "Ferramentas",
+          "estimatedDailySales": 7.1,
+          "estimatedSales": 852,
+          "estimatedMonthlySales": 213,
+          "estimatedMonthlyRevenue": 23439
         },
         {
           "position": 13,
@@ -22378,7 +23122,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 208904,
           "categoryId": "MLB263532",
-          "categoryName": "Ferramentas"
+          "categoryName": "Ferramentas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_734191-MLA114635011825_072026-F.jpg"
         },
         {
           "position": 18,
@@ -22502,7 +23247,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 2,
           "categoryId": "MLB263532",
-          "categoryName": "Ferramentas"
+          "categoryName": "Ferramentas",
+          "estimatedDailySales": 5.5,
+          "estimatedSales": 660,
+          "estimatedMonthlySales": 165,
+          "estimatedMonthlyRevenue": 3778
         },
         {
           "position": 20,
@@ -22560,7 +23309,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 5,
           "categoryId": "MLB263532",
-          "categoryName": "Ferramentas"
+          "categoryName": "Ferramentas",
+          "estimatedDailySales": 5.4,
+          "estimatedSales": 216,
+          "estimatedMonthlySales": 162,
+          "estimatedMonthlyRevenue": 3562
         }
       ]
     },
@@ -22780,7 +23533,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 38943,
           "categoryId": "MLB12404",
-          "categoryName": "Festas e Lembrancinhas"
+          "categoryName": "Festas e Lembrancinhas",
+          "estimatedDailySales": 19.1,
+          "estimatedSales": 2292,
+          "estimatedMonthlySales": 573,
+          "estimatedMonthlyRevenue": 71625
         },
         {
           "position": 3,
@@ -23026,7 +23783,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 126751,
           "categoryId": "MLB12404",
-          "categoryName": "Festas e Lembrancinhas"
+          "categoryName": "Festas e Lembrancinhas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_833610-MLA113052188648_072026-F.jpg"
         },
         {
           "position": 7,
@@ -23040,7 +23798,11 @@
           "subcategoryTotalItems": 115777,
           "estimatedTaxPercent": 6,
           "categoryId": "MLB12404",
-          "categoryName": "Festas e Lembrancinhas"
+          "categoryName": "Festas e Lembrancinhas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_602379-MLA94028418335_102025-F.jpg",
+          "estimatedDailySales": 9.6,
+          "estimatedSales": 1152,
+          "estimatedMonthlySales": 288
         },
         {
           "position": 8,
@@ -23092,7 +23854,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 125842,
           "categoryId": "MLB12404",
-          "categoryName": "Festas e Lembrancinhas"
+          "categoryName": "Festas e Lembrancinhas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_833610-MLA113052188648_072026-F.jpg"
         },
         {
           "position": 9,
@@ -23151,7 +23914,11 @@
           "sellerPowerStatus": "silver",
           "sellerTotalTransactions": 2233,
           "categoryId": "MLB12404",
-          "categoryName": "Festas e Lembrancinhas"
+          "categoryName": "Festas e Lembrancinhas",
+          "estimatedDailySales": 8.4,
+          "estimatedSales": 1008,
+          "estimatedMonthlySales": 252,
+          "estimatedMonthlyRevenue": 10836
         },
         {
           "position": 10,
@@ -23227,7 +23994,11 @@
           "subcategoryTotalItems": 115777,
           "estimatedTaxPercent": 6,
           "categoryId": "MLB12404",
-          "categoryName": "Festas e Lembrancinhas"
+          "categoryName": "Festas e Lembrancinhas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_602379-MLA94028418335_102025-F.jpg",
+          "estimatedDailySales": 7.5,
+          "estimatedSales": 900,
+          "estimatedMonthlySales": 225
         },
         {
           "position": 12,
@@ -23339,7 +24110,12 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 177754,
           "categoryId": "MLB12404",
-          "categoryName": "Festas e Lembrancinhas"
+          "categoryName": "Festas e Lembrancinhas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_798396-MLA96771741526_112025-F.jpg",
+          "estimatedDailySales": 6.8,
+          "estimatedSales": 816,
+          "estimatedMonthlySales": 204,
+          "estimatedMonthlyRevenue": 16114
         },
         {
           "position": 14,
@@ -23391,7 +24167,8 @@
           "sellerPowerStatus": "gold",
           "sellerTotalTransactions": 44633,
           "categoryId": "MLB12404",
-          "categoryName": "Festas e Lembrancinhas"
+          "categoryName": "Festas e Lembrancinhas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_833610-MLA113052188648_072026-F.jpg"
         },
         {
           "position": 15,
@@ -23450,7 +24227,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 160,
           "categoryId": "MLB12404",
-          "categoryName": "Festas e Lembrancinhas"
+          "categoryName": "Festas e Lembrancinhas",
+          "estimatedDailySales": 6.3,
+          "estimatedSales": 756,
+          "estimatedMonthlySales": 189,
+          "estimatedMonthlyRevenue": 12567
         },
         {
           "position": 16,
@@ -23478,7 +24259,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 100927,
           "categoryId": "MLB12404",
-          "categoryName": "Festas e Lembrancinhas"
+          "categoryName": "Festas e Lembrancinhas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_798396-MLA96771741526_112025-F.jpg"
         },
         {
           "position": 17,
@@ -23666,7 +24448,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 3157,
           "categoryId": "MLB12404",
-          "categoryName": "Festas e Lembrancinhas"
+          "categoryName": "Festas e Lembrancinhas",
+          "estimatedDailySales": 5.5,
+          "estimatedSales": 660,
+          "estimatedMonthlySales": 165,
+          "estimatedMonthlyRevenue": 9425
         },
         {
           "position": 20,
@@ -23694,7 +24480,8 @@
           "sellerPowerStatus": "gold",
           "sellerTotalTransactions": 66187,
           "categoryId": "MLB12404",
-          "categoryName": "Festas e Lembrancinhas"
+          "categoryName": "Festas e Lembrancinhas",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_833610-MLA113052188648_072026-F.jpg"
         }
       ]
     },
@@ -23845,7 +24632,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1144",
-          "categoryName": "Games"
+          "categoryName": "Games",
+          "estimatedDailySales": 28,
+          "estimatedSales": 3360,
+          "estimatedMonthlySales": 840,
+          "estimatedMonthlyRevenue": 105000
         },
         {
           "position": 2,
@@ -23962,7 +24753,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1144",
-          "categoryName": "Games"
+          "categoryName": "Games",
+          "estimatedDailySales": 15.3,
+          "estimatedSales": 1836,
+          "estimatedMonthlySales": 459,
+          "estimatedMonthlyRevenue": 16019
         },
         {
           "position": 4,
@@ -24021,7 +24816,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 128,
           "categoryId": "MLB1144",
-          "categoryName": "Games"
+          "categoryName": "Games",
+          "estimatedDailySales": 13.1,
+          "estimatedSales": 1572,
+          "estimatedMonthlySales": 393,
+          "estimatedMonthlyRevenue": 163091
         },
         {
           "position": 5,
@@ -24138,7 +24937,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1144",
-          "categoryName": "Games"
+          "categoryName": "Games",
+          "estimatedDailySales": 10.5,
+          "estimatedSales": 1260,
+          "estimatedMonthlySales": 315,
+          "estimatedMonthlyRevenue": 47250
         },
         {
           "position": 7,
@@ -24325,7 +25128,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1144",
-          "categoryName": "Games"
+          "categoryName": "Games",
+          "estimatedDailySales": 8.4,
+          "estimatedSales": 1008,
+          "estimatedMonthlySales": 252,
+          "estimatedMonthlyRevenue": 44349
         },
         {
           "position": 10,
@@ -24384,7 +25191,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 18,
           "categoryId": "MLB1144",
-          "categoryName": "Games"
+          "categoryName": "Games",
+          "estimatedDailySales": 7.9,
+          "estimatedSales": 948,
+          "estimatedMonthlySales": 237,
+          "estimatedMonthlyRevenue": 38984
         },
         {
           "position": 11,
@@ -24508,7 +25319,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 1,
           "categoryId": "MLB1144",
-          "categoryName": "Games"
+          "categoryName": "Games",
+          "estimatedDailySales": 7.1,
+          "estimatedSales": 852,
+          "estimatedMonthlySales": 213,
+          "estimatedMonthlyRevenue": 36210
         },
         {
           "position": 13,
@@ -24567,7 +25382,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 1,
           "categoryId": "MLB1144",
-          "categoryName": "Games"
+          "categoryName": "Games",
+          "estimatedDailySales": 6.8,
+          "estimatedSales": 816,
+          "estimatedMonthlySales": 204,
+          "estimatedMonthlyRevenue": 9537
         },
         {
           "position": 14,
@@ -24686,7 +25505,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1144",
-          "categoryName": "Games"
+          "categoryName": "Games",
+          "estimatedDailySales": 6.3,
+          "estimatedSales": 756,
+          "estimatedMonthlySales": 189,
+          "estimatedMonthlyRevenue": 5670
         },
         {
           "position": 16,
@@ -24811,7 +25634,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1144",
-          "categoryName": "Games"
+          "categoryName": "Games",
+          "estimatedDailySales": 5.9,
+          "estimatedSales": 708,
+          "estimatedMonthlySales": 177,
+          "estimatedMonthlyRevenue": 9735
         },
         {
           "position": 18,
@@ -24870,7 +25697,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1144",
-          "categoryName": "Games"
+          "categoryName": "Games",
+          "estimatedDailySales": 5.7,
+          "estimatedSales": 684,
+          "estimatedMonthlySales": 171,
+          "estimatedMonthlyRevenue": 85329
         },
         {
           "position": 19,
@@ -24992,7 +25823,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 20,
           "categoryId": "MLB1144",
-          "categoryName": "Games"
+          "categoryName": "Games",
+          "estimatedDailySales": 5.4,
+          "estimatedSales": 648,
+          "estimatedMonthlySales": 162,
+          "estimatedMonthlyRevenue": 15361
         }
       ]
     },
@@ -25156,7 +25991,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 565430,
           "categoryId": "MLB1499",
-          "categoryName": "Indústria e Comércio"
+          "categoryName": "Indústria e Comércio",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_895258-MLA84185431998_052025-F.jpg"
         },
         {
           "position": 2,
@@ -25184,7 +26020,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 183276,
           "categoryId": "MLB1499",
-          "categoryName": "Indústria e Comércio"
+          "categoryName": "Indústria e Comércio",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_804524-MLA106136128972_022026-F.jpg"
         },
         {
           "position": 3,
@@ -25243,7 +26080,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1499",
-          "categoryName": "Indústria e Comércio"
+          "categoryName": "Indústria e Comércio",
+          "estimatedDailySales": 15.3,
+          "estimatedSales": 1836,
+          "estimatedMonthlySales": 459,
+          "estimatedMonthlyRevenue": 16065
         },
         {
           "position": 4,
@@ -25303,7 +26144,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 6,
           "categoryId": "MLB1499",
-          "categoryName": "Indústria e Comércio"
+          "categoryName": "Indústria e Comércio",
+          "estimatedDailySales": 13.1,
+          "estimatedSales": 1572,
+          "estimatedMonthlySales": 393,
+          "estimatedMonthlyRevenue": 9786
         },
         {
           "position": 5,
@@ -25331,7 +26176,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 614011,
           "categoryId": "MLB1499",
-          "categoryName": "Indústria e Comércio"
+          "categoryName": "Indústria e Comércio",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_804524-MLA106136128972_022026-F.jpg"
         },
         {
           "position": 6,
@@ -25391,7 +26237,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1499",
-          "categoryName": "Indústria e Comércio"
+          "categoryName": "Indústria e Comércio",
+          "estimatedDailySales": 10.5,
+          "estimatedSales": 1260,
+          "estimatedMonthlySales": 315,
+          "estimatedMonthlyRevenue": 94834
         },
         {
           "position": 7,
@@ -25444,7 +26294,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 565430,
           "categoryId": "MLB1499",
-          "categoryName": "Indústria e Comércio"
+          "categoryName": "Indústria e Comércio",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_895258-MLA84185431998_052025-F.jpg"
         },
         {
           "position": 8,
@@ -25700,7 +26551,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 2,
           "categoryId": "MLB1499",
-          "categoryName": "Indústria e Comércio"
+          "categoryName": "Indústria e Comércio",
+          "estimatedDailySales": 7.5,
+          "estimatedSales": 900,
+          "estimatedMonthlySales": 225,
+          "estimatedMonthlyRevenue": 3375
         },
         {
           "position": 12,
@@ -25753,7 +26608,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 565430,
           "categoryId": "MLB1499",
-          "categoryName": "Indústria e Comércio"
+          "categoryName": "Indústria e Comércio",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_895258-MLA84185431998_052025-F.jpg"
         },
         {
           "position": 13,
@@ -25805,7 +26661,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 46957,
           "categoryId": "MLB1499",
-          "categoryName": "Indústria e Comércio"
+          "categoryName": "Indústria e Comércio",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_876697-MLA118019916398_102026-F.jpg"
         },
         {
           "position": 14,
@@ -25857,7 +26714,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 61667,
           "categoryId": "MLB1499",
-          "categoryName": "Indústria e Comércio"
+          "categoryName": "Indústria e Comércio",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_804524-MLA106136128972_022026-F.jpg"
         },
         {
           "position": 15,
@@ -25981,7 +26839,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 62,
           "categoryId": "MLB1499",
-          "categoryName": "Indústria e Comércio"
+          "categoryName": "Indústria e Comércio",
+          "estimatedDailySales": 6.1,
+          "estimatedSales": 732,
+          "estimatedMonthlySales": 183,
+          "estimatedMonthlyRevenue": 9148
         },
         {
           "position": 17,
@@ -26076,7 +26938,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 614011,
           "categoryId": "MLB1499",
-          "categoryName": "Indústria e Comércio"
+          "categoryName": "Indústria e Comércio",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_804524-MLA106136128972_022026-F.jpg"
         },
         {
           "position": 19,
@@ -26170,7 +27033,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 70449,
           "categoryId": "MLB1499",
-          "categoryName": "Indústria e Comércio"
+          "categoryName": "Indústria e Comércio",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_804524-MLA106136128972_022026-F.jpg"
         }
       ]
     },
@@ -26326,7 +27190,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 86,
           "categoryId": "MLB1648",
-          "categoryName": "Informática"
+          "categoryName": "Informática",
+          "estimatedDailySales": 28,
+          "estimatedSales": 3360,
+          "estimatedMonthlySales": 840,
+          "estimatedMonthlyRevenue": 49560
         },
         {
           "position": 2,
@@ -26380,7 +27248,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1648",
-          "categoryName": "Informática"
+          "categoryName": "Informática",
+          "estimatedDailySales": 19.1,
+          "estimatedSales": 2292,
+          "estimatedMonthlySales": 573,
+          "estimatedMonthlyRevenue": 71625
         },
         {
           "position": 3,
@@ -26440,7 +27312,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 8,
           "categoryId": "MLB1648",
-          "categoryName": "Informática"
+          "categoryName": "Informática",
+          "estimatedDailySales": 15.3,
+          "estimatedSales": 1836,
+          "estimatedMonthlySales": 459,
+          "estimatedMonthlyRevenue": 49393
         },
         {
           "position": 4,
@@ -26683,7 +27559,11 @@
           "sellerPowerStatus": "silver",
           "sellerTotalTransactions": 530,
           "categoryId": "MLB1648",
-          "categoryName": "Informática"
+          "categoryName": "Informática",
+          "estimatedDailySales": 9.6,
+          "estimatedSales": 1152,
+          "estimatedMonthlySales": 288,
+          "estimatedMonthlyRevenue": 40311
         },
         {
           "position": 8,
@@ -26742,7 +27622,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 1,
           "categoryId": "MLB1648",
-          "categoryName": "Informática"
+          "categoryName": "Informática",
+          "estimatedDailySales": 8.9,
+          "estimatedSales": 1068,
+          "estimatedMonthlySales": 267,
+          "estimatedMonthlyRevenue": 18399
         },
         {
           "position": 9,
@@ -26801,7 +27685,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 8,
           "categoryId": "MLB1648",
-          "categoryName": "Informática"
+          "categoryName": "Informática",
+          "estimatedDailySales": 8.4,
+          "estimatedSales": 1008,
+          "estimatedMonthlySales": 252,
+          "estimatedMonthlyRevenue": 16881
         },
         {
           "position": 10,
@@ -26925,7 +27813,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 128,
           "categoryId": "MLB1648",
-          "categoryName": "Informática"
+          "categoryName": "Informática",
+          "estimatedDailySales": 7.5,
+          "estimatedSales": 900,
+          "estimatedMonthlySales": 225,
+          "estimatedMonthlyRevenue": 93373
         },
         {
           "position": 12,
@@ -26984,7 +27876,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 4,
           "categoryId": "MLB1648",
-          "categoryName": "Informática"
+          "categoryName": "Informática",
+          "estimatedDailySales": 7.1,
+          "estimatedSales": 852,
+          "estimatedMonthlySales": 213,
+          "estimatedMonthlyRevenue": 5943
         },
         {
           "position": 13,
@@ -27336,7 +28232,8 @@
           "sellerPowerStatus": "gold",
           "sellerTotalTransactions": 9199,
           "categoryId": "MLB1648",
-          "categoryName": "Informática"
+          "categoryName": "Informática",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_781618-MLU78882920215_092024-F.jpg"
         },
         {
           "position": 19,
@@ -27396,7 +28293,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 169,
           "categoryId": "MLB1648",
-          "categoryName": "Informática"
+          "categoryName": "Informática",
+          "estimatedDailySales": 5.5,
+          "estimatedSales": 660,
+          "estimatedMonthlySales": 165,
+          "estimatedMonthlyRevenue": 18315
         },
         {
           "position": 20,
@@ -27700,7 +28601,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 137,
           "categoryId": "MLB1182",
-          "categoryName": "Instrumentos Musicais"
+          "categoryName": "Instrumentos Musicais",
+          "estimatedDailySales": 19.1,
+          "estimatedSales": 2292,
+          "estimatedMonthlySales": 573,
+          "estimatedMonthlyRevenue": 53576
         },
         {
           "position": 3,
@@ -27825,7 +28730,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1182",
-          "categoryName": "Instrumentos Musicais"
+          "categoryName": "Instrumentos Musicais",
+          "estimatedDailySales": 13.1,
+          "estimatedSales": 1572,
+          "estimatedMonthlySales": 393,
+          "estimatedMonthlyRevenue": 21615
         },
         {
           "position": 5,
@@ -27853,7 +28762,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 160743,
           "categoryId": "MLB1182",
-          "categoryName": "Instrumentos Musicais"
+          "categoryName": "Instrumentos Musicais",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_919723-MLA115994932383_082026-F.jpg"
         },
         {
           "position": 6,
@@ -27913,7 +28823,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 401,
           "categoryId": "MLB1182",
-          "categoryName": "Instrumentos Musicais"
+          "categoryName": "Instrumentos Musicais",
+          "estimatedDailySales": 10.5,
+          "estimatedSales": 1260,
+          "estimatedMonthlySales": 315,
+          "estimatedMonthlyRevenue": 7812
         },
         {
           "position": 7,
@@ -27973,7 +28887,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 3,
           "categoryId": "MLB1182",
-          "categoryName": "Instrumentos Musicais"
+          "categoryName": "Instrumentos Musicais",
+          "estimatedDailySales": 9.6,
+          "estimatedSales": 1152,
+          "estimatedMonthlySales": 288,
+          "estimatedMonthlyRevenue": 13694
         },
         {
           "position": 8,
@@ -28033,7 +28951,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 25810,
           "categoryId": "MLB1182",
-          "categoryName": "Instrumentos Musicais"
+          "categoryName": "Instrumentos Musicais",
+          "estimatedDailySales": 8.9,
+          "estimatedSales": 1068,
+          "estimatedMonthlySales": 267,
+          "estimatedMonthlyRevenue": 30515
         },
         {
           "position": 9,
@@ -28223,7 +29145,11 @@
           "sellerPowerStatus": "silver",
           "sellerTotalTransactions": 1217,
           "categoryId": "MLB1182",
-          "categoryName": "Instrumentos Musicais"
+          "categoryName": "Instrumentos Musicais",
+          "estimatedDailySales": 7.5,
+          "estimatedSales": 900,
+          "estimatedMonthlySales": 225,
+          "estimatedMonthlyRevenue": 1305
         },
         {
           "position": 12,
@@ -28284,7 +29210,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 4030,
           "categoryId": "MLB1182",
-          "categoryName": "Instrumentos Musicais"
+          "categoryName": "Instrumentos Musicais",
+          "estimatedDailySales": 7.1,
+          "estimatedSales": 852,
+          "estimatedMonthlySales": 213,
+          "estimatedMonthlyRevenue": 58415
         },
         {
           "position": 13,
@@ -28605,7 +29535,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 6079,
           "categoryId": "MLB1182",
-          "categoryName": "Instrumentos Musicais"
+          "categoryName": "Instrumentos Musicais",
+          "estimatedDailySales": 5.9,
+          "estimatedSales": 708,
+          "estimatedMonthlySales": 177,
+          "estimatedMonthlyRevenue": 3275
         },
         {
           "position": 18,
@@ -28795,7 +29729,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 32,
           "categoryId": "MLB1182",
-          "categoryName": "Instrumentos Musicais"
+          "categoryName": "Instrumentos Musicais",
+          "estimatedDailySales": 5.4,
+          "estimatedSales": 648,
+          "estimatedMonthlySales": 162,
+          "estimatedMonthlyRevenue": 48584
         }
       ]
     },
@@ -28944,7 +29882,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 84246,
           "categoryId": "MLB3937",
-          "categoryName": "Joias e Relógios"
+          "categoryName": "Joias e Relógios",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_784617-MLA111154959938_052026-F.jpg"
         },
         {
           "position": 2,
@@ -28997,7 +29936,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 208383,
           "categoryId": "MLB3937",
-          "categoryName": "Joias e Relógios"
+          "categoryName": "Joias e Relógios",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_668877-MLA103243019290_012026-F.jpg"
         },
         {
           "position": 3,
@@ -29025,7 +29965,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 37106,
           "categoryId": "MLB3937",
-          "categoryName": "Joias e Relógios"
+          "categoryName": "Joias e Relógios",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_707800-MLA95670558739_102025-F.jpg"
         },
         {
           "position": 4,
@@ -29210,7 +30151,8 @@
           "sellerPowerStatus": "gold",
           "sellerTotalTransactions": 41619,
           "categoryId": "MLB3937",
-          "categoryName": "Joias e Relógios"
+          "categoryName": "Joias e Relógios",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_695859-MLA104460160418_012026-F.jpg"
         },
         {
           "position": 7,
@@ -29392,7 +30334,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 78575,
           "categoryId": "MLB3937",
-          "categoryName": "Joias e Relógios"
+          "categoryName": "Joias e Relógios",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_841499-MLA78332566906_082024-F.jpg"
         },
         {
           "position": 10,
@@ -29572,7 +30515,8 @@
           "sellerPowerStatus": "gold",
           "sellerTotalTransactions": 18659,
           "categoryId": "MLB3937",
-          "categoryName": "Joias e Relógios"
+          "categoryName": "Joias e Relógios",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_636460-MLA116237777811_082026-F.jpg"
         },
         {
           "position": 13,
@@ -29633,7 +30577,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 5676,
           "categoryId": "MLB3937",
-          "categoryName": "Joias e Relógios"
+          "categoryName": "Joias e Relógios",
+          "estimatedDailySales": 6.8,
+          "estimatedSales": 816,
+          "estimatedMonthlySales": 204,
+          "estimatedMonthlyRevenue": 17742
         },
         {
           "position": 14,
@@ -29661,7 +30609,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 74377,
           "categoryId": "MLB3937",
-          "categoryName": "Joias e Relógios"
+          "categoryName": "Joias e Relógios",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_724440-MLA115546661998_082026-F.jpg"
         },
         {
           "position": 15,
@@ -29720,7 +30669,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 3,
           "categoryId": "MLB3937",
-          "categoryName": "Joias e Relógios"
+          "categoryName": "Joias e Relógios",
+          "estimatedDailySales": 6.3,
+          "estimatedSales": 756,
+          "estimatedMonthlySales": 189,
+          "estimatedMonthlyRevenue": 14175
         },
         {
           "position": 16,
@@ -29831,7 +30784,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 35831,
           "categoryId": "MLB3937",
-          "categoryName": "Joias e Relógios"
+          "categoryName": "Joias e Relógios",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_807516-MLA99466440578_112025-F.jpg"
         },
         {
           "position": 18,
@@ -29893,7 +30847,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 27098,
           "categoryId": "MLB3937",
-          "categoryName": "Joias e Relógios"
+          "categoryName": "Joias e Relógios",
+          "estimatedDailySales": 5.7,
+          "estimatedSales": 684,
+          "estimatedMonthlySales": 171,
+          "estimatedMonthlyRevenue": 73296
         },
         {
           "position": 19,
@@ -29921,7 +30879,8 @@
           "sellerPowerStatus": "gold",
           "sellerTotalTransactions": 28214,
           "categoryId": "MLB3937",
-          "categoryName": "Joias e Relógios"
+          "categoryName": "Joias e Relógios",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_841499-MLA78332566906_082024-F.jpg"
         },
         {
           "position": 20,
@@ -30200,7 +31159,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 1005020,
           "categoryId": "MLB1196",
-          "categoryName": "Livros, Revistas e Comics"
+          "categoryName": "Livros, Revistas e Comics",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_611659-MLA108125452735_032026-F.jpg"
         },
         {
           "position": 3,
@@ -30259,7 +31219,11 @@
           "sellerPowerStatus": "gold",
           "sellerTotalTransactions": 28818,
           "categoryId": "MLB1196",
-          "categoryName": "Livros, Revistas e Comics"
+          "categoryName": "Livros, Revistas e Comics",
+          "estimatedDailySales": 15.3,
+          "estimatedSales": 1836,
+          "estimatedMonthlySales": 459,
+          "estimatedMonthlyRevenue": 20343
         },
         {
           "position": 4,
@@ -30318,7 +31282,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 4,
           "categoryId": "MLB1196",
-          "categoryName": "Livros, Revistas e Comics"
+          "categoryName": "Livros, Revistas e Comics",
+          "estimatedDailySales": 13.1,
+          "estimatedSales": 1572,
+          "estimatedMonthlySales": 393,
+          "estimatedMonthlyRevenue": 10965
         },
         {
           "position": 5,
@@ -30495,7 +31463,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 1005020,
           "categoryId": "MLB1196",
-          "categoryName": "Livros, Revistas e Comics"
+          "categoryName": "Livros, Revistas e Comics",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_611659-MLA108125452735_032026-F.jpg"
         },
         {
           "position": 8,
@@ -30613,7 +31582,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 234,
           "categoryId": "MLB1196",
-          "categoryName": "Livros, Revistas e Comics"
+          "categoryName": "Livros, Revistas e Comics",
+          "estimatedDailySales": 8.4,
+          "estimatedSales": 1008,
+          "estimatedMonthlySales": 252,
+          "estimatedMonthlyRevenue": 10904
         },
         {
           "position": 10,
@@ -30673,7 +31646,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 64009,
           "categoryId": "MLB1196",
-          "categoryName": "Livros, Revistas e Comics"
+          "categoryName": "Livros, Revistas e Comics",
+          "estimatedDailySales": 7.9,
+          "estimatedSales": 371,
+          "estimatedMonthlySales": 237,
+          "estimatedMonthlyRevenue": 11205
         },
         {
           "position": 11,
@@ -30859,7 +31836,11 @@
           "sellerPowerStatus": "gold",
           "sellerTotalTransactions": 10586,
           "categoryId": "MLB1196",
-          "categoryName": "Livros, Revistas e Comics"
+          "categoryName": "Livros, Revistas e Comics",
+          "estimatedDailySales": 6.8,
+          "estimatedSales": 816,
+          "estimatedMonthlySales": 204,
+          "estimatedMonthlyRevenue": 8238
         },
         {
           "position": 14,
@@ -30916,7 +31897,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 22,
           "categoryId": "MLB1196",
-          "categoryName": "Livros, Revistas e Comics"
+          "categoryName": "Livros, Revistas e Comics",
+          "estimatedDailySales": 6.6,
+          "estimatedSales": 792,
+          "estimatedMonthlySales": 198,
+          "estimatedMonthlyRevenue": 6930
         },
         {
           "position": 15,
@@ -30994,7 +31979,11 @@
           "subcategoryTotalItems": 14737623,
           "estimatedTaxPercent": 6,
           "categoryId": "MLB1196",
-          "categoryName": "Livros, Revistas e Comics"
+          "categoryName": "Livros, Revistas e Comics",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_611659-MLA108125452735_032026-F.jpg",
+          "estimatedDailySales": 6.1,
+          "estimatedSales": 732,
+          "estimatedMonthlySales": 183
         },
         {
           "position": 17,
@@ -31179,7 +32168,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 34,
           "categoryId": "MLB1196",
-          "categoryName": "Livros, Revistas e Comics"
+          "categoryName": "Livros, Revistas e Comics",
+          "estimatedDailySales": 5.5,
+          "estimatedSales": 660,
+          "estimatedMonthlySales": 165,
+          "estimatedMonthlyRevenue": 3960
         },
         {
           "position": 20,
@@ -31236,7 +32229,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 438,
           "categoryId": "MLB1196",
-          "categoryName": "Livros, Revistas e Comics"
+          "categoryName": "Livros, Revistas e Comics",
+          "estimatedDailySales": 5.4,
+          "estimatedSales": 648,
+          "estimatedMonthlySales": 162,
+          "estimatedMonthlyRevenue": 5992
         }
       ]
     },
@@ -31386,7 +32383,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 133,
           "categoryId": "MLB1168",
-          "categoryName": "Música, Filmes e Seriados"
+          "categoryName": "Música, Filmes e Seriados",
+          "estimatedDailySales": 28,
+          "estimatedSales": 3360,
+          "estimatedMonthlySales": 840,
+          "estimatedMonthlyRevenue": 35372
         },
         {
           "position": 2,
@@ -31439,7 +32440,8 @@
           "sellerPowerStatus": "gold",
           "sellerTotalTransactions": 16138,
           "categoryId": "MLB1168",
-          "categoryName": "Música, Filmes e Seriados"
+          "categoryName": "Música, Filmes e Seriados",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_686800-MLA91100181576_092025-F.jpg"
         },
         {
           "position": 3,
@@ -31489,7 +32491,8 @@
           "sellerPowerStatus": "gold",
           "sellerTotalTransactions": 35078,
           "categoryId": "MLB1168",
-          "categoryName": "Música, Filmes e Seriados"
+          "categoryName": "Música, Filmes e Seriados",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_686800-MLA91100181576_092025-F.jpg"
         },
         {
           "position": 4,
@@ -31600,7 +32603,8 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 403,
           "categoryId": "MLB1168",
-          "categoryName": "Música, Filmes e Seriados"
+          "categoryName": "Música, Filmes e Seriados",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_627041-MLU77445651043_072024-F.jpg"
         },
         {
           "position": 6,
@@ -31614,7 +32618,11 @@
           "subcategoryTotalItems": 1958901,
           "estimatedTaxPercent": 6,
           "categoryId": "MLB1168",
-          "categoryName": "Música, Filmes e Seriados"
+          "categoryName": "Música, Filmes e Seriados",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_627041-MLU77445651043_072024-F.jpg",
+          "estimatedDailySales": 10.5,
+          "estimatedSales": 1260,
+          "estimatedMonthlySales": 315
         },
         {
           "position": 7,
@@ -31664,7 +32672,8 @@
           "sellerPowerStatus": "gold",
           "sellerTotalTransactions": 19252,
           "categoryId": "MLB1168",
-          "categoryName": "Música, Filmes e Seriados"
+          "categoryName": "Música, Filmes e Seriados",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_627041-MLU77445651043_072024-F.jpg"
         },
         {
           "position": 8,
@@ -31714,7 +32723,8 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 494,
           "categoryId": "MLB1168",
-          "categoryName": "Música, Filmes e Seriados"
+          "categoryName": "Música, Filmes e Seriados",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_627041-MLU77445651043_072024-F.jpg"
         },
         {
           "position": 9,
@@ -31762,7 +32772,8 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 2197,
           "categoryId": "MLB1168",
-          "categoryName": "Música, Filmes e Seriados"
+          "categoryName": "Música, Filmes e Seriados",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_627041-MLU77445651043_072024-F.jpg"
         },
         {
           "position": 10,
@@ -31776,7 +32787,11 @@
           "subcategoryTotalItems": 1958901,
           "estimatedTaxPercent": 6,
           "categoryId": "MLB1168",
-          "categoryName": "Música, Filmes e Seriados"
+          "categoryName": "Música, Filmes e Seriados",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_627041-MLU77445651043_072024-F.jpg",
+          "estimatedDailySales": 7.9,
+          "estimatedSales": 948,
+          "estimatedMonthlySales": 237
         },
         {
           "position": 11,
@@ -31830,7 +32845,11 @@
           "sellerPowerStatus": "silver",
           "sellerTotalTransactions": 1637,
           "categoryId": "MLB1168",
-          "categoryName": "Música, Filmes e Seriados"
+          "categoryName": "Música, Filmes e Seriados",
+          "estimatedDailySales": 7.5,
+          "estimatedSales": 900,
+          "estimatedMonthlySales": 225,
+          "estimatedMonthlyRevenue": 47025
         },
         {
           "position": 12,
@@ -31880,7 +32899,8 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 2197,
           "categoryId": "MLB1168",
-          "categoryName": "Música, Filmes e Seriados"
+          "categoryName": "Música, Filmes e Seriados",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_627041-MLU77445651043_072024-F.jpg"
         },
         {
           "position": 13,
@@ -31928,7 +32948,8 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 2197,
           "categoryId": "MLB1168",
-          "categoryName": "Música, Filmes e Seriados"
+          "categoryName": "Música, Filmes e Seriados",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_627041-MLU77445651043_072024-F.jpg"
         },
         {
           "position": 14,
@@ -31978,7 +32999,8 @@
           "sellerPowerStatus": "silver",
           "sellerTotalTransactions": 3976,
           "categoryId": "MLB1168",
-          "categoryName": "Música, Filmes e Seriados"
+          "categoryName": "Música, Filmes e Seriados",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_627041-MLU77445651043_072024-F.jpg"
         },
         {
           "position": 15,
@@ -32028,7 +33050,8 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 3250,
           "categoryId": "MLB1168",
-          "categoryName": "Música, Filmes e Seriados"
+          "categoryName": "Música, Filmes e Seriados",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_686800-MLA91100181576_092025-F.jpg"
         },
         {
           "position": 16,
@@ -32081,7 +33104,8 @@
           "sellerPowerStatus": "gold",
           "sellerTotalTransactions": 16138,
           "categoryId": "MLB1168",
-          "categoryName": "Música, Filmes e Seriados"
+          "categoryName": "Música, Filmes e Seriados",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_686800-MLA91100181576_092025-F.jpg"
         },
         {
           "position": 17,
@@ -32154,7 +33178,11 @@
           "subcategoryTotalItems": 1958901,
           "estimatedTaxPercent": 6,
           "categoryId": "MLB1168",
-          "categoryName": "Música, Filmes e Seriados"
+          "categoryName": "Música, Filmes e Seriados",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_627041-MLU77445651043_072024-F.jpg",
+          "estimatedDailySales": 5.7,
+          "estimatedSales": 684,
+          "estimatedMonthlySales": 171
         },
         {
           "position": 19,
@@ -32204,7 +33232,8 @@
           "sellerPowerStatus": "gold",
           "sellerTotalTransactions": 19252,
           "categoryId": "MLB1168",
-          "categoryName": "Música, Filmes e Seriados"
+          "categoryName": "Música, Filmes e Seriados",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_627041-MLU77445651043_072024-F.jpg"
         },
         {
           "position": 20,
@@ -32254,7 +33283,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 14910,
           "categoryId": "MLB1168",
-          "categoryName": "Música, Filmes e Seriados"
+          "categoryName": "Música, Filmes e Seriados",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_686800-MLA91100181576_092025-F.jpg"
         }
       ]
     },
@@ -32408,7 +33438,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 2,
           "categoryId": "MLB264586",
-          "categoryName": "Saúde"
+          "categoryName": "Saúde",
+          "estimatedDailySales": 28,
+          "estimatedSales": 3360,
+          "estimatedMonthlySales": 840,
+          "estimatedMonthlyRevenue": 25200
         },
         {
           "position": 2,
@@ -32529,7 +33563,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB264586",
-          "categoryName": "Saúde"
+          "categoryName": "Saúde",
+          "estimatedDailySales": 15.3,
+          "estimatedSales": 1836,
+          "estimatedMonthlySales": 459,
+          "estimatedMonthlyRevenue": 17534
         },
         {
           "position": 4,
@@ -32839,7 +33877,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 5,
           "categoryId": "MLB264586",
-          "categoryName": "Saúde"
+          "categoryName": "Saúde",
+          "estimatedDailySales": 8.9,
+          "estimatedSales": 1068,
+          "estimatedMonthlySales": 267,
+          "estimatedMonthlyRevenue": 18663
         },
         {
           "position": 9,
@@ -32896,7 +33938,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 2,
           "categoryId": "MLB264586",
-          "categoryName": "Saúde"
+          "categoryName": "Saúde",
+          "estimatedDailySales": 8.4,
+          "estimatedSales": 1008,
+          "estimatedMonthlySales": 252,
+          "estimatedMonthlyRevenue": 13860
         },
         {
           "position": 10,
@@ -32953,7 +33999,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 13,
           "categoryId": "MLB264586",
-          "categoryName": "Saúde"
+          "categoryName": "Saúde",
+          "estimatedDailySales": 7.9,
+          "estimatedSales": 948,
+          "estimatedMonthlySales": 237,
+          "estimatedMonthlyRevenue": 4479
         },
         {
           "position": 11,
@@ -33005,7 +34055,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 315064,
           "categoryId": "MLB264586",
-          "categoryName": "Saúde"
+          "categoryName": "Saúde",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_926355-MLA116566858982_092026-F.jpg"
         },
         {
           "position": 12,
@@ -33064,7 +34115,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB264586",
-          "categoryName": "Saúde"
+          "categoryName": "Saúde",
+          "estimatedDailySales": 7.1,
+          "estimatedSales": 852,
+          "estimatedMonthlySales": 213,
+          "estimatedMonthlyRevenue": 6690
         },
         {
           "position": 13,
@@ -33378,7 +34433,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 1333,
           "categoryId": "MLB264586",
-          "categoryName": "Saúde"
+          "categoryName": "Saúde",
+          "estimatedDailySales": 5.9,
+          "estimatedSales": 708,
+          "estimatedMonthlySales": 177,
+          "estimatedMonthlyRevenue": 5983
         },
         {
           "position": 18,
@@ -33435,7 +34494,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 131,
           "categoryId": "MLB264586",
-          "categoryName": "Saúde"
+          "categoryName": "Saúde",
+          "estimatedDailySales": 5.7,
+          "estimatedSales": 684,
+          "estimatedMonthlySales": 171,
+          "estimatedMonthlyRevenue": 10506
         },
         {
           "position": 19,
@@ -33495,7 +34558,11 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 35032250,
           "categoryId": "MLB264586",
-          "categoryName": "Saúde"
+          "categoryName": "Saúde",
+          "estimatedDailySales": 5.5,
+          "estimatedSales": 660,
+          "estimatedMonthlySales": 165,
+          "estimatedMonthlyRevenue": 6623
         },
         {
           "position": 20,
@@ -33687,7 +34754,11 @@
           "subcategoryTotalItems": 4654209,
           "estimatedTaxPercent": 6,
           "categoryId": "MLB1953",
-          "categoryName": "Mais Categorias"
+          "categoryName": "Mais Categorias",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_632488-MLA111531555742_062026-F.jpg",
+          "estimatedDailySales": 28,
+          "estimatedSales": 3360,
+          "estimatedMonthlySales": 840
         },
         {
           "position": 2,
@@ -33701,7 +34772,11 @@
           "subcategoryTotalItems": 4654209,
           "estimatedTaxPercent": 6,
           "categoryId": "MLB1953",
-          "categoryName": "Mais Categorias"
+          "categoryName": "Mais Categorias",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_632488-MLA111531555742_062026-F.jpg",
+          "estimatedDailySales": 19.1,
+          "estimatedSales": 2292,
+          "estimatedMonthlySales": 573
         },
         {
           "position": 3,
@@ -33715,7 +34790,11 @@
           "subcategoryTotalItems": 4654209,
           "estimatedTaxPercent": 6,
           "categoryId": "MLB1953",
-          "categoryName": "Mais Categorias"
+          "categoryName": "Mais Categorias",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_632488-MLA111531555742_062026-F.jpg",
+          "estimatedDailySales": 15.3,
+          "estimatedSales": 1836,
+          "estimatedMonthlySales": 459
         },
         {
           "position": 4,
@@ -33729,7 +34808,11 @@
           "subcategoryTotalItems": 0,
           "estimatedTaxPercent": 6,
           "categoryId": "MLB1953",
-          "categoryName": "Mais Categorias"
+          "categoryName": "Mais Categorias",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_988951-MLA110576311147_042026-F.jpg",
+          "estimatedDailySales": 13.1,
+          "estimatedSales": 1572,
+          "estimatedMonthlySales": 393
         },
         {
           "position": 5,
@@ -33743,7 +34826,11 @@
           "subcategoryTotalItems": 0,
           "estimatedTaxPercent": 6,
           "categoryId": "MLB1953",
-          "categoryName": "Mais Categorias"
+          "categoryName": "Mais Categorias",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_988951-MLA110576311147_042026-F.jpg",
+          "estimatedDailySales": 11.6,
+          "estimatedSales": 1392,
+          "estimatedMonthlySales": 348
         },
         {
           "position": 6,
@@ -33866,7 +34953,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 5144,
           "categoryId": "MLB1953",
-          "categoryName": "Mais Categorias"
+          "categoryName": "Mais Categorias",
+          "estimatedDailySales": 9.6,
+          "estimatedSales": 1152,
+          "estimatedMonthlySales": 288,
+          "estimatedMonthlyRevenue": 3180
         },
         {
           "position": 8,
@@ -33941,7 +35032,11 @@
           "subcategoryTotalItems": 4654209,
           "estimatedTaxPercent": 6,
           "categoryId": "MLB1953",
-          "categoryName": "Mais Categorias"
+          "categoryName": "Mais Categorias",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_632488-MLA111531555742_062026-F.jpg",
+          "estimatedDailySales": 8.4,
+          "estimatedSales": 1008,
+          "estimatedMonthlySales": 252
         },
         {
           "position": 10,
@@ -33994,7 +35089,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 127158,
           "categoryId": "MLB1953",
-          "categoryName": "Mais Categorias"
+          "categoryName": "Mais Categorias",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_762654-MLA99484740268_112025-F.jpg"
         },
         {
           "position": 11,
@@ -34115,7 +35211,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 1,
           "categoryId": "MLB1953",
-          "categoryName": "Mais Categorias"
+          "categoryName": "Mais Categorias",
+          "estimatedDailySales": 7.1,
+          "estimatedSales": 852,
+          "estimatedMonthlySales": 213,
+          "estimatedMonthlyRevenue": 5517
         },
         {
           "position": 13,
@@ -34129,7 +35229,11 @@
           "subcategoryTotalItems": 7772,
           "estimatedTaxPercent": 6,
           "categoryId": "MLB1953",
-          "categoryName": "Mais Categorias"
+          "categoryName": "Mais Categorias",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_661259-MLU79327127573_092024-F.jpg",
+          "estimatedDailySales": 6.8,
+          "estimatedSales": 816,
+          "estimatedMonthlySales": 204
         },
         {
           "position": 14,
@@ -34157,7 +35261,8 @@
           "sellerPowerStatus": "platinum",
           "sellerTotalTransactions": 38158,
           "categoryId": "MLB1953",
-          "categoryName": "Mais Categorias"
+          "categoryName": "Mais Categorias",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_851401-MLU74333700757_012024-F.jpg"
         },
         {
           "position": 15,
@@ -34214,7 +35319,11 @@
           "sellerPowerStatus": null,
           "sellerTotalTransactions": 0,
           "categoryId": "MLB1953",
-          "categoryName": "Mais Categorias"
+          "categoryName": "Mais Categorias",
+          "estimatedDailySales": 6.3,
+          "estimatedSales": 756,
+          "estimatedMonthlySales": 189,
+          "estimatedMonthlyRevenue": 1512
         },
         {
           "position": 16,
@@ -34228,7 +35337,11 @@
           "subcategoryTotalItems": 4654209,
           "estimatedTaxPercent": 6,
           "categoryId": "MLB1953",
-          "categoryName": "Mais Categorias"
+          "categoryName": "Mais Categorias",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_632488-MLA111531555742_062026-F.jpg",
+          "estimatedDailySales": 6.1,
+          "estimatedSales": 732,
+          "estimatedMonthlySales": 183
         },
         {
           "position": 17,
@@ -34280,7 +35393,8 @@
           "sellerPowerStatus": "gold",
           "sellerTotalTransactions": 26079,
           "categoryId": "MLB1953",
-          "categoryName": "Mais Categorias"
+          "categoryName": "Mais Categorias",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_607982-MLA79624202014_102024-F.jpg"
         },
         {
           "position": 18,
@@ -34294,7 +35408,11 @@
           "subcategoryTotalItems": 4654209,
           "estimatedTaxPercent": 6,
           "categoryId": "MLB1953",
-          "categoryName": "Mais Categorias"
+          "categoryName": "Mais Categorias",
+          "image": "https://http2.mlstatic.com/D_NQ_NP_632488-MLA111531555742_062026-F.jpg",
+          "estimatedDailySales": 5.7,
+          "estimatedSales": 684,
+          "estimatedMonthlySales": 171
         },
         {
           "position": 19,
@@ -34473,7 +35591,8 @@
       "sellerPowerStatus": "platinum",
       "sellerTotalTransactions": 250058,
       "categoryId": "MLB5672",
-      "categoryName": "Acessórios para Veículos"
+      "categoryName": "Acessórios para Veículos",
+      "image": "https://http2.mlstatic.com/D_NQ_NP_768797-MLA80704288566_112024-F.jpg"
     },
     {
       "position": 1,
@@ -34533,7 +35652,11 @@
       "sellerPowerStatus": null,
       "sellerTotalTransactions": 8,
       "categoryId": "MLB271599",
-      "categoryName": "Agro"
+      "categoryName": "Agro",
+      "estimatedDailySales": 28,
+      "estimatedSales": 3360,
+      "estimatedMonthlySales": 840,
+      "estimatedMonthlyRevenue": 95668
     },
     {
       "position": 1,
@@ -34654,7 +35777,11 @@
       "sellerPowerStatus": null,
       "sellerTotalTransactions": 47,
       "categoryId": "MLB1071",
-      "categoryName": "Animais"
+      "categoryName": "Animais",
+      "estimatedDailySales": 28,
+      "estimatedSales": 3360,
+      "estimatedMonthlySales": 840,
+      "estimatedMonthlyRevenue": 32281
     },
     {
       "position": 1,
@@ -34714,7 +35841,11 @@
       "sellerPowerStatus": null,
       "sellerTotalTransactions": 0,
       "categoryId": "MLB1367",
-      "categoryName": "Antiguidades e Coleções"
+      "categoryName": "Antiguidades e Coleções",
+      "estimatedDailySales": 28,
+      "estimatedSales": 3360,
+      "estimatedMonthlySales": 840,
+      "estimatedMonthlyRevenue": 151536
     },
     {
       "position": 1,
@@ -34773,7 +35904,11 @@
       "sellerPowerStatus": null,
       "sellerTotalTransactions": 4,
       "categoryId": "MLB1368",
-      "categoryName": "Arte, Papelaria e Armarinho"
+      "categoryName": "Arte, Papelaria e Armarinho",
+      "estimatedDailySales": 28,
+      "estimatedSales": 3360,
+      "estimatedMonthlySales": 840,
+      "estimatedMonthlyRevenue": 23436
     },
     {
       "position": 1,
@@ -34830,7 +35965,11 @@
       "sellerPowerStatus": "gold",
       "sellerTotalTransactions": 2182,
       "categoryId": "MLB1384",
-      "categoryName": "Bebês"
+      "categoryName": "Bebês",
+      "estimatedDailySales": 28,
+      "estimatedSales": 3360,
+      "estimatedMonthlySales": 840,
+      "estimatedMonthlyRevenue": 31912
     },
     {
       "position": 1,
@@ -34888,7 +36027,11 @@
       "sellerPowerStatus": null,
       "sellerTotalTransactions": 1,
       "categoryId": "MLB1246",
-      "categoryName": "Beleza e Cuidado Pessoal"
+      "categoryName": "Beleza e Cuidado Pessoal",
+      "estimatedDailySales": 28,
+      "estimatedSales": 3360,
+      "estimatedMonthlySales": 840,
+      "estimatedMonthlyRevenue": 24276
     },
     {
       "position": 1,
@@ -35014,7 +36157,11 @@
       "sellerPowerStatus": null,
       "sellerTotalTransactions": 0,
       "categoryId": "MLB1430",
-      "categoryName": "Calçados, Roupas e Bolsas"
+      "categoryName": "Calçados, Roupas e Bolsas",
+      "estimatedDailySales": 28,
+      "estimatedSales": 3360,
+      "estimatedMonthlySales": 840,
+      "estimatedMonthlyRevenue": 24696
     },
     {
       "position": 1,
@@ -35072,7 +36219,11 @@
       "sellerPowerStatus": null,
       "sellerTotalTransactions": 2,
       "categoryId": "MLB1039",
-      "categoryName": "Câmeras e Acessórios"
+      "categoryName": "Câmeras e Acessórios",
+      "estimatedDailySales": 28,
+      "estimatedSales": 3360,
+      "estimatedMonthlySales": 840,
+      "estimatedMonthlyRevenue": 50870
     },
     {
       "position": 1,
@@ -35130,7 +36281,11 @@
       "sellerPowerStatus": null,
       "sellerTotalTransactions": 11,
       "categoryId": "MLB1574",
-      "categoryName": "Casa, Móveis e Decoração"
+      "categoryName": "Casa, Móveis e Decoração",
+      "estimatedDailySales": 28,
+      "estimatedSales": 3360,
+      "estimatedMonthlySales": 840,
+      "estimatedMonthlyRevenue": 33390
     },
     {
       "position": 1,
@@ -35317,7 +36472,11 @@
       "sellerPowerStatus": null,
       "sellerTotalTransactions": 0,
       "categoryId": "MLB5726",
-      "categoryName": "Eletrodomésticos"
+      "categoryName": "Eletrodomésticos",
+      "estimatedDailySales": 28,
+      "estimatedSales": 3360,
+      "estimatedMonthlySales": 840,
+      "estimatedMonthlyRevenue": 25200
     },
     {
       "position": 1,
@@ -35376,7 +36535,11 @@
       "sellerPowerStatus": null,
       "sellerTotalTransactions": 0,
       "categoryId": "MLB1000",
-      "categoryName": "Eletrônicos, Áudio e Vídeo"
+      "categoryName": "Eletrônicos, Áudio e Vídeo",
+      "estimatedDailySales": 28,
+      "estimatedSales": 3360,
+      "estimatedMonthlySales": 840,
+      "estimatedMonthlyRevenue": 11752
     },
     {
       "position": 1,
@@ -35433,7 +36596,11 @@
       "sellerPowerStatus": null,
       "sellerTotalTransactions": 2,
       "categoryId": "MLB1276",
-      "categoryName": "Esportes e Fitness"
+      "categoryName": "Esportes e Fitness",
+      "estimatedDailySales": 28,
+      "estimatedSales": 3360,
+      "estimatedMonthlySales": 840,
+      "estimatedMonthlyRevenue": 25200
     },
     {
       "position": 1,
@@ -35493,7 +36660,11 @@
       "sellerPowerStatus": null,
       "sellerTotalTransactions": 8,
       "categoryId": "MLB263532",
-      "categoryName": "Ferramentas"
+      "categoryName": "Ferramentas",
+      "estimatedDailySales": 28,
+      "estimatedSales": 3360,
+      "estimatedMonthlySales": 840,
+      "estimatedMonthlyRevenue": 95668
     },
     {
       "position": 1,
@@ -35610,7 +36781,11 @@
       "sellerPowerStatus": null,
       "sellerTotalTransactions": 0,
       "categoryId": "MLB1144",
-      "categoryName": "Games"
+      "categoryName": "Games",
+      "estimatedDailySales": 28,
+      "estimatedSales": 3360,
+      "estimatedMonthlySales": 840,
+      "estimatedMonthlyRevenue": 105000
     },
     {
       "position": 1,
@@ -35663,7 +36838,8 @@
       "sellerPowerStatus": "platinum",
       "sellerTotalTransactions": 565430,
       "categoryId": "MLB1499",
-      "categoryName": "Indústria e Comércio"
+      "categoryName": "Indústria e Comércio",
+      "image": "https://http2.mlstatic.com/D_NQ_NP_895258-MLA84185431998_052025-F.jpg"
     },
     {
       "position": 1,
@@ -35722,7 +36898,11 @@
       "sellerPowerStatus": null,
       "sellerTotalTransactions": 86,
       "categoryId": "MLB1648",
-      "categoryName": "Informática"
+      "categoryName": "Informática",
+      "estimatedDailySales": 28,
+      "estimatedSales": 3360,
+      "estimatedMonthlySales": 840,
+      "estimatedMonthlyRevenue": 49560
     },
     {
       "position": 1,
@@ -35838,7 +37018,8 @@
       "sellerPowerStatus": "platinum",
       "sellerTotalTransactions": 84246,
       "categoryId": "MLB3937",
-      "categoryName": "Joias e Relógios"
+      "categoryName": "Joias e Relógios",
+      "image": "https://http2.mlstatic.com/D_NQ_NP_784617-MLA111154959938_052026-F.jpg"
     },
     {
       "position": 1,
@@ -35954,7 +37135,11 @@
       "sellerPowerStatus": null,
       "sellerTotalTransactions": 133,
       "categoryId": "MLB1168",
-      "categoryName": "Música, Filmes e Seriados"
+      "categoryName": "Música, Filmes e Seriados",
+      "estimatedDailySales": 28,
+      "estimatedSales": 3360,
+      "estimatedMonthlySales": 840,
+      "estimatedMonthlyRevenue": 35372
     },
     {
       "position": 1,
@@ -36011,7 +37196,11 @@
       "sellerPowerStatus": null,
       "sellerTotalTransactions": 2,
       "categoryId": "MLB264586",
-      "categoryName": "Saúde"
+      "categoryName": "Saúde",
+      "estimatedDailySales": 28,
+      "estimatedSales": 3360,
+      "estimatedMonthlySales": 840,
+      "estimatedMonthlyRevenue": 25200
     },
     {
       "position": 1,
@@ -36025,7 +37214,11 @@
       "subcategoryTotalItems": 4654209,
       "estimatedTaxPercent": 6,
       "categoryId": "MLB1953",
-      "categoryName": "Mais Categorias"
+      "categoryName": "Mais Categorias",
+      "image": "https://http2.mlstatic.com/D_NQ_NP_632488-MLA111531555742_062026-F.jpg",
+      "estimatedDailySales": 28,
+      "estimatedSales": 3360,
+      "estimatedMonthlySales": 840
     }
   ]
 }
