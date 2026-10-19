@@ -3,6 +3,9 @@ export const SITE = process.env.MELI_SITE_ID ?? "MLB";
 
 let cachedToken: { token: string; expires: number } | null = null;
 const responseCache = new Map<string, { expires: number; data: unknown }>();
+const inflightCache = new Map<string, Promise<unknown>>();
+
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 export async function getToken(): Promise<string> {
   if (cachedToken && cachedToken.expires > Date.now() + 60_000) {
@@ -47,21 +50,48 @@ export async function meli<T>(path: string, revalidate = 900): Promise<T> {
     return hit.data as T;
   }
 
-  const token = await getToken();
-  const res = await fetch(`${API}${path}`, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
-
-  if (!res.ok) {
-    throw new Error(`ML API ${path} -> ${res.status}: ${await res.text()}`);
+  const pending = inflightCache.get(path);
+  if (pending) {
+    return pending as Promise<T>;
   }
 
-  const json = (await res.json()) as T;
-  responseCache.set(path, {
-    expires: Date.now() + revalidate * 1000,
-    data: json,
-  });
-  return json;
+  const reqPromise = (async () => {
+    const token = await getToken();
+    let lastStatus = 0;
+    let lastBody = "";
+
+    for (let attempt = 0; attempt < 3; attempt++) {
+      const res = await fetch(`${API}${path}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      if (res.ok) {
+        const json = (await res.json()) as T;
+        responseCache.set(path, {
+          expires: Date.now() + revalidate * 1000,
+          data: json,
+        });
+        return json;
+      }
+
+      lastStatus = res.status;
+      lastBody = await res.text();
+      if (res.status === 429 || res.status >= 500) {
+        await sleep(350 * (attempt + 1));
+        continue;
+      }
+      break;
+    }
+
+    throw new Error(`ML API ${path} -> ${lastStatus}: ${lastBody}`);
+  })();
+
+  inflightCache.set(path, reqPromise);
+  try {
+    return await reqPromise;
+  } finally {
+    inflightCache.delete(path);
+  }
 }
 
 export async function mapPool<T, R>(
@@ -81,4 +111,3 @@ export async function mapPool<T, R>(
   );
   return out;
 }
-

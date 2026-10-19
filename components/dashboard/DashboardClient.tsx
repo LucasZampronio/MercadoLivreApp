@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { DEFAULT_CMV_PERCENT, DEFAULT_TAX_PERCENT, type MeliSnapshot } from "@/lib/meli";
-import ControlPanel from "./ControlPanel";
+import { DEFAULT_CMV_PERCENT, DEFAULT_TAX_PERCENT, type MeliSnapshot, type Product } from "@/lib/meli";
+import ControlPanel, { type SubcategoryOption } from "./ControlPanel";
 import { ALL_PRODS, ALL_TOP1, num, type QuickFilter, type SortKey } from "./formatters";
 import MethodologyPanel from "./MethodologyPanel";
 import PaginationBar from "./PaginationBar";
@@ -10,6 +10,7 @@ import ProductCard from "./ProductCard";
 
 export default function DashboardClient({ snapshot }: { snapshot: MeliSnapshot }) {
   const [selected, setSelected] = useState<string>(ALL_PRODS);
+  const [selectedSubcat, setSelectedSubcat] = useState<string>("all");
   const [search, setSearch] = useState<string>("");
   const [sortBy, setSortBy] = useState<SortKey>("position");
   const [quickFilter, setQuickFilter] = useState<QuickFilter>("all");
@@ -34,16 +35,25 @@ export default function DashboardClient({ snapshot }: { snapshot: MeliSnapshot }
 
   const selectCategory = (catId: string) => {
     setSelected(catId);
+    setSelectedSubcat("all");
     setPage(1);
     const url = new URL(window.location.href);
     url.searchParams.set("cat", catId);
     window.history.replaceState({}, "", url.toString());
   };
 
-  const allProductsFlat = useMemo(
-    () => snapshot.categories.flatMap((c) => c.products),
-    [snapshot.categories],
-  );
+  const allProductsFlat = useMemo(() => {
+    const seen = new Set<string>();
+    const out: Product[] = [];
+    for (const c of snapshot.categories) {
+      for (const p of c.products) {
+        if (seen.has(p.id)) continue;
+        seen.add(p.id);
+        out.push(p);
+      }
+    }
+    return out;
+  }, [snapshot.categories]);
 
   const isGlobalView = selected === ALL_PRODS || selected === ALL_TOP1;
   const currentCategory = snapshot.categories.find((c) => c.id === selected);
@@ -54,9 +64,29 @@ export default function DashboardClient({ snapshot }: { snapshot: MeliSnapshot }
     return currentCategory?.products ?? [];
   }, [selected, allProductsFlat, snapshot.topOfAll, currentCategory]);
 
+  const subcategories = useMemo<SubcategoryOption[]>(() => {
+    const map = new Map<string, { id: string; name: string; count: number }>();
+    for (const p of baseProducts) {
+      const id = p.subcategoryId ?? p.subcategoryName;
+      const name = p.subcategoryName ?? p.subcategoryId;
+      if (!id || !name) continue;
+      const cur = map.get(id);
+      if (cur) {
+        cur.count += 1;
+      } else {
+        map.set(id, { id, name, count: 1 });
+      }
+    }
+    return Array.from(map.values()).sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+  }, [baseProducts]);
+
   const filteredAndSorted = useMemo(() => {
     const q = search.trim().toLowerCase();
     const filtered = baseProducts.filter((p) => {
+      if (selectedSubcat !== "all") {
+        const subKey = p.subcategoryId ?? p.subcategoryName;
+        if (subKey !== selectedSubcat) return false;
+      }
       if (q) {
         const hay = [
           p.name,
@@ -111,7 +141,7 @@ export default function DashboardClient({ snapshot }: { snapshot: MeliSnapshot }
           );
       }
     });
-  }, [baseProducts, search, quickFilter, sortBy]);
+  }, [baseProducts, selectedSubcat, search, quickFilter, sortBy]);
 
   const totalPages = Math.max(1, Math.ceil(filteredAndSorted.length / pageSize));
   const safePage = Math.min(page, totalPages);
@@ -163,8 +193,9 @@ export default function DashboardClient({ snapshot }: { snapshot: MeliSnapshot }
         <div>
           <h1>Inteligência de Mercado · Mercado Livre</h1>
           <small className="updated-at">
-            Snapshot atualizado em: <strong>{updatedDate}</strong> · {allProductsFlat.length}{" "}
-            produtos monitorados em {snapshot.categories.length} categorias
+            Snapshot atualizado em: <strong>{updatedDate}</strong> ·{" "}
+            <strong>{num(allProductsFlat.length)}</strong> produtos únicos em{" "}
+            {snapshot.categories.length} categorias e {subcategories.length}+ subcategorias
           </small>
         </div>
         <div className="header-actions">
@@ -189,6 +220,12 @@ export default function DashboardClient({ snapshot }: { snapshot: MeliSnapshot }
       <ControlPanel
         selected={selected}
         onSelectCategory={selectCategory}
+        selectedSubcat={selectedSubcat}
+        onSelectSubcat={(subId) => {
+          setSelectedSubcat(subId);
+          setPage(1);
+        }}
+        subcategories={subcategories}
         totalCatalogCount={allProductsFlat.length}
         topOfAllCount={snapshot.topOfAll.length}
         categories={snapshot.categories}
@@ -255,6 +292,7 @@ export default function DashboardClient({ snapshot }: { snapshot: MeliSnapshot }
             type="button"
             onClick={() => {
               setSearch("");
+              setSelectedSubcat("all");
               setQuickFilter("all");
               setPage(1);
             }}
@@ -289,4 +327,3 @@ export default function DashboardClient({ snapshot }: { snapshot: MeliSnapshot }
     </main>
   );
 }
-

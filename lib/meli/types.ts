@@ -8,12 +8,19 @@ export type Trend = {
   url: string;
 };
 
+export type SubcategorySummary = {
+  id: string;
+  name: string;
+  totalItems: number;
+};
+
 export type CategoryDetails = {
   id: string;
   name: string;
   totalItems: number;
   pathFromRoot: string[];
   catalogDomain?: string;
+  childrenCategories?: SubcategorySummary[];
 };
 
 export type Product = {

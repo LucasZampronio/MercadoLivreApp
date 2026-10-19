@@ -12,6 +12,7 @@ import type {
   MeliSnapshot,
   Offer,
   Product,
+  SubcategorySummary,
   Trend,
 } from "./types.ts";
 
@@ -29,6 +30,8 @@ const LOGISTIC_LABELS: Record<string, string> = {
   drop_off: "Correios",
 };
 
+const enrichedByIdCache = new Map<string, Promise<Product>>();
+
 export function getCategories() {
   return meli<Category[]>(`/sites/${SITE}/categories`, 86_400);
 }
@@ -36,12 +39,23 @@ export function getCategories() {
 export async function getCategoryDetails(categoryId: string): Promise<CategoryDetails | null> {
   try {
     const c = await meli<any>(`/categories/${categoryId}`, 86_400);
+    const childrenCategories: SubcategorySummary[] = Array.isArray(c.children_categories)
+      ? c.children_categories
+          .map((ch: any) => ({
+            id: String(ch.id),
+            name: String(ch.name),
+            totalItems: Number(ch.total_items_in_this_category ?? 0),
+          }))
+          .sort((a: SubcategorySummary, b: SubcategorySummary) => b.totalItems - a.totalItems)
+      : [];
+
     return {
       id: c.id,
       name: c.name,
       totalItems: c.total_items_in_this_category ?? 0,
       pathFromRoot: (c.path_from_root ?? []).map((p: any) => p.name),
       catalogDomain: c.settings?.catalog_domain ?? undefined,
+      childrenCategories,
     };
   } catch {
     return null;
@@ -58,20 +72,33 @@ export async function getTrends(categoryId?: string): Promise<Trend[]> {
   }
 }
 
-async function enrich(h: HighlightItem): Promise<Product> {
+type EnrichCandidate = HighlightItem & {
+  presetSubcat?: SubcategorySummary & { position: number };
+};
+
+async function enrichRaw(h: EnrichCandidate): Promise<Product> {
   const base: Product = { position: h.position, id: h.id, type: h.type, name: h.id };
 
   const hlKind = h.type === "ITEM" ? "item" : "product";
   const [info, offers, subHl] = await Promise.all([
-    h.type === "PRODUCT" ? meli<any>(`/products/${h.id}`).catch(() => null) : Promise.resolve(null),
+    h.type === "PRODUCT"
+      ? meli<any>(`/products/${h.id}`, 86_400).catch(() => null)
+      : Promise.resolve(null),
     h.type !== "ITEM"
-      ? meli<{ results: Offer[] }>(`/products/${h.id}/items`)
+      ? meli<{ results: Offer[] }>(`/products/${h.id}/items`, 3600)
           .then((r) => r.results ?? [])
           .catch(() => [] as Offer[])
       : Promise.resolve([] as Offer[]),
-    meli<{ id?: string; label?: string; position?: number }>(
-      `/highlights/${SITE}/${hlKind}/${h.id}`,
-    ).catch(() => null),
+    h.presetSubcat
+      ? Promise.resolve({
+          id: h.presetSubcat.id,
+          label: h.presetSubcat.name,
+          position: h.presetSubcat.position,
+        })
+      : meli<{ id?: string; label?: string; position?: number }>(
+          `/highlights/${SITE}/${hlKind}/${h.id}`,
+          86_400,
+        ).catch(() => null),
   ]);
 
   // offers[0] em /products/{id}/items é o Buy Box Winner oficial do catálogo
@@ -84,21 +111,35 @@ async function enrich(h: HighlightItem): Promise<Product> {
     : undefined;
 
   const itemId = best?.item_id ?? (h.type === "ITEM" ? h.id : undefined);
-  const subcatId = best?.category_id ?? subHl?.id;
+  const subcatId = best?.category_id ?? subHl?.id ?? h.presetSubcat?.id;
   const listingTypeId = best?.listing_type_id ?? "gold_special";
+
+  // Arredonda o preço na chamada de listing_prices para aproveitar o cache entre ofertas de mesma faixa
+  const feePriceKey = best?.price ? Math.round(best.price) : undefined;
 
   const [questionsData, feeData, subcatDetails, descData] = await Promise.all([
     itemId
       ? meli<{ total?: number; questions?: { seller_id?: number; date_created?: string }[] }>(
           `/questions/search?item=${itemId}&api_version=4`,
+          3600,
         ).catch(() => null)
       : Promise.resolve(null),
-    best?.price && subcatId
+    feePriceKey && subcatId
       ? meli<any>(
-          `/sites/${SITE}/listing_prices?price=${best.price}&category_id=${subcatId}&listing_type_id=${listingTypeId}`,
+          `/sites/${SITE}/listing_prices?price=${feePriceKey}&category_id=${subcatId}&listing_type_id=${listingTypeId}`,
+          86_400,
         ).catch(() => null)
       : Promise.resolve(null),
-    subcatId ? getCategoryDetails(subcatId) : Promise.resolve(null),
+    h.presetSubcat && (!info?.pictures?.[0]?.url ? false : true)
+      ? Promise.resolve<CategoryDetails>({
+          id: h.presetSubcat.id,
+          name: h.presetSubcat.name,
+          totalItems: h.presetSubcat.totalItems,
+          pathFromRoot: [h.presetSubcat.name],
+        })
+      : subcatId
+        ? getCategoryDetails(subcatId)
+        : Promise.resolve(null),
     itemId
       ? meli<{ date_created?: string; last_updated?: string }>(
           `/items/${itemId}/description`,
@@ -108,7 +149,7 @@ async function enrich(h: HighlightItem): Promise<Product> {
   ]);
 
   const sellerId = best?.seller_id ?? questionsData?.questions?.[0]?.seller_id;
-  const subcatLabel = subHl?.label ?? subcatDetails?.name;
+  const subcatLabel = subHl?.label ?? subcatDetails?.name ?? h.presetSubcat?.name;
 
   const searchQuery = [subcatLabel].filter(Boolean).join(" ").trim();
   const domainParam = subcatDetails?.catalogDomain
@@ -120,6 +161,7 @@ async function enrich(h: HighlightItem): Promise<Product> {
     sellerId && itemId && best?.price
       ? meli<any>(
           `/users/${sellerId}/shipping_options/free?item_id=${itemId}&item_price=${best.price}&listing_type_id=${listingTypeId}&mode=${best.shipping?.mode ?? "me2"}&condition=${best.condition ?? "new"}&logistic_type=${best.shipping?.logistic_type ?? "fulfillment"}`,
+          86_400,
         ).catch(() => null)
       : Promise.resolve(null),
     !info?.pictures?.[0]?.url && searchQuery
@@ -159,9 +201,12 @@ async function enrich(h: HighlightItem): Promise<Product> {
     : daysActive;
 
   const price = best?.price;
-  const saleFeeAmount: number | undefined = feeData?.sale_fee_amount;
   const saleFeePercent: number | undefined = feeData?.sale_fee_details?.percentage_fee;
   const fixedFeeAmount: number | undefined = feeData?.sale_fee_details?.fixed_fee;
+  const saleFeeAmount: number | undefined =
+    price != null && saleFeePercent != null
+      ? Math.round((price * (saleFeePercent / 100) + (fixedFeeAmount ?? 0)) * 100) / 100
+      : feeData?.sale_fee_amount;
   const shippingListCost: number | undefined = freeShipData?.coverage?.all_country?.list_cost;
   const billableWeightGrams: number | undefined =
     freeShipData?.coverage?.all_country?.billable_weight;
@@ -170,6 +215,7 @@ async function enrich(h: HighlightItem): Promise<Product> {
   const isOfficialStore = best ? best.official_store_id != null : false;
   const sellerTotalTransactions: number | undefined =
     seller?.seller_reputation?.transactions?.total;
+  const subcatTotalItems = subcatDetails?.totalItems ?? h.presetSubcat?.totalItems;
 
   const fin = calculateFinancialBreakdown({
     price,
@@ -181,9 +227,9 @@ async function enrich(h: HighlightItem): Promise<Product> {
   });
 
   const sales = calculateSalesEstimates({
-    position: h.position,
-    subcategoryPosition: subHl?.position,
-    subcategoryTotalItems: subcatDetails?.totalItems,
+    position: h.presetSubcat?.position ?? h.position,
+    subcategoryPosition: subHl?.position ?? h.presetSubcat?.position,
+    subcategoryTotalItems: subcatTotalItems,
     offers: offers.length || 1,
     questionsTotal: questionsData?.total,
     recentQuestionDates: (questionsData?.questions ?? [])
@@ -233,8 +279,8 @@ async function enrich(h: HighlightItem): Promise<Product> {
 
     subcategoryId: subcatId,
     subcategoryName: subcatLabel,
-    subcategoryPosition: subHl?.position,
-    subcategoryTotalItems: subcatDetails?.totalItems,
+    subcategoryPosition: subHl?.position ?? h.presetSubcat?.position,
+    subcategoryTotalItems: subcatTotalItems,
 
     price,
     minPrice,
@@ -295,16 +341,77 @@ async function enrich(h: HighlightItem): Promise<Product> {
   };
 }
 
+async function enrich(h: EnrichCandidate): Promise<Product> {
+  let cached = enrichedByIdCache.get(h.id);
+  if (!cached) {
+    cached = enrichRaw(h);
+    enrichedByIdCache.set(h.id, cached);
+  }
+  const prod = await cached;
+  return {
+    ...prod,
+    position: h.position,
+    subcategoryId: prod.subcategoryId ?? h.presetSubcat?.id,
+    subcategoryName: prod.subcategoryName ?? h.presetSubcat?.name,
+    subcategoryPosition: prod.subcategoryPosition ?? h.presetSubcat?.position,
+    subcategoryTotalItems: prod.subcategoryTotalItems ?? h.presetSubcat?.totalItems,
+  };
+}
+
 async function getHighlights(categoryId: string): Promise<HighlightItem[]> {
   const { content } = await meli<{ content: HighlightItem[] }>(
     `/highlights/${SITE}/category/${categoryId}`,
+    3600,
   );
-  return content;
+  return Array.isArray(content) ? content : [];
 }
 
-export async function getBestSellers(categoryId: string): Promise<Product[]> {
-  const content = await getHighlights(categoryId);
-  return mapPool(content.slice(0, 20), 8, enrich);
+/**
+ * Coleta os mais vendidos da categoria raiz (Top 20) + os mais vendidos das
+ * maiores subcategorias filhas (`childrenCategories`), eliminando duplicados.
+ */
+export async function getBestSellers(
+  categoryId: string,
+  details?: CategoryDetails | null,
+  maxSubcategories = 5,
+): Promise<Product[]> {
+  const catDetails = details !== undefined ? details : await getCategoryDetails(categoryId);
+  const topSubcats = (catDetails?.childrenCategories ?? []).slice(0, maxSubcategories);
+
+  const [rootContent, ...subContents] = await Promise.all([
+    getHighlights(categoryId).catch(() => [] as HighlightItem[]),
+    ...topSubcats.map((sub) => getHighlights(sub.id).catch(() => [] as HighlightItem[])),
+  ]);
+
+  const seenIds = new Set<string>();
+  const candidates: EnrichCandidate[] = [];
+
+  for (const item of rootContent.slice(0, 20)) {
+    if (!item?.id || seenIds.has(item.id)) continue;
+    seenIds.add(item.id);
+    candidates.push({ ...item, position: candidates.length + 1 });
+  }
+
+  for (let sIdx = 0; sIdx < topSubcats.length; sIdx++) {
+    const sub = topSubcats[sIdx];
+    const items = subContents[sIdx] ?? [];
+    for (const item of items.slice(0, 20)) {
+      if (!item?.id || seenIds.has(item.id)) continue;
+      seenIds.add(item.id);
+      candidates.push({
+        ...item,
+        position: candidates.length + 1,
+        presetSubcat: {
+          id: sub.id,
+          name: sub.name,
+          totalItems: sub.totalItems,
+          position: item.position,
+        },
+      });
+    }
+  }
+
+  return mapPool(candidates, 12, enrich);
 }
 
 export function pickBest(products: Product[]): Product | undefined {
@@ -331,12 +438,15 @@ export async function generateFullSnapshot(
   onProgress?: (msg: string) => void,
 ): Promise<MeliSnapshot> {
   const [cats, generalTrends] = await Promise.all([getCategories(), getTrends()]);
-  const categorySnapshots = await mapPool<Category, CategorySnapshot>(cats, 5, async (c, idx) => {
-    onProgress?.(`[${idx + 1}/${cats.length}] Coletando ${c.name} (${c.id})...`);
-    const [details, trends, products] = await Promise.all([
-      getCategoryDetails(c.id),
+  const categorySnapshots = await mapPool<Category, CategorySnapshot>(cats, 4, async (c, idx) => {
+    const details = await getCategoryDetails(c.id);
+    const subCount = Math.min(5, details?.childrenCategories?.length ?? 0);
+    onProgress?.(
+      `[${idx + 1}/${cats.length}] Coletando ${c.name} (${c.id}) + ${subCount} subcategorias...`,
+    );
+    const [trends, products] = await Promise.all([
       getTrends(c.id),
-      getBestSellers(c.id).catch(() => [] as Product[]),
+      getBestSellers(c.id, details, 5).catch(() => [] as Product[]),
     ]);
     return {
       id: c.id,
@@ -359,4 +469,3 @@ export async function generateFullSnapshot(
     topOfAll,
   };
 }
-

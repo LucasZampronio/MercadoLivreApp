@@ -18,8 +18,8 @@ main { max-width: 1360px; margin: 0 auto; padding: 20px; }
 
 /* PAINEL DE CONTROLE INTERATIVO */
 .control-panel { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; margin: 14px 0; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
-.control-row-main { display: grid; grid-template-columns: 1.4fr 1.6fr 1.1fr 0.5fr; gap: 12px; align-items: end; }
-@media (max-width: 980px) {
+.control-row-main { display: grid; grid-template-columns: 1.3fr 1.1fr 1.4fr 1.1fr 0.45fr; gap: 12px; align-items: end; }
+@media (max-width: 1120px) {
   .control-row-main { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 600px) {
