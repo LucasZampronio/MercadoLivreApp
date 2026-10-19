@@ -83,10 +83,16 @@ export default function DashboardClient({ snapshot }: { snapshot: MeliSnapshot }
 
     return [...filtered].sort((a, b) => {
       switch (sortBy) {
+        case "total_revenue_desc":
+          return (b.estimatedTotalRevenue ?? -1) - (a.estimatedTotalRevenue ?? -1);
         case "revenue_desc":
           return (b.estimatedMonthlyRevenue ?? -1) - (a.estimatedMonthlyRevenue ?? -1);
         case "daily_desc":
           return (b.estimatedDailySales ?? -1) - (a.estimatedDailySales ?? -1);
+        case "visits_desc":
+          return (b.estimatedVisits ?? -1) - (a.estimatedVisits ?? -1);
+        case "conversion_desc":
+          return (b.conversionRatePercent ?? -1) - (a.conversionRatePercent ?? -1);
         case "discount_desc":
           return (b.discount ?? -1) - (a.discount ?? -1);
         case "price_asc":
@@ -94,7 +100,7 @@ export default function DashboardClient({ snapshot }: { snapshot: MeliSnapshot }
         case "price_desc":
           return (b.price ?? -1) - (a.price ?? -1);
         case "net_desc":
-          return (b.netReceived ?? -1) - (a.netReceived ?? -1);
+          return (b.netAfterTax ?? b.netReceived ?? -1) - (a.netAfterTax ?? a.netReceived ?? -1);
         case "questions_desc":
           return (b.questionsTotal ?? -1) - (a.questionsTotal ?? -1);
         case "position":
@@ -283,3 +289,4 @@ export default function DashboardClient({ snapshot }: { snapshot: MeliSnapshot }
     </main>
   );
 }
+

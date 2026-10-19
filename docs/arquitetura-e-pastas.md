@@ -87,3 +87,4 @@ Passos executados pelo job `update-main`:
 2. Se os secrets `MELI_APP_ID` e `MELI_CLIENT_SECRET` estiverem configurados no repositório, roda `npm run update-data` para atualizar `public/data/meli-snapshot.json`.
 3. Roda `npm run build` para atualizar `index.html` e `_next/` na raiz da branch `main`.
 4. Faz commit e `git push origin main` automaticamente caso haja novos dados.
+

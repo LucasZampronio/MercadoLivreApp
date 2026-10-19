@@ -57,3 +57,4 @@ Caso precise gerar um token de usuário (`authorization_code` com `PKCE S256`):
    node --env-file=.env scripts/meli-login.mjs finish "<URL_COPIADA>"
    ```
    Os tokens são salvos localmente em `.meli-tokens.json` (ignorado pelo Git).
+

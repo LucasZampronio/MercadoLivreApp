@@ -3,47 +3,62 @@
 export default function MethodologyPanel() {
   return (
     <section className="method-box">
-      <h3>Como cada métrica e estimativa é calculada?</h3>
+      <h3>Como cada métrica estilo Avantpro é obtida e calculada?</h3>
       <div className="method-grid">
         <div>
-          <strong>1. Vendas Estimadas &amp; Ritmo/Dia</strong>
+          <strong>1. Datas Reais de Criação (Anúncio vs. Catálogo)</strong>
           <p>
-            A API pública do Mercado Livre bloqueia o campo <code>sold_quantity</code> em{" "}
-            <code>/items</code> com erro <code>403</code>. Para contornar isso com dados reais,
-            consultamos <code>/questions/search?item=&#123;id&#125;</code>, que retorna o{" "}
-            <strong>total exato de perguntas</strong> e a{" "}
-            <strong>data das últimas 50 perguntas</strong>. No e-commerce brasileiro (ML), a taxa
-            média é de <strong>~1 pergunta a cada 8 vendas</strong>. Combinamos a velocidade das
-            perguntas recentes (60%) com a média desde a data de criação do catálogo{" "}
-            <code>date_created</code> (40%). Quando uma oferta vencedora acabou de entrar no buybox
-            e ainda tem 0 perguntas, aplicamos uma curva de Pareto (Lei de Zipf) baseada na posição{" "}
-            <code>#1..#20</code> do ranking.
+            • <strong>Catálogo criado em:</strong> 100% oficial via{" "}
+            <code>GET /products/&#123;id&#125;</code> (campo <code>date_created</code>).
+            <br />• <strong>Anúncio criado em:</strong> embora <code>GET /items/&#123;id&#125;</code>{" "}
+            seja bloqueado (403), o sub-recurso{" "}
+            <code>GET /items/&#123;id&#125;/description</code> retorna <code>200 OK</code> com o{" "}
+            <code>date_created</code> exato do anúncio vencedor do Buy Box (<code>offers[0]</code>).
+            Caso o anúncio não tenha texto de descrição, interpolamos a data pela curva monotônica
+            do ID sequencial <code>MLB&#123;id&#125;</code>.
           </p>
         </div>
+
         <div>
-          <strong>2. Tarifa ML, Frete e Líquido Recebido (100% Oficial)</strong>
+          <strong>2. Faixa de Vendidos, Vendas Estimadas e Ritmo Atual</strong>
           <p>
-            Consultamos <code>/sites/MLB/listing_prices</code> passando o preço real, a
-            subcategoria e o tipo do anúncio (<code>Clássico</code> ou <code>Premium</code>) para
-            obter a <strong>comissão exata do ML em R$ e %</strong>. Em seguida, consultamos{" "}
-            <code>/users/&#123;seller&#125;/shipping_options/free</code> para obter o{" "}
-            <strong>peso faturável (g) e o custo de frete Mercado Envios</strong>. O recebimento
-            líquido é: <code>Preço - Tarifa ML - Frete pago pelo vendedor</code>.
+            • <strong>Faixa de Vendidos (+Vendidos):</strong> calculada pelo volume acumulado ao
+            longo dos dias ativos do catálogo/anúncio e mapeada para os degraus oficiais do ML (
+            <code>50.000</code>, <code>10.000</code>, <code>5.000</code>, <code>1.000</code>,{" "}
+            <code>500</code>, <code>100</code>...).
+            <br />• <strong>Vendas estimadas:</strong> aplica o fator{" "}
+            <code>Vendidos × 1,35</code> (ou <code>Perguntas × 8</code> quando superior).
+            <br />• <strong>Vendas por dia e Vendas mensais:</strong> média histórica desde a
+            criação (<code>Vendidos ÷ Dias ativos</code> e <code>Vendidos ÷ Meses ativos</code>).
+            <br />• <strong>Ritmo atual (vendas/mês):</strong> velocidade nos últimos 30 dias
+            ponderando posição no Top 20, número de ofertas no catálogo, Full e perguntas recentes.
           </p>
         </div>
+
         <div>
-          <strong>3. Simulador de Imposto, CMV e Faixa de Preço p/ Lucro</strong>
+          <strong>3. Visitas Acumuladas, % Conversão e Estoque</strong>
           <p>
-            Você pode ajustar abaixo a alíquota de <strong>Imposto (%)</strong> e o{" "}
-            <strong>Custo da Mercadoria / CMV (%)</strong>. A faixa de preço recomendada usa a
-            fórmula inversa de precificação para atingir de{" "}
-            <strong>15% a 25% de margem líquida</strong> livre após descontar comissão do ML, taxa
-            fixa, frete e impostos:
-            <br />
-            <code>
-              Preço Ideal = (Custo + Frete + Taxa Fixa) ÷ (1 - %TarifaML - %Imposto - %Margem)
-            </code>
-            .
+            • <strong>% Conversão:</strong> calculada pela atratividade do Buy Box (posição{" "}
+            <code>#1..#20</code>, logística <code>Full</code>, <code>Frete Grátis</code> e{" "}
+            <code>Loja Oficial</code>), variando tipicamente entre <code>9,5%</code> e{" "}
+            <code>14,0%</code> nos líderes de categoria.
+            <br />• <strong>Visitas:</strong> <code>Vendidos ÷ (% Conversão ÷ 100)</code>.
+            <br />• <strong>Faturando R$:</strong> faturamento bruto acumulado (
+            <code>Vendidos × Preço Buy Box</code>) + ritmo mensal atual.
+          </p>
+        </div>
+
+        <div>
+          <strong>4. Comissão ML, Frete, Imposto, Recebe e Recomendação</strong>
+          <p>
+            • <strong>Comissão ML e Frete:</strong> 100% oficiais via{" "}
+            <code>/sites/MLB/listing_prices</code> e{" "}
+            <code>/users/&#123;seller&#125;/shipping_options/free</code>.
+            <br />• <strong>Recebe:</strong>{" "}
+            <code>Preço - Comissão ML - Frete - Imposto (padrão 7%)</code> e percentual líquido sobre
+            a venda.
+            <br />• <strong>Recomendação:</strong> faixa recomendada de custo de compra do produto
+            (fornecedor/CMV) entre <strong>50% e 90% do valor Recebe</strong>.
           </p>
         </div>
       </div>

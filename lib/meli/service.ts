@@ -1,5 +1,9 @@
 import { mapPool, meli, SITE } from "./client.ts";
-import { calculateFinancialBreakdown, calculateSalesEstimates } from "./formulas.ts";
+import {
+  calculateFinancialBreakdown,
+  calculateSalesEstimates,
+  estimateItemDateFromMlbId,
+} from "./formulas.ts";
 import type {
   Category,
   CategoryDetails,
@@ -70,11 +74,10 @@ async function enrich(h: HighlightItem): Promise<Product> {
     ).catch(() => null),
   ]);
 
-  const best = offers.reduce<Offer | undefined>(
-    (a, o) => (!a || o.price < a.price ? o : a),
-    undefined,
-  );
+  // offers[0] em /products/{id}/items é o Buy Box Winner oficial do catálogo
+  const best = offers.find((o) => typeof o.price === "number" && o.price > 0) ?? offers[0];
   const prices = offers.map((o) => o.price).filter((p) => typeof p === "number" && p > 0);
+  const minPrice = prices.length ? Math.min(...prices) : undefined;
   const maxPrice = prices.length ? Math.max(...prices) : undefined;
   const avgPrice = prices.length
     ? Math.round((prices.reduce((s, v) => s + v, 0) / prices.length) * 100) / 100
@@ -84,7 +87,7 @@ async function enrich(h: HighlightItem): Promise<Product> {
   const subcatId = best?.category_id ?? subHl?.id;
   const listingTypeId = best?.listing_type_id ?? "gold_special";
 
-  const [questionsData, feeData, subcatDetails] = await Promise.all([
+  const [questionsData, feeData, subcatDetails, descData] = await Promise.all([
     itemId
       ? meli<{ total?: number; questions?: { seller_id?: number; date_created?: string }[] }>(
           `/questions/search?item=${itemId}&api_version=4`,
@@ -96,6 +99,12 @@ async function enrich(h: HighlightItem): Promise<Product> {
         ).catch(() => null)
       : Promise.resolve(null),
     subcatId ? getCategoryDetails(subcatId) : Promise.resolve(null),
+    itemId
+      ? meli<{ date_created?: string; last_updated?: string }>(
+          `/items/${itemId}/description`,
+          86_400,
+        ).catch(() => null)
+      : Promise.resolve(null),
   ]);
 
   const sellerId = best?.seller_id ?? questionsData?.questions?.[0]?.seller_id;
@@ -137,10 +146,16 @@ async function enrich(h: HighlightItem): Promise<Product> {
           ? `${subcatLabel} (${h.id})`
           : `Produto ${h.id}`);
 
-  const dateCreated: string | undefined = info?.date_created;
+  const dateCreated: string | undefined = info?.date_created ?? fallbackProduct?.date_created;
   const daysActive = dateCreated
     ? Math.max(1, Math.round((Date.now() - new Date(dateCreated).getTime()) / 86_400_000))
     : undefined;
+
+  const itemDateCreated: string | undefined =
+    descData?.date_created || estimateItemDateFromMlbId(itemId, dateCreated);
+  const itemDaysActive = itemDateCreated
+    ? Math.max(1, Math.round((Date.now() - new Date(itemDateCreated).getTime()) / 86_400_000))
+    : daysActive;
 
   const price = best?.price;
   const saleFeeAmount: number | undefined = feeData?.sale_fee_amount;
@@ -149,6 +164,9 @@ async function enrich(h: HighlightItem): Promise<Product> {
   const shippingListCost: number | undefined = freeShipData?.coverage?.all_country?.list_cost;
   const billableWeightGrams: number | undefined =
     freeShipData?.coverage?.all_country?.billable_weight;
+
+  const isFull = best?.shipping?.logistic_type === "fulfillment";
+  const isOfficialStore = best ? best.official_store_id != null : false;
 
   const fin = calculateFinancialBreakdown({
     price,
@@ -161,12 +179,18 @@ async function enrich(h: HighlightItem): Promise<Product> {
 
   const sales = calculateSalesEstimates({
     position: h.position,
+    subcategoryPosition: subHl?.position,
+    offers: offers.length || 1,
     questionsTotal: questionsData?.total,
     recentQuestionDates: (questionsData?.questions ?? [])
       .map((q) => q.date_created)
       .filter((d): d is string => Boolean(d)),
     daysActive,
+    itemDaysActive,
     price,
+    isFull,
+    freeShipping: best?.shipping?.free_shipping,
+    officialStore: isOfficialStore,
   });
 
   const city = best?.seller_address?.city?.name ?? seller?.address?.city;
@@ -198,6 +222,8 @@ async function enrich(h: HighlightItem): Promise<Product> {
     qualityType: info?.quality_type ?? undefined,
     dateCreated,
     daysActive,
+    itemDateCreated,
+    itemDaysActive,
 
     subcategoryId: subcatId,
     subcategoryName: subcatLabel,
@@ -205,6 +231,7 @@ async function enrich(h: HighlightItem): Promise<Product> {
     subcategoryTotalItems: subcatDetails?.totalItems,
 
     price,
+    minPrice,
     maxPrice,
     avgPrice,
     originalPrice: original,
@@ -233,14 +260,23 @@ async function enrich(h: HighlightItem): Promise<Product> {
     estimatedTaxAmount: fin.estimatedTaxAmount,
     netReceived: fin.netReceived,
     netAfterTax: fin.netAfterTax,
+    netReceivePercent: fin.netReceivePercent,
+    recommendedCostMin: fin.recommendedCostMin,
+    recommendedCostMax: fin.recommendedCostMax,
     profitPriceMin: fin.profitPriceMin,
     profitPriceMax: fin.profitPriceMax,
 
     questionsTotal: sales.questionsTotal,
+    soldQuantity: sales.soldQuantity,
+    estimatedStock: sales.estimatedStock,
     estimatedSales: sales.estimatedSales,
+    currentMonthlyPace: sales.currentMonthlyPace,
+    estimatedVisits: sales.estimatedVisits,
+    conversionRatePercent: sales.conversionRatePercent,
     estimatedDailySales: sales.estimatedDailySales,
     estimatedMonthlySales: sales.estimatedMonthlySales,
     estimatedMonthlyRevenue: sales.estimatedMonthlyRevenue,
+    estimatedTotalRevenue: sales.estimatedTotalRevenue,
 
     sellerId,
     sellerNickname: sellerNick,
@@ -317,3 +353,4 @@ export async function generateFullSnapshot(
     topOfAll,
   };
 }
+

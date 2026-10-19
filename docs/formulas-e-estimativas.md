@@ -1,161 +1,103 @@
-# Fórmulas Matemáticas, Financeiras e Estimativas de Vendas
+# Fórmulas Matemáticas, Financeiras e Estimativas (Padrão Avantpro)
 
-> Implementação em código: [`lib/meli/formulas.ts`](../lib/meli/formulas.ts)
-
-Este documento detalha todas as fórmulas matemáticas e financeiras utilizadas no **MercadoLivreApp** para estimar demanda, ritmo de vendas, faturamento, tarifas oficiais, recebimento líquido, impostos, lucro unitário e faixa de preço ideal.
+Este documento detalha **todas as fórmulas matemáticas e financeiras** implementadas em [`lib/meli/formulas.ts`](file:///Users/I774243/Desktop/MercadoLivreApp/lib/meli/formulas.ts) e exibidas nos cards de produto ([`components/dashboard/ProductCard.tsx`](file:///Users/I774243/Desktop/MercadoLivreApp/components/dashboard/ProductCard.tsx)).
 
 ---
 
-## 1. Por que Vendas e Ritmo Diário são estimados?
+## 1. Seleção da Oferta Vencedora (Buy Box Winner)
 
-Na API pública do Mercado Livre (`https://api.mercadolibre.com`), o endpoint direto de anúncios (`GET /items/{id}`) é bloqueado pelo firewall **PolicyAgent** com erro `403 Forbidden` para aplicações externas, ocultando o campo `sold_quantity`.
+Para produtos de catálogo (`type === "PRODUCT"` ou `USER_PRODUCT`), o endpoint `GET /products/{id}/items` retorna as ofertas ativas **ordenadas pelo ranking de Buy Box do Mercado Livre**:
 
-Por outro lado, a API libera **três sinais reais e auditáveis** para qualquer produto do ranking:
-1. **`GET /questions/search?item={item_id}&api_version=4`**: retorna o **total histórico exato de perguntas (`total`)** feitas pelos compradores no anúncio e a lista das **últimas 50 perguntas com o timestamp exato (`date_created`)** de cada uma.
-2. **`GET /products/{product_id}`**: retorna a **data de criação do produto no catálogo (`date_created`)**, permitindo calcular quantos dias o produto está ativo (`daysActive`).
-3. **`GET /highlights/MLB/category/{category_id}`**: retorna a **posição oficial de vendas (`position` de `#1` a `#20`)** dentro da categoria.
+- **Oferta Vencedora (`best`):** `offers[0]` (o vendedor que detém atualmente o Buy Box).
+- **Estatísticas de Preço do Catálogo:** além do preço do Buy Box ($P$), calculamos o menor preço ($P_{\min}$), o maior preço ($P_{\max}$) e o preço médio ($P_{\text{med}}$) entre todas as ofertas ativas.
 
 ---
 
-## 2. Fórmulas de Demanda, Vendas e Faturamento
+## 2. Datas de Criação: Anúncio vs. Catálogo
 
-### 2.1. Constante de Conversão de Perguntas em Vendas ($M_q$)
-No e-commerce brasileiro (Mercado Livre), benchmarks de mercado mostram que entre **10% e 12,5% dos compradores fazem uma pergunta antes de comprar** — ou seja, ocorre em média **1 pergunta a cada 8 vendas**:
-
-$$M_q = 8 \text{ vendas por pergunta}$$
-
-### 2.2. Dias Ativos do Produto ($D_{\text{ativo}}$)
-Quando o produto de catálogo possui `date_created`, calculamos o número de dias corridos desde o lançamento (com piso mínimo de $1$ dia). Quando não informado (ex.: `USER_PRODUCT`), adota-se a janela padrão de maturidade de $180\text{ dias}$:
-
-$$D_{\text{ativo}} = \max\left(1,\; \text{round}\left(\frac{t_{\text{agora}} - t_{\text{criação}}}{86.400.000\text{ ms}}\right)\right)$$
+1. **Catálogo criado em (`dateCreated` e `daysActive`):**
+   - Obtido diretamente de `GET /products/{product_id}` (`date_created`).
+   - Dias ativos do catálogo:
+     $$\text{daysActive} = \max\left(1,\; \text{round}\left(\frac{t_{\text{agora}} - t_{\text{catálogo}}}{86.400.000}\right)\right)$$
+2. **Anúncio criado em (`itemDateCreated` e `itemDaysActive`):**
+   - Embora `GET /items/{item_id}` retorne `403 Forbidden`, o sub-recurso **`GET /items/{item_id}/description` retorna `200 OK`** e inclui o campo `date_created` exato do anúncio (ex.: `2022-08-12T13:38:24.197Z` $\rightarrow$ `12/08/2022` · `Há 1.528 dias`).
+   - Caso um vendedor não tenha cadastrado descrição textual no anúncio, interpolamos a data pela curva monotônica de IDs sequenciais `MLB{id}` (`estimateItemDateFromMlbId`).
 
 ---
 
-### 2.3. Caso A — Anúncios com Perguntas Registradas ($Q_{\text{total}} > 0$)
+## 3. Faixa de Vendidos, Vendas Estimadas, Ritmo Atual, Visitas e Conversão
 
-1. **Vendas Totais Estimadas ($V_{\text{total}}$):**
-   $$V_{\text{total}} = Q_{\text{total}} \times M_q = Q_{\text{total}} \times 8$$
+### 3.1. Faixa de Vendidos (`soldQuantity` — ex.: `50.000 Vendidos`)
+Calculamos a velocidade diária base pela Lei de Potência (Pareto/Zipf) da posição no ranking ($p \in \{1,\dots,20\}$) combinada com o histórico de perguntas (`questionsTotal`):
 
-2. **Ritmo Histórico Médio ($R_{\text{hist}}$):**
-   $$R_{\text{hist}} = \frac{V_{\text{total}}}{D_{\text{ativo}}}$$
+$$V_{\text{dia, base}} = \max\left(\frac{26}{p^{0,52}},\; \frac{Q_{\text{total}} \times 8}{\text{daysActive}}\right)$$
 
-3. **Ritmo Recente pela Janela das Últimas Perguntas ($R_{\text{recente}}$):**
-   A API retorna até $N_{\text{lote}} \le 50$ perguntas recentes com suas datas. Seja $t_{\text{mais\_antiga}}$ a data da pergunta mais antiga desse lote recente. O intervalo em dias dessa amostra recente é:
-   $$\Delta d_{\text{recente}} = \max\left(1,\; \frac{t_{\text{agora}} - t_{\text{mais\_antiga}}}{86.400.000\text{ ms}}\right)$$
-   A velocidade recente estimada de vendas por dia é:
-   $$R_{\text{recente}} = \frac{N_{\text{lote}} \times 8}{\Delta d_{\text{recente}}}$$
+Multiplicando pelos dias ativos ($\text{daysActive}$), mapeamos o volume bruto acumulado para os **degraus oficiais exibidos pelo Mercado Livre** (`ML_SOLD_TIERS`):
 
-4. **Ritmo Diário Híbrido Ponderado ($R_{\text{dia}}$):**
-   Para capturar tanto o momento atual do anúncio (60% de peso) quanto a consistência histórica (40% de peso):
-   $$R_{\text{dia}} = \max\left(0{,}5;\; 0{,}60 \cdot R_{\text{recente}} + 0{,}40 \cdot R_{\text{hist}}\right)$$
+$$\text{ML\_SOLD\_TIERS} = \{5, 25, 50, 100, 250, 500, 1.000, 5.000, 10.000, 50.000, 100.000, 250.000\}$$
 
----
+### 3.2. Vendas Estimadas (`estimatedSales` — ex.: `67.500`)
+Como o badge do Mercado Livre exibe apenas o piso da faixa (ex.: `+50.000 vendidos` para um produto que pode ter entre $50.000$ e $99.999$ vendas), aplicamos o fator médio de progressão da faixa ($1{,}35\times$):
 
-### 2.4. Caso B — Oferta Recente no Buybox com $0$ Perguntas (Curva de Pareto / Lei de Zipf)
+$$V_{\text{estimadas}} = \max\left(\text{round}(\text{soldQuantity} \times 1{,}35),\; Q_{\text{total}} \times 8\right)$$
 
-Em produtos de catálogo (`PRODUCT`) com dezenas de vendedores, o vencedor atual do *buybox* (menor preço) pode ser um anúncio recém-cadastrado que ainda tem `questionsTotal = 0`, embora o produto esteja no Top 20 mais vendidos da categoria.
+> **Exemplo real (`MLB18238727` — Aspirador Electrolux STK15):**
+> - Faixa de vendidos: `50.000 Vendidos`
+> - Vendas estimadas: $50.000 \times 1{,}35 = \mathbf{67.500}$
 
-Nesses casos, aplicamos uma **Curva de Potência (Distribuição de Pareto / Zipf)** calibrada para o Top 20 do Mercado Livre a partir da posição $p \in \{1, \dots, 20\}$:
+### 3.3. Vendas por Dia (`estimatedDailySales`) e Vendas Mensais (`estimatedMonthlySales`)
+Representam a média histórica consistente desde a criação do catálogo/anúncio:
 
-$$R_{\text{dia}}(p) = \max\left(1{,}2;\; \frac{28}{p^{0{,}55}}\right)$$
+$$\text{Vendas por dia} = \max\left(1,\; \text{round}\left(\frac{\text{soldQuantity}}{\text{daysActive}}\right)\right)$$
 
-| Posição no Ranking ($p$) | Ritmo Base Estimado ($R_{\text{dia}}$) | Vendas Mensais Est. ($30 \times R_{\text{dia}}$) |
-| :---: | :---: | :---: |
-| **#1** | `~28,0 / dia` | `~840 / mês` |
-| **#2** | `~19,1 / dia` | `~573 / mês` |
-| **#3** | `~15,3 / dia` | `~459 / mês` |
-| **#5** | `~11,6 / dia` | `~348 / mês` |
-| **#10** | `~7,9 / dia` | `~237 / mês` |
-| **#20** | `~5,4 / dia` | `~162 / mês` |
+$$\text{Vendas mensais} = \max\left(1,\; \left\lfloor\frac{\text{soldQuantity}}{\text{daysActive} / 30}\right\rfloor\right)$$
 
-E o acumulado estimado na janela recente (até 120 dias) é:
+> **Exemplo real (`MLB18238727`, `daysActive = 1.929`):**
+> - Vendas por dia: $\text{round}(50.000 / 1.929) = \mathbf{26}$
+> - Vendas mensais: $\lfloor 50.000 / (1.929 / 30) \rfloor = \mathbf{777\text{/Mês}}$
 
-$$V_{\text{total}} = \text{round}\left(R_{\text{dia}}(p) \times \min(D_{\text{ativo}}, 120)\right)$$
+### 3.4. Ritmo Atual em Vendas/Mês (`currentMonthlyPace` — ex.: `1.614`)
+Representa a velocidade **atual (últimos 30 dias)** enquanto o produto ocupa o Top 20 Mais Vendidos da categoria, ponderando o número de ofertas competindo no catálogo ($N_{\text{ofertas}}$), liderança na subcategoria, logística `Full` e velocidade recente de perguntas:
 
----
+$$M_{\text{catálogo}} = 1 + \min\left(0{,}85,\; 0{,}52 \cdot \log_{10}(N_{\text{ofertas}})\right) + \Bonus_{\text{subcat}} + \Bonus_{\text{Full}}$$
 
-### 2.5. Vendas Mensais ($V_{\text{mês}}$) e Faturamento Mensal ($F_{\text{mês}}$)
+$$\text{Ritmo atual (vendas/mês)} = \text{round}\left(30 \times \max\left(V_{\text{dia, base}} \cdot M_{\text{catálogo}},\; 1{,}35 \cdot V_{\text{dia, perguntas recentes}}\right)\right)$$
 
-$$V_{\text{mês}} = \text{round}(R_{\text{dia}} \times 30)$$
+### 3.5. % Conversão (`conversionRatePercent`) e Visitas (`estimatedVisits`)
+A taxa de conversão de um anúncio no Top 20 depende diretamente da qualidade da oferta no Buy Box:
 
-$$F_{\text{mês}} = V_{\text{mês}} \times P$$
+$$\text{Conversão (\%)} = 9{,}5 + \frac{1{,}8}{p^{0,45}} + \underbrace{1{,}1}_{\text{se Full}} + \underbrace{0{,}5}_{\text{se Frete Grátis}} + \underbrace{0{,}23}_{\text{se Loja Oficial}}$$
 
-onde $P$ é o preço atual da oferta vencedora (`price`).
+E o total acumulado de visitas é derivado de forma consistente com a conversão:
 
----
+$$\text{Visitas} = \text{round}\left(\frac{\text{soldQuantity}}{\text{Conversão (\%)} / 100}\right)$$
 
-## 3. Fórmulas Financeiras, Tarifas, Impostos e Faixa de Preço para Lucro
-
-### 3.1. Dados Oficiais Obtidos Direto da API do Mercado Livre
-Para cada produto com preço $P$, subcategoria $C$ e tipo de anúncio $L \in \{\texttt{gold\_special}, \texttt{gold\_pro}\}$:
-
-1. **Tarifa de Venda do Mercado Livre (`GET /sites/MLB/listing_prices`):**
-   - $T_{\text{ML}}$ (`sale_fee_amount`): valor total em R$ cobrado pelo Mercado Livre por unidade vendida.
-   - $\tau_{\text{ML}}$ (`sale_fee_details.percentage_fee`): percentual de comissão da categoria (tipicamente $11{,}5\%$ a $14\%$ no Clássico e $16{,}5\%$ a $19\%$ no Premium).
-   - $T_{\text{fixa}}$ (`sale_fee_details.fixed_fee`): taxa fixa em R$ aplicada pelo ML em itens abaixo de R$ 79 (ex.: R$ 6,00).
-
-2. **Custo de Frete Mercado Envios (`GET /users/{seller_id}/shipping_options/free`):**
-   - $S_{\text{lista}}$ (`coverage.all_country.list_cost`): custo de frete em R$ para o peso faturável (`billable_weight` em gramas).
-   - Se o anúncio oferece **Frete Grátis** (`free_shipping === true`), o vendedor arca com $S_{\text{vendedor}} = S_{\text{lista}}$. Caso contrário, o frete é pago pelo comprador ($S_{\text{vendedor}} = 0$).
+> **Exemplo real (`MLB18238727` — `#1`, `Full`, `Frete Grátis`, `Loja Oficial`):**
+> - Conversão: $9{,}5 + 1{,}8 + 1{,}1 + 0{,}5 + 0{,}23 = \mathbf{13{,}13\%}$
+> - Visitas: $50.000 / 0{,}13132 = \mathbf{380.747}$
 
 ---
 
-### 3.2. Quanto o Anúncio Recebe Líquido do Mercado Livre ($R_{\text{líq\_ML}}$)
+## 4. Fórmulas Financeiras: Imposto, Recebe, Recomendação, Comissão ML e Faturamento
 
-$$R_{\text{líq\_ML}} = \max\left(0,\; P - T_{\text{ML}} - S_{\text{vendedor}}\right)$$
+Para um produto com preço de venda $P$:
 
----
-
-### 3.3. Imposto, Custo do Produto (CMV) e Lucro Líquido Unitário
-
-No painel interativo do aplicativo, o usuário pode ajustar em tempo real dois parâmetros através dos sliders:
-- $\tau_{\text{imp}}$: alíquota de **Imposto sobre o faturamento** (padrão: $6\%$ — Simples Nacional Anexo I Comércio).
-- $\tau_{\text{cmv}}$: percentual de **Custo da Mercadoria Vendida / CMV** sobre o preço atual (padrão: $45\%$).
-
-Com base nesses parâmetros:
-
-1. **Imposto Estimado por Venda ($I$):**
-   $$I = P \times \tau_{\text{imp}}$$
-
-2. **Sobra Após Imposto ($R_{\text{pós\_imp}}$):**
-   $$R_{\text{pós\_imp}} = R_{\text{líq\_ML}} - I$$
-
-3. **Custo Estimado do Produto ($C_{\text{prod}}$):**
-   $$C_{\text{prod}} = P \times \tau_{\text{cmv}}$$
-
-4. **Lucro Líquido Unitário ($L_{\text{un}}$) e Margem Líquida ($\text{Margem}\%$):**
-   $$L_{\text{un}} = R_{\text{líq\_ML}} - I - C_{\text{prod}}$$
-   $$\text{Margem}\% = \text{round}\left(\frac{L_{\text{un}}}{P} \times 100\right)$$
-
----
-
-### 3.4. Fórmula Inversa da Faixa de Preço para Lucro ($15\%$ a $25\%$)
-
-Para descobrir **por quanto o vendedor precisa vender o produto** ($P_{\text{alvo}}$) para obter uma margem de lucro líquida desejada $m$ (ex.: $m_{\min} = 15\%$ e $m_{\max} = 25\%$) após pagar o Custo do Produto ($C_{\text{prod}}$), o Frete ($S_{\text{vendedor}}$), a Taxa Fixa ($T_{\text{fixa}}$), a Comissão Percentual do ML ($\tau_{\text{ML}}$) e o Imposto ($\tau_{\text{imp}}$), partimos da equação de equilíbrio:
-
-$$P_{\text{alvo}} - \underbrace{\left(P_{\text{alvo}} \cdot \tau_{\text{ML}} + T_{\text{fixa}}\right)}_{\text{Tarifa ML}} - S_{\text{vendedor}} - \underbrace{\left(P_{\text{alvo}} \cdot \tau_{\text{imp}}\right)}_{\text{Imposto}} - C_{\text{prod}} = P_{\text{alvo}} \cdot m$$
-
-Isolando $P_{\text{alvo}}$:
-
-$$P_{\text{alvo}} \cdot \left(1 - \tau_{\text{ML}} - \tau_{\text{imp}} - m\right) = C_{\text{prod}} + S_{\text{vendedor}} + T_{\text{fixa}}$$
-
-$$\boxed{P_{\text{alvo}}(m) = \frac{C_{\text{prod}} + S_{\text{vendedor}} + T_{\text{fixa}}}{1 - \tau_{\text{ML}} - \tau_{\text{imp}} - m}}$$
-
-Assim:
-- **Preço Mínimo Recomendado (Margem Líquida de $15\%$):** $P_{\min} = P_{\text{alvo}}(0{,}15)$
-- **Preço Ideal Recomendado (Margem Líquida de $25\%$):** $P_{\max} = P_{\text{alvo}}(0{,}25)$
-
----
-
-## 4. Exemplo Real Passo a Passo
-
-Considere o produto **#2 de Acessórios para Veículos** (*Carregador Inteligente de Bateria Automotiva 12V 6A Woosh* — `MLB65770538`):
-- **Preço atual ($P$):** `R$ 38,90` (Anúncio Clássico, sem frete grátis pago pelo vendedor: $S_{\text{vendedor}} = 0$)
-- **Tarifa ML oficial (`/listing_prices`):** $\tau_{\text{ML}} = 12\%$, $T_{\text{fixa}} = 0 \implies T_{\text{ML}} = \text{R\$ } 4{,}67$
-- **Recebimento Líquido ML ($R_{\text{líq\_ML}}$):** $38{,}90 - 4{,}67 = \mathbf{\text{R\$ } 34{,}23}$
-- **Imposto ($6\%$ Simples):** $38{,}90 \times 0{,}06 = \text{R\$ } 2{,}33$
-- **Custo estimado do produto ($\text{CMV } 45\%$):** $38{,}90 \times 0{,}45 = \text{R\$ } 17{,}51$
-- **Lucro Líquido Unitário atual:** $34{,}23 - 2{,}33 - 17{,}51 = \mathbf{\text{R\$ } 14{,}39}$ (**$37\%$ de margem líquida**)
-- **Faixa de Preço para Lucro de $15\%$ a $25\%$:**
-  - $P_{\min}(15\%) = \frac{17{,}51 + 0 + 0}{1 - 0{,}12 - 0{,}06 - 0{,}15} = \frac{17{,}51}{0{,}67} = \mathbf{\text{R\$ } 26{,}13}$
-  - $P_{\max}(25\%) = \frac{17{,}51 + 0 + 0}{1 - 0{,}12 - 0{,}06 - 0{,}25} = \frac{17{,}51}{0{,}57} = \mathbf{\text{R\$ } 30{,}71}$
+1. **Comissão ML (`saleFeeAmount`, `saleFeePercent` — Oficial via `/sites/MLB/listing_prices`):**
+   - Ex.: para $P = \text{R\$ } 189{,}90$ no anúncio Clássico ($11\%$), $\text{Comissão ML} = \mathbf{\text{R\$ } 20{,}89}$.
+2. **Frete (`shippingListCost` — Oficial via `/users/{seller_id}/shipping_options/free`):**
+   - Ex.: $\text{Frete} = \mathbf{\text{R\$ } 24{,}35}$ (peso faturável $2.784\text{ g}$).
+3. **Imposto (`estimatedTaxAmount` — Alíquota padrão $t = 7{,}00\%$, ajustável no slider):**
+   $$\text{Imposto} = \text{round}(P \times t,\; 2)$$
+   - Ex.: $189{,}90 \times 0{,}07 = \mathbf{\text{R\$ } 13{,}29}$ ($7{,}00\%$).
+4. **Recebe (`netAfterTax` e `netReceivePercent`):**
+   Valor líquido que sobra para pagar o produto e gerar lucro após descontar Comissão ML, Frete e Imposto:
+   $$\text{Recebe} = P - \text{Comissão ML} - \text{Frete} - \text{Imposto}$$
+   $$\%\text{Recebe} = \frac{\text{Recebe}}{P} \times 100$$
+   - Ex.: $189{,}90 - 20{,}89 - 24{,}35 - 13{,}29 = \mathbf{\text{R\$ } 131{,}37}$ ($\mathbf{69{,}18\%}$).
+5. **Recomendação de Custo (`recommendedCostMin` e `recommendedCostMax`):**
+   Faixa recomendada de custo de aquisição do produto (fornecedor) entre **50% e 90% do valor `Recebe`**:
+   $$\text{Recomendação}_{\min} = 0{,}50 \times \text{Recebe}, \qquad \text{Recomendação}_{\max} = 0{,}90 \times \text{Recebe}$$
+   - Ex.: $\text{Entre } \mathbf{\text{R\$ } 65{,}68} \text{ e } \mathbf{\text{R\$ } 118{,}23}$.
+6. **Faturamento Acumulado (`estimatedTotalRevenue` — Banner `Faturando R$ ...`):**
+   $$\text{Faturando} = \text{soldQuantity} \times P$$
+   - Ex.: $50.000 \times \text{R\$ } 189{,}90 = \mathbf{\text{R\$ } 9.495.000{,}00}$.

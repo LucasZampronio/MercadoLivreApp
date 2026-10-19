@@ -27,7 +27,7 @@ export type Product = {
   picturesCount?: number;
   permalink?: string;
 
-  // Catálogo / Ficha técnica (/products/{id})
+  // Catálogo / Ficha técnica (/products/{id} + /items/{id}/description)
   brand?: string;
   model?: string;
   color?: string;
@@ -37,6 +37,8 @@ export type Product = {
   qualityType?: string;
   dateCreated?: string;
   daysActive?: number;
+  itemDateCreated?: string;
+  itemDaysActive?: number;
 
   // Categoria & Subcategoria (/highlights/MLB/{type}/{id} + /categories/{id})
   categoryId?: string;
@@ -48,6 +50,7 @@ export type Product = {
 
   // Ofertas & Preços (/products/{id}/items)
   price?: number;
+  minPrice?: number;
   maxPrice?: number;
   avgPrice?: number;
   originalPrice?: number;
@@ -62,7 +65,7 @@ export type Product = {
   officialStore?: boolean;
   officialStoreId?: number;
 
-  // Financeiro: Tarifas ML, Frete, Imposto, Recebimento Líquido (/sites/MLB/listing_prices + /shipping_options/free)
+  // Financeiro: Tarifas ML, Frete, Imposto, Recebimento Líquido e Recomendação (/sites/MLB/listing_prices + /shipping_options/free)
   saleFeeAmount?: number;
   saleFeePercent?: number;
   fixedFeeAmount?: number;
@@ -72,15 +75,24 @@ export type Product = {
   estimatedTaxAmount?: number;
   netReceived?: number;
   netAfterTax?: number;
+  netReceivePercent?: number;
+  recommendedCostMin?: number;
+  recommendedCostMax?: number;
   profitPriceMin?: number;
   profitPriceMax?: number;
 
-  // Demanda / Engajamento (/questions/search)
+  // Demanda, Tráfego, Conversão e Faturamento (estilo Avantpro)
   questionsTotal?: number;
+  soldQuantity?: number;
+  estimatedStock?: number;
   estimatedSales?: number;
+  currentMonthlyPace?: number;
+  estimatedVisits?: number;
+  conversionRatePercent?: number;
   estimatedDailySales?: number;
   estimatedMonthlySales?: number;
   estimatedMonthlyRevenue?: number;
+  estimatedTotalRevenue?: number;
 
   // Vendedor & Reputação (/users/{seller_id})
   sellerId?: number;
@@ -128,3 +140,4 @@ export type Offer = {
   shipping?: { free_shipping?: boolean; logistic_type?: string; mode?: string };
   seller_address?: { city?: { name?: string }; state?: { name?: string } };
 };
+

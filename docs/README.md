@@ -25,3 +25,4 @@ Bem-vindo à documentação oficial do **MercadoLivreApp** (Painel de Inteligên
    - Configuração do endpoint correto (`https://mcp.mercadolibre.com/devsite/v1/mcp`).
    - Tools expostas (`search_documentation`, `get_documentation_page`).
    - Fluxo OAuth 2.0 com PKCE em 2 passos (`scripts/meli-login.mjs`).
+

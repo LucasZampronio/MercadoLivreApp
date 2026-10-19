@@ -71,8 +71,8 @@ main { max-width: 1360px; margin: 0 auto; padding: 20px; }
 .empty-state button { margin-left: 8px; padding: 6px 12px; background: #3483fa; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
 
 /* CARDS */
-.grid { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(305px, 1fr)); gap: 16px; margin: 0; }
-.card { background: #fff; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 9px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.grid { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 18px; margin: 0; }
+.card { background: #fff; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 10px; border: 1px solid #e2e8f0; box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05); }
 
 .card-head { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .pos { background: #3483fa; color: #fff; border-radius: 5px; padding: 2px 8px; font-size: 12px; font-weight: 700; }
@@ -80,8 +80,8 @@ main { max-width: 1360px; margin: 0 auto; padding: 20px; }
 .badge-outline { font-size: 10px; border: 1px solid #94a3b8; color: #334155; padding: 1px 6px; border-radius: 4px; font-weight: 600; }
 .badge-full { font-size: 10px; background: #00a650; color: #fff; padding: 2px 6px; border-radius: 4px; font-weight: 700; text-transform: uppercase; }
 
-.card img { width: 100%; height: 165px; object-fit: contain; background: #fff; border-radius: 6px; }
-.img-fallback { width: 100%; height: 165px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 6px; color: #64748b; font-size: 11px; text-align: center; padding: 8px; box-sizing: border-box; }
+.card img { width: 100%; height: 170px; object-fit: contain; background: #fff; border-radius: 6px; }
+.img-fallback { width: 100%; height: 170px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 6px; color: #64748b; font-size: 11px; text-align: center; padding: 8px; box-sizing: border-box; }
 
 .cat-row { display: flex; flex-direction: column; gap: 2px; }
 .cat { color: #1d4ed8; font-size: 11px; font-weight: 700; text-transform: uppercase; }
@@ -93,33 +93,60 @@ main { max-width: 1360px; margin: 0 auto; padding: 20px; }
 .specs { display: flex; flex-wrap: wrap; gap: 6px 10px; font-size: 11px; color: #475569; background: #f8fafc; padding: 6px 8px; border-radius: 6px; }
 
 .price-box { display: flex; flex-direction: column; gap: 2px; }
-.price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; font-size: 18px; }
+.price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; font-size: 19px; }
 .price s { color: #94a3b8; font-size: 12px; }
 .price em { color: #00a650; font-style: normal; font-size: 12px; font-weight: 700; }
 .range { font-size: 11px; color: #64748b; }
 .muted { color: #94a3b8; font-size: 12px; }
 
-.tags { display: flex; flex-wrap: wrap; gap: 4px; font-size: 11px; }
-.tags span { background: #f1f5f9; color: #334155; border-radius: 4px; padding: 2px 6px; }
-.tags .tag-green { background: #dcfce7; color: #15803d; font-weight: 600; }
-.tags .tag-blue { background: #dbeafe; color: #1d4ed8; font-weight: 600; }
+/* PAINEL ESTILO AVANTPRO */
+.av-panel { display: flex; flex-direction: column; gap: 8px; margin-top: 2px; }
 
-.metrics-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 10px; display: flex; flex-direction: column; gap: 6px; }
-.metrics-title { font-size: 11px; font-weight: 700; color: #334155; text-transform: uppercase; letter-spacing: 0.02em; display: flex; justify-content: space-between; align-items: center; }
-.method-badge { font-size: 9px; background: #e2e8f0; color: #475569; padding: 1px 5px; border-radius: 4px; text-transform: none; font-weight: 600; }
-.metrics-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
-.metrics-grid div { display: flex; flex-direction: column; background: #fff; padding: 5px 7px; border-radius: 5px; border: 1px solid #f1f5f9; }
-.metrics-grid span { font-size: 10px; color: #64748b; }
-.metrics-grid strong { font-size: 12px; color: #0f172a; }
-.revenue-row { font-size: 11px; color: #0f172a; background: #ecfdf5; border: 1px solid #a7f3d0; padding: 4px 8px; border-radius: 5px; text-align: center; }
+.av-status-bar { display: flex; justify-content: center; align-items: center; gap: 10px; border: 1px solid #e2e8f0; border-radius: 10px; padding: 6px 10px; background: #fff; }
+.av-status-icon { width: 26px; height: 26px; border-radius: 999px; border: 1px solid #cbd5e1; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; opacity: 0.35; filter: grayscale(1); transition: all 0.15s; cursor: help; }
+.av-status-icon.active { opacity: 1; filter: none; border-color: #93c5fd; background: #eff6ff; }
 
-.finance-box { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 8px 10px; display: flex; flex-direction: column; gap: 5px; }
-.finance-rows { display: flex; flex-direction: column; gap: 3px; font-size: 11px; }
-.fin-row { display: flex; justify-content: space-between; align-items: center; }
-.fin-row.highlight { border-top: 1px dashed #fcd34d; border-bottom: 1px dashed #fcd34d; padding: 3px 0; margin: 1px 0; font-weight: 600; }
-.fin-row.profit-range { background: #fef3c7; padding: 4px 6px; border-radius: 4px; margin-top: 2px; }
-.neg { color: #b91c1c; }
-.pos-val { color: #15803d; font-size: 12px; }
+.av-pills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+.av-pill { position: relative; display: flex; align-items: center; justify-content: center; gap: 5px; border: 1px solid #e2e8f0; background: #fff; border-radius: 999px; padding: 6px 22px 6px 10px; font-size: 11.5px; color: #0f172a; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+.av-pill strong { font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.av-pill-icon { font-size: 12px; }
+.av-pill-blue { background: #eff6ff; border-color: #93c5fd; color: #1d4ed8; }
+.av-pill .av-info { position: absolute; right: 7px; top: 50%; transform: translateY(-50%); }
+
+.av-info { width: 14px; height: 14px; border-radius: 999px; border: 1.3px solid #60a5fa; color: #2563eb; font-size: 9px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; cursor: help; flex-shrink: 0; font-style: normal; line-height: 1; background: #fff; }
+
+.av-cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+.av-metric-card { position: relative; border: 1px solid #e2e8f0; background: #fff; border-radius: 10px; padding: 10px 8px 9px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 3px; min-height: 60px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+.av-metric-card .av-info { position: absolute; top: 5px; right: 5px; }
+.av-metric-label { font-size: 10.5px; color: #64748b; font-weight: 500; line-height: 1.2; padding: 0 10px; }
+.av-metric-val { font-size: 14.5px; font-weight: 800; color: #1e293b; line-height: 1.2; }
+.av-date-val { font-size: 13px; }
+.av-rec-val { font-size: 11.5px; line-height: 1.3; }
+.av-metric-sub { font-size: 11px; font-weight: 600; }
+
+.av-days-pill { margin-top: 2px; background: #f1f5f9; border: 1px solid #cbd5e1; color: #334155; font-size: 10px; font-weight: 700; padding: 1px 8px; border-radius: 999px; }
+
+.av-card-red .av-metric-label,
+.av-card-red .av-metric-val,
+.av-card-red .av-metric-sub { color: #ef4444; }
+
+.av-card-green .av-metric-label,
+.av-card-green .av-metric-val,
+.av-card-green .av-metric-sub { color: #16a34a; }
+
+.av-card-blue .av-metric-label,
+.av-card-blue .av-metric-val,
+.av-card-blue .av-metric-sub { color: #3b82f6; }
+
+.av-cmv-sim { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 6px 10px; font-size: 11px; display: flex; flex-direction: column; gap: 2px; color: #78350f; }
+.av-cmv-sim div { display: flex; justify-content: space-between; align-items: center; }
+
+.av-revenue-banner { background: linear-gradient(90deg, #009ee3 0%, #2563eb 55%, #1d4ed8 100%); color: #fff; border-radius: 10px; padding: 10px 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 3px; box-shadow: 0 3px 8px rgba(37, 99, 235, 0.25); }
+.av-rev-main { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 800; letter-spacing: 0.01em; }
+.av-rev-sub { font-size: 10.5px; color: rgba(255, 255, 255, 0.9); }
+
+.neg { color: #dc2626; }
+.pos-val { color: #16a34a; font-size: 12px; }
 
 .seller-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 7px 9px; font-size: 11px; display: flex; flex-direction: column; gap: 4px; }
 .seller-top { display: flex; gap: 5px; align-items: center; }

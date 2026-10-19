@@ -52,3 +52,4 @@ Toda a documentação técnica, arquitetura e fórmulas matemáticas estão na p
    npm run dev
    ```
    Acesse `http://localhost:3000`.
+

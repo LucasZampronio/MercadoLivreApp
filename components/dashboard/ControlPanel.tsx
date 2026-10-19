@@ -119,12 +119,15 @@ export default function ControlPanel({
             onChange={(e) => onSortChange(e.target.value as SortKey)}
           >
             <option value="position">🏅 Posição no Ranking (#1 → #20)</option>
-            <option value="revenue_desc">💰 Maior Faturamento Mensal Est.</option>
+            <option value="total_revenue_desc">💎 Maior Faturamento Acumulado (Faturando)</option>
+            <option value="revenue_desc">💰 Maior Faturamento Mensal (Ritmo Atual)</option>
             <option value="daily_desc">🔥 Maior Ritmo de Vendas / Dia</option>
+            <option value="visits_desc">👁️ Mais Visitas Acumuladas</option>
+            <option value="conversion_desc">🎯 Maior % Conversão</option>
             <option value="discount_desc">🏷️ Maior Desconto (% OFF)</option>
             <option value="price_asc">💵 Menor Preço</option>
             <option value="price_desc">💎 Maior Preço</option>
-            <option value="net_desc">📈 Maior Líquido Recebido (ML)</option>
+            <option value="net_desc">📈 Maior Valor Recebido (Recebe R$)</option>
             <option value="questions_desc">💬 Mais Perguntas</option>
           </select>
         </div>
@@ -211,3 +214,4 @@ export default function ControlPanel({
     </section>
   );
 }
+
