@@ -1,14 +1,14 @@
 /**
- * Fórmulas financeiras e estatísticas de inteligência de mercado (estilo Avantpro).
+ * Fórmulas financeiras (100% exatas sobre dados oficiais da API) e
+ * estimativas estatísticas multi-sinal (sinalizadas na UI com "≈").
  * Documentação detalhada em: docs/formulas-e-estimativas.md
  */
 
-export const QUESTIONS_TO_SALES_MULTIPLIER = 8; // Benchmark ML: ~1 pergunta a cada 8 vendas (~12,5% perguntam)
 export const DEFAULT_TAX_PERCENT = 7; // Alíquota padrão estilo Avantpro (7,00%)
 export const DEFAULT_CMV_PERCENT = 45; // Custo da Mercadoria Vendida padrão para simulação de lucro
 
 /**
- * Faixas oficiais exibidas pelo Mercado Livre nos badges "+X vendidos"
+ * Degraus oficiais exibidos pelo Mercado Livre nos badges "+X vendidos"
  */
 export const ML_SOLD_TIERS = [
   5, 25, 50, 100, 250, 500, 1000, 5000, 10000, 50000, 100000, 250000,
@@ -16,7 +16,7 @@ export const ML_SOLD_TIERS = [
 
 /**
  * Âncoras reais calibradas a partir de `GET /items/{id}/description` (date_created)
- * para estimar a data de criação do anúncio quando o item não possui texto de descrição.
+ * para interpolar a data de criação do anúncio quando o item não possui texto de descrição.
  */
 const MLB_ID_DATE_ANCHORS: readonly [number, number][] = [
   [1_100_000_000, Date.parse("2018-09-01T00:00:00Z")],
@@ -37,7 +37,10 @@ const MLB_ID_DATE_ANCHORS: readonly [number, number][] = [
  * Interpola a data de criação aproximada de um `MLB{id}` sequencial caso
  * `/items/{id}/description` não retorne `date_created`.
  */
-export function estimateItemDateFromMlbId(itemId?: string, catalogDateCreated?: string): string | undefined {
+export function estimateItemDateFromMlbId(
+  itemId?: string,
+  catalogDateCreated?: string,
+): string | undefined {
   if (!itemId) return catalogDateCreated;
   const num = Number(itemId.replace(/\D+/g, ""));
   if (!Number.isFinite(num) || num < 500_000_000) return catalogDateCreated;
@@ -66,6 +69,7 @@ export function estimateItemDateFromMlbId(itemId?: string, catalogDateCreated?: 
 export type SalesEstimateInput = {
   position: number;
   subcategoryPosition?: number;
+  subcategoryTotalItems?: number;
   offers?: number;
   questionsTotal?: number;
   recentQuestionDates?: string[];
@@ -75,6 +79,7 @@ export type SalesEstimateInput = {
   isFull?: boolean;
   freeShipping?: boolean;
   officialStore?: boolean;
+  sellerTotalTransactions?: number;
 };
 
 export type SalesEstimateResult = {
@@ -93,16 +98,13 @@ export type SalesEstimateResult = {
 };
 
 /**
- * Calcula o pacote completo de métricas de demanda, tráfego e conversão estilo Avantpro:
- * - `soldQuantity`: Faixa de vendidos do ML (`50.000`, `10.000`, `5.000`, `1.000`, `500`, `250`, `100`, `50`, `25`, `5`)
- * - `estimatedSales`: Vendas estimadas acumuladas (`Math.round(soldQuantity * 1.35)` ou via perguntas quando superior)
- * - `currentMonthlyPace`: Ritmo atual em vendas/mês nos últimos 30 dias
- * - `estimatedDailySales`: Vendas por dia (`Math.round(soldQuantity / effectiveDays)`)
- * - `estimatedMonthlySales`: Vendas mensais históricas (`Math.floor(soldQuantity / (effectiveDays / 30))`)
- * - `conversionRatePercent`: % Conversão (`(soldQuantity / estimatedVisits) * 100`)
- * - `estimatedVisits`: Total de visitas acumuladas (`Math.round(soldQuantity / (conversionRatePercent / 100))`)
- * - `estimatedStock`: Estoque disponível estimado no Buy Box (`50`, `100`, `25`, `15`, `10`)
- * - `estimatedTotalRevenue`: Faturamento bruto acumulado (`soldQuantity * price`)
+ * Calcula estimativas multi-sinal combinando:
+ * 1. Posição na categoria (#1..#20) e na subcategoria (`/highlights`)
+ * 2. Tamanho do mercado da subcategoria (`subcategoryTotalItems` via `/categories/{id}`)
+ * 3. Quantidade de ofertas disputando o catálogo (`offers` via `/products/{id}/items`)
+ * 4. Elasticidade de preço (`price`: itens de ticket baixo giram mais unidades que ticket alto)
+ * 5. Total e velocidade real de perguntas (`questionsTotal` e `recentQuestionDates` via `/questions/search`)
+ * 6. Teto de transações reais da conta do vendedor (`sellerTotalTransactions` via `/users/{id}`) para anúncios de oferta única
  */
 export function calculateSalesEstimates(input: SalesEstimateInput): SalesEstimateResult {
   const questionsTotal = input.questionsTotal ?? 0;
@@ -110,94 +112,134 @@ export function calculateSalesEstimates(input: SalesEstimateInput): SalesEstimat
   const pos = Math.max(1, input.position);
   const subPos = Math.max(1, input.subcategoryPosition ?? pos);
   const offersCount = Math.max(1, input.offers ?? 1);
+  const price = input.price && input.price > 0 ? input.price : 120;
+  const subcatSize = Math.max(200, input.subcategoryTotalItems ?? 15_000);
 
   const qTimestamps = (input.recentQuestionDates ?? [])
     .map((d) => (d ? new Date(d).getTime() : NaN))
     .filter((t) => !Number.isNaN(t));
 
-  // Velocidade base diária pela posição no ranking (Lei de Pareto/Zipf: #1 ≈ 26/dia)
-  const rankDailyBase = 26 / Math.pow(pos, 0.52);
-  const questionLifetimeDaily = (questionsTotal * QUESTIONS_TO_SALES_MULTIPLIER) / effectiveDays;
-  const historicalDaily = Math.max(rankDailyBase, questionLifetimeDaily);
+  // Multiplicador de vendas por pergunta ajustado pelo ticket do produto
+  // Ticket baixo (~R$30) tem menos perguntas por venda (~16x); ticket alto (>R$800) tem mais dúvidas (~6x)
+  const salesPerQuestion = Math.min(
+    18,
+    Math.max(5.5, 14.5 * Math.pow(100 / Math.max(25, price), 0.22)),
+  );
 
-  // Volume bruto acumulado ao longo do tempo ativo do catálogo/anúncio
-  const rawAccumulatedSales = historicalDaily * effectiveDays;
+  // Fator de tamanho da subcategoria (subcategorias gigantes vendem mais que nichos pequenos)
+  const marketSizeFactor = Math.min(1.45, Math.max(0.45, Math.pow(subcatSize / 25_000, 0.2)));
 
-  // Mapeia para a faixa oficial de vendidos do Mercado Livre (+50 mil, +10 mil, +5 mil, +1000, +500, +100...)
-  let soldQuantity = Math.max(5, Math.round(rawAccumulatedSales));
+  // Fator de elasticidade de preço (itens baratos têm giro diário de unidades maior)
+  const priceVelocityFactor = Math.min(1.6, Math.max(0.35, Math.pow(160 / price, 0.24)));
+
+  // Fator de competição no catálogo (mais vendedores no mesmo catálogo = maior giro agregado)
+  const catalogFactor =
+    offersCount > 1 ? 1 + Math.min(0.65, Math.log10(offersCount) * 0.35) : 0.85;
+
+  // Velocidade diária base multi-sinal
+  const rankDaily =
+    (18 / Math.pow(pos, 0.54)) *
+    marketSizeFactor *
+    priceVelocityFactor *
+    catalogFactor *
+    (subPos === 1 ? 1.12 : subPos <= 3 ? 1.04 : 0.96);
+
+  // Velocidade via perguntas reais do anúncio
+  let recentQuestionDaily = 0;
+  if (qTimestamps.length >= 2) {
+    const oldestRecent = Math.min(...qTimestamps);
+    const spanDays = Math.max(1, (Date.now() - oldestRecent) / 86_400_000);
+    recentQuestionDaily = (qTimestamps.length * salesPerQuestion) / spanDays;
+  }
+  const lifetimeQuestionDaily = (questionsTotal * salesPerQuestion) / effectiveDays;
+
+  // Combina o sinal de perguntas reais com o modelo multi-sinal da categoria
+  const blendedDaily =
+    questionsTotal > 0
+      ? Math.max(
+          rankDaily * 0.75 + lifetimeQuestionDaily * 0.5,
+          recentQuestionDaily * 0.65 + rankDaily * 0.45,
+        )
+      : rankDaily;
+
+  let estimatedSales = Math.max(
+    Math.round(questionsTotal * salesPerQuestion),
+    Math.round(blendedDaily * effectiveDays),
+  );
+
+  // Se for anúncio de vendedor único (sem dezenas de ofertas de catálogo), limita pelo histórico real da conta do vendedor
+  if (
+    offersCount <= 2 &&
+    input.sellerTotalTransactions != null &&
+    input.sellerTotalTransactions > 0
+  ) {
+    const sellerCap = Math.max(
+      Math.round(questionsTotal * salesPerQuestion),
+      Math.round(input.sellerTotalTransactions * 0.65),
+    );
+    estimatedSales = Math.min(estimatedSales, Math.max(10, sellerCap));
+  }
+
+  // Degrau "+X Vendidos" correspondente ao volume estimado (igual à faixa exibida pelo ML)
+  let soldQuantity = Math.max(5, Math.round(estimatedSales * 0.75));
   for (let i = ML_SOLD_TIERS.length - 1; i >= 0; i--) {
-    if (rawAccumulatedSales * 1.02 >= ML_SOLD_TIERS[i]) {
+    if (estimatedSales >= ML_SOLD_TIERS[i]) {
       soldQuantity = ML_SOLD_TIERS[i];
       break;
     }
   }
 
-  // Vendas estimadas (fator Avantpro 1.35x sobre o piso da faixa de vendidos)
-  const estimatedSales = Math.max(
-    Math.round(soldQuantity * 1.35),
-    questionsTotal * QUESTIONS_TO_SALES_MULTIPLIER,
-  );
-
-  // Média diária e mensal histórica (idêntico ao Avantpro: soldQuantity / dias e soldQuantity / meses)
-  const estimatedDailySales = Math.max(1, Math.round(soldQuantity / effectiveDays));
+  // Média diária e mensal histórica (consistente com o volume estimado e dias ativos)
+  const estimatedDailySales = Math.max(1, Math.round(estimatedSales / effectiveDays));
   const monthsActive = Math.max(1 / 30, effectiveDays / 30);
-  const estimatedMonthlySales = Math.max(1, Math.floor(soldQuantity / monthsActive));
+  const historicalMonthlySales = Math.max(1, Math.round(estimatedSales / monthsActive));
 
-  // Ritmo atual (vendas/mês nos últimos 30 dias enquanto está no Top 20 Mais Vendidos)
-  let recentQuestionDaily = 0;
-  if (qTimestamps.length >= 2) {
-    const oldestRecent = Math.min(...qTimestamps);
-    const spanDays = Math.max(1, (Date.now() - oldestRecent) / 86_400_000);
-    recentQuestionDaily = (qTimestamps.length * QUESTIONS_TO_SALES_MULTIPLIER) / spanDays;
-  }
-
-  // Fator de impulso de catálogo atual (ofertas competindo + liderança na subcategoria + Full)
-  const catalogMomentumMultiplier =
-    1 +
-    Math.min(0.85, Math.log10(offersCount) * 0.52) +
-    (subPos === 1 ? 0.22 : subPos <= 3 ? 0.1 : 0) +
-    (input.isFull ? 0.08 : 0);
-
+  // Ritmo atual (vendas/mês nos últimos 30 dias enquanto está no Top 20)
   const currentDailyPace = Math.max(
-    rankDailyBase * catalogMomentumMultiplier,
-    recentQuestionDaily * 1.35,
-    estimatedDailySales * 1.15,
+    blendedDaily * (1 + (subPos === 1 ? 0.25 : 0.1) + (input.isFull ? 0.12 : 0)),
+    recentQuestionDaily * 1.15,
+    estimatedDailySales,
   );
   const currentMonthlyPace = Math.max(1, Math.round(currentDailyPace * 30));
 
-  // Taxa de conversão (%) baseada na qualidade do Buy Box (posição, Full, Frete Grátis, Loja Oficial)
+  // Taxa de conversão (%) baseada em múltiplos sinais reais do anúncio (posição, preço, Full, Frete Grátis, Loja Oficial, Ofertas)
+  const priceConvAdj = Math.min(2.2, Math.max(-2.8, Math.log10(180 / Math.max(15, price)) * 1.9));
   const rawConversion =
-    9.5 +
-    1.8 / Math.pow(pos, 0.45) +
-    (input.isFull ? 1.1 : 0) +
-    (input.freeShipping ? 0.5 : 0) +
-    (input.officialStore ? 0.23 : 0);
-  const conversionRatePercent = Math.round(Math.min(18.5, Math.max(3.2, rawConversion)) * 100) / 100;
+    8.4 +
+    2.1 / Math.pow(pos, 0.48) +
+    priceConvAdj +
+    (input.isFull ? 1.35 : 0) +
+    (input.freeShipping ? 0.65 : 0) +
+    (input.officialStore ? 0.48 : 0) +
+    Math.min(0.9, Math.log10(offersCount + 1) * 0.42);
 
-  // Total de visitas acumuladas = Vendidos / Taxa de conversão
-  const exactConversionRatio = rawConversion / 100;
+  const conversionRatePercent = Math.round(Math.min(18.5, Math.max(2.4, rawConversion)) * 100) / 100;
+
+  // Total de visitas acumuladas consistente com as vendas estimadas e a conversão
   const estimatedVisits = Math.max(
-    soldQuantity * 5,
-    Math.round(soldQuantity / exactConversionRatio),
+    estimatedSales * 5,
+    Math.round(estimatedSales / (conversionRatePercent / 100)),
   );
 
-  // Estoque disponível estimado no anúncio vencedor
-  const estimatedStock = input.isFull
-    ? input.officialStore
-      ? 50
-      : pos <= 3
-        ? 50
-        : 25
-    : input.officialStore
-      ? 30
-      : pos <= 5
-        ? 20
-        : 10;
+  // Estoque disponível estimado ponderando logística, porte do vendedor e giro diário
+  const sellerScale =
+    input.sellerTotalTransactions != null && input.sellerTotalTransactions > 0
+      ? Math.min(2.5, Math.max(0.5, Math.log10(input.sellerTotalTransactions) / 3.8))
+      : 1;
+  const estimatedStock = Math.max(
+    5,
+    Math.round(
+      currentDailyPace *
+        (input.isFull ? 2.4 : 1.4) *
+        (input.officialStore ? 1.3 : 1) *
+        sellerScale,
+    ),
+  );
 
   const estimatedMonthlyRevenue =
     input.price != null ? Math.round(currentMonthlyPace * input.price) : undefined;
   const estimatedTotalRevenue =
-    input.price != null ? Math.round(soldQuantity * input.price * 100) / 100 : undefined;
+    input.price != null ? Math.round(estimatedSales * input.price * 100) / 100 : undefined;
 
   return {
     questionsTotal,
@@ -208,7 +250,7 @@ export function calculateSalesEstimates(input: SalesEstimateInput): SalesEstimat
     estimatedVisits,
     conversionRatePercent,
     estimatedDailySales,
-    estimatedMonthlySales,
+    estimatedMonthlySales: historicalMonthlySales,
     estimatedMonthlyRevenue,
     estimatedTotalRevenue,
     method: questionsTotal > 0 ? "questions" : "ranking_pareto",
@@ -242,7 +284,7 @@ export type FinancialBreakdownResult = {
 };
 
 /**
- * Calcula todas as métricas financeiras estilo Avantpro:
+ * Calcula todas as métricas financeiras exatas sobre os dados oficiais de tarifa e frete da API:
  * - `estimatedTaxAmount`: Valor do imposto (`Preço * %Imposto`)
  * - `netReceived`: Repasse bruto do ML (`Preço - Comissão ML - Frete`)
  * - `netAfterTax` ("Recebe"): Valor líquido recebido após tarifas, frete e imposto (`Preço - Comissão ML - Frete - Imposto`)

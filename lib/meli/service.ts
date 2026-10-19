@@ -151,6 +151,7 @@ async function enrich(h: HighlightItem): Promise<Product> {
     ? Math.max(1, Math.round((Date.now() - new Date(dateCreated).getTime()) / 86_400_000))
     : undefined;
 
+  const itemDateIsEstimated = !descData?.date_created;
   const itemDateCreated: string | undefined =
     descData?.date_created || estimateItemDateFromMlbId(itemId, dateCreated);
   const itemDaysActive = itemDateCreated
@@ -167,6 +168,8 @@ async function enrich(h: HighlightItem): Promise<Product> {
 
   const isFull = best?.shipping?.logistic_type === "fulfillment";
   const isOfficialStore = best ? best.official_store_id != null : false;
+  const sellerTotalTransactions: number | undefined =
+    seller?.seller_reputation?.transactions?.total;
 
   const fin = calculateFinancialBreakdown({
     price,
@@ -180,6 +183,7 @@ async function enrich(h: HighlightItem): Promise<Product> {
   const sales = calculateSalesEstimates({
     position: h.position,
     subcategoryPosition: subHl?.position,
+    subcategoryTotalItems: subcatDetails?.totalItems,
     offers: offers.length || 1,
     questionsTotal: questionsData?.total,
     recentQuestionDates: (questionsData?.questions ?? [])
@@ -191,6 +195,7 @@ async function enrich(h: HighlightItem): Promise<Product> {
     isFull,
     freeShipping: best?.shipping?.free_shipping,
     officialStore: isOfficialStore,
+    sellerTotalTransactions,
   });
 
   const city = best?.seller_address?.city?.name ?? seller?.address?.city;
@@ -224,6 +229,7 @@ async function enrich(h: HighlightItem): Promise<Product> {
     daysActive,
     itemDateCreated,
     itemDaysActive,
+    itemDateIsEstimated,
 
     subcategoryId: subcatId,
     subcategoryName: subcatLabel,
@@ -298,7 +304,7 @@ async function getHighlights(categoryId: string): Promise<HighlightItem[]> {
 
 export async function getBestSellers(categoryId: string): Promise<Product[]> {
   const content = await getHighlights(categoryId);
-  return mapPool(content.slice(0, 20), 6, enrich);
+  return mapPool(content.slice(0, 20), 8, enrich);
 }
 
 export function pickBest(products: Product[]): Product | undefined {
@@ -325,7 +331,7 @@ export async function generateFullSnapshot(
   onProgress?: (msg: string) => void,
 ): Promise<MeliSnapshot> {
   const [cats, generalTrends] = await Promise.all([getCategories(), getTrends()]);
-  const categorySnapshots = await mapPool<Category, CategorySnapshot>(cats, 3, async (c, idx) => {
+  const categorySnapshots = await mapPool<Category, CategorySnapshot>(cats, 5, async (c, idx) => {
     onProgress?.(`[${idx + 1}/${cats.length}] Coletando ${c.name} (${c.id})...`);
     const [details, trends, products] = await Promise.all([
       getCategoryDetails(c.id),

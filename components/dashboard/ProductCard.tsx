@@ -33,10 +33,14 @@ function ProductImage({ src, alt, subcat }: { src?: string; alt: string; subcat?
   return <img src={src} alt={alt} loading="lazy" onError={() => setFailed(true)} />;
 }
 
-function InfoDot({ title }: { title: string }) {
+function SourceBadge({ isEstimate, title }: { isEstimate?: boolean; title: string }) {
   return (
-    <span className="av-info" title={title} aria-label={title}>
-      i
+    <span
+      className={isEstimate ? "av-source-badge est" : "av-source-badge real"}
+      title={title}
+      aria-label={title}
+    >
+      {isEstimate ? "≈" : "✓"}
     </span>
   );
 }
@@ -69,47 +73,44 @@ export default function ProductCard({
 
   const itemDateCreated =
     p.itemDateCreated ?? estimateItemDateFromMlbId(p.itemId, p.dateCreated);
+  const itemDateIsEstimated = p.itemDateIsEstimated ?? !p.itemDateCreated;
   const itemDaysActive =
     p.itemDaysActive ??
     (itemDateCreated
       ? Math.max(1, Math.round((Date.now() - new Date(itemDateCreated).getTime()) / 86_400_000))
       : p.daysActive);
 
-  // Caso o snapshot ainda não tenha os novos campos pré-calculados, calcula em tempo real
-  const fallbackSales =
-    p.soldQuantity == null || p.estimatedVisits == null || p.currentMonthlyPace == null
-      ? calculateSalesEstimates({
-          position: p.position,
-          subcategoryPosition: p.subcategoryPosition,
-          offers: p.offers,
-          questionsTotal: p.questionsTotal,
-          daysActive: p.daysActive,
-          itemDaysActive,
-          price,
-          isFull: p.logisticType === "Full",
-          freeShipping: p.freeShipping,
-          officialStore: p.officialStore,
-        })
-      : null;
+  // Recalcula com o modelo multi-sinal caso algum campo não esteja no JSON
+  const sales = calculateSalesEstimates({
+    position: p.position,
+    subcategoryPosition: p.subcategoryPosition,
+    subcategoryTotalItems: p.subcategoryTotalItems,
+    offers: p.offers,
+    questionsTotal: p.questionsTotal,
+    daysActive: p.daysActive,
+    itemDaysActive,
+    price,
+    isFull: p.logisticType === "Full",
+    freeShipping: p.freeShipping,
+    officialStore: p.officialStore,
+    sellerTotalTransactions: p.sellerTotalTransactions,
+  });
 
-  const soldQuantity = p.soldQuantity ?? fallbackSales?.soldQuantity ?? 0;
-  const estimatedStock = p.estimatedStock ?? fallbackSales?.estimatedStock ?? 20;
-  const estimatedSales = p.estimatedSales ?? fallbackSales?.estimatedSales ?? 0;
-  const currentMonthlyPace =
-    p.currentMonthlyPace ?? fallbackSales?.currentMonthlyPace ?? p.estimatedMonthlySales ?? 0;
-  const estimatedVisits = p.estimatedVisits ?? fallbackSales?.estimatedVisits ?? 0;
-  const conversionRatePercent =
-    p.conversionRatePercent ?? fallbackSales?.conversionRatePercent ?? 10;
-  const estimatedDailySales = p.estimatedDailySales ?? fallbackSales?.estimatedDailySales ?? 1;
-  const historicalMonthlySales =
-    p.estimatedMonthlySales ?? fallbackSales?.estimatedMonthlySales ?? 30;
+  const soldQuantity = p.soldQuantity ?? sales.soldQuantity;
+  const estimatedStock = p.estimatedStock ?? sales.estimatedStock;
+  const estimatedSales = p.estimatedSales ?? sales.estimatedSales;
+  const currentMonthlyPace = p.currentMonthlyPace ?? sales.currentMonthlyPace;
+  const estimatedVisits = p.estimatedVisits ?? sales.estimatedVisits;
+  const conversionRatePercent = p.conversionRatePercent ?? sales.conversionRatePercent;
+  const estimatedDailySales = p.estimatedDailySales ?? sales.estimatedDailySales;
+  const historicalMonthlySales = p.estimatedMonthlySales ?? sales.estimatedMonthlySales;
   const estimatedTotalRevenue =
     p.estimatedTotalRevenue ??
-    fallbackSales?.estimatedTotalRevenue ??
-    (price != null ? soldQuantity * price : undefined);
+    sales.estimatedTotalRevenue ??
+    (price != null ? estimatedSales * price : undefined);
   const estimatedMonthlyRevenue =
     p.estimatedMonthlyRevenue ??
-    fallbackSales?.estimatedMonthlyRevenue ??
+    sales.estimatedMonthlyRevenue ??
     (price != null ? currentMonthlyPace * price : undefined);
 
   const isCatalog = p.type === "PRODUCT";
@@ -186,139 +187,214 @@ export default function ProductCard({
         <small className="muted">Anúncio restrito na API ({p.id})</small>
       )}
 
-      {/* PAINEL AVANTPRO COMPLETO */}
+      {/* PAINEL AVANTPRO COM DISTINÇÃO CLARA: ✓ OFICIAL API vs ≈ ESTIMATIVA */}
       <div className="av-panel">
-        {/* Barra de ícones de status (Reputação,Loja Oficial,Garantia,Full,Frete Grátis) */}
+        <div className="av-legend-row">
+          <span className="av-legend-item real" title="Dado 100% oficial retornado pela API do Mercado Livre">
+            <b>✓</b> Oficial API
+          </span>
+          <span className="av-legend-item est" title="Estimativa multi-sinal (Perguntas, Subcategoria, Ofertas, Preço e Vendedor)">
+            <b>≈</b> Estimativa
+          </span>
+        </div>
+
+        {/* Barra de ícones de status (100% Oficial API) */}
         <div className="av-status-bar">
           <span
             className={p.sellerPowerStatus ? "av-status-icon active" : "av-status-icon"}
             title={
               p.sellerPowerStatus
-                ? (POWER_LABELS[p.sellerPowerStatus] ?? p.sellerPowerStatus)
-                : "Vendedor padrão"
+                ? `✓ Oficial API: ${POWER_LABELS[p.sellerPowerStatus] ?? p.sellerPowerStatus}`
+                : "✓ Oficial API: Vendedor padrão"
             }
           >
             🏅
           </span>
           <span
             className={p.officialStore ? "av-status-icon active" : "av-status-icon"}
-            title={p.officialStore ? "Loja Oficial / Marca Verificada" : "Loja comum"}
+            title={
+              p.officialStore
+                ? "✓ Oficial API: Loja Oficial / Marca Verificada"
+                : "✓ Oficial API: Loja comum"
+            }
           >
             🏪
           </span>
           <span
             className={p.warranty ? "av-status-icon active" : "av-status-icon"}
-            title={p.warranty ?? "Sem garantia informada"}
+            title={`✓ Oficial API: ${p.warranty ?? "Sem garantia informada"}`}
           >
             🛡️
           </span>
           <span
             className={p.logisticType === "Full" ? "av-status-icon active" : "av-status-icon"}
-            title={`Logística: ${p.logisticType ?? "Padrão"}`}
+            title={`✓ Oficial API · Logística: ${p.logisticType ?? "Padrão"}`}
           >
             ⚡
           </span>
           <span
             className={p.freeShipping ? "av-status-icon active" : "av-status-icon"}
-            title={p.freeShipping ? "Frete Grátis ativo" : "Frete por conta do comprador"}
+            title={
+              p.freeShipping
+                ? "✓ Oficial API: Frete Grátis ativo"
+                : "✓ Oficial API: Frete por conta do comprador"
+            }
           >
             🚚
           </span>
         </div>
 
-        {/* 4 Pílulas Superiores (Frete, Catálogo, Vendidos, Estoque) */}
+        {/* 4 Pílulas Superiores */}
         <div className="av-pills-grid">
           <div className="av-pill">
             <span className="av-pill-icon">🚚</span>
             <strong>
               Frete: {p.shippingListCost != null ? brl(p.shippingListCost) : "Grátis"}
             </strong>
-            <InfoDot
-              title={`Custo de frete ME2 (/shipping_options/free)${p.billableWeightGrams ? ` · Peso faturável: ${num(p.billableWeightGrams)}g` : ""}`}
+            <SourceBadge
+              isEstimate={false}
+              title={`✓ Oficial API (/shipping_options/free)${p.billableWeightGrams ? ` · Peso faturável: ${num(p.billableWeightGrams)}g` : ""}`}
             />
           </div>
 
           <div className={isCatalog ? "av-pill av-pill-blue" : "av-pill"}>
             <span className="av-pill-icon">📚</span>
-            <strong>{isCatalog ? "Catálogo" : "Tradicional"}</strong>
-            <InfoDot
+            <strong>
+              {isCatalog ? `Catálogo (${p.offers ?? 1})` : "Tradicional"}
+            </strong>
+            <SourceBadge
+              isEstimate={false}
               title={
                 isCatalog
-                  ? `Produto de Catálogo (${p.offers ?? 1} ofertas competindo no Buy Box)`
-                  : `Anúncio próprio (${p.type})`
+                  ? `✓ Oficial API (/products/${p.id}/items): ${p.offers ?? 1} ofertas competindo no catálogo`
+                  : `✓ Oficial API: Anúncio próprio (${p.type})`
               }
             />
           </div>
 
-          <div className="av-pill">
+          <div className="av-pill av-pill-est">
             <span className="av-pill-icon">📦</span>
-            <strong>{num(soldQuantity)} Vendidos</strong>
-            <InfoDot title="Faixa de vendas acumuladas (+Vendidos) estimada para o produto/catálogo" />
+            <strong>≈ +{num(soldQuantity)} Vendidos</strong>
+            <SourceBadge
+              isEstimate
+              title="≈ Estimativa: Faixa de vendidos (+Vendidos) estimada por perguntas, porte da subcategoria e ofertas"
+            />
           </div>
 
-          <div className="av-pill">
+          <div className="av-pill av-pill-est">
             <span className="av-pill-icon">🎫</span>
-            <strong>{num(estimatedStock)} Estoque</strong>
-            <InfoDot title="Estoque disponível estimado na oferta vencedora do Buy Box" />
+            <strong>≈ {num(estimatedStock)} Estoque</strong>
+            <SourceBadge
+              isEstimate
+              title="≈ Estimativa: Estoque disponível estimado pela logística (Full/Normal), giro diário e porte do vendedor"
+            />
           </div>
         </div>
 
-        {/* 12 Cards de Métricas (6 linhas x 2 colunas idênticas ao Avantpro) */}
+        {/* Pílula de Dados Reais de Engajamento da API (Perguntas do Anúncio + Vendas da Conta do Vendedor) */}
+        <div className="av-real-signals">
+          <span title="✓ Dado 100% oficial via GET /questions/search">
+            ✓ 💬 <strong>{num(p.questionsTotal ?? 0)}</strong> perguntas no anúncio
+          </span>
+          {p.sellerTotalTransactions != null && p.sellerTotalTransactions > 0 && (
+            <span title="✓ Dado 100% oficial via GET /users/{seller_id}">
+              ✓ 🏪 <strong>{num(p.sellerTotalTransactions)}</strong> vendas na conta
+            </span>
+          )}
+        </div>
+
+        {/* 12 Cards de Métricas (6 linhas x 2 colunas) */}
         <div className="av-cards-grid">
-          {/* Linha 1 */}
-          <div className="av-metric-card">
-            <InfoDot title="Volume total estimado de vendas acumuladas (faixa de vendidos × 1,35 ou volume por perguntas)" />
+          {/* Linha 1 (Estimativas) */}
+          <div className="av-metric-card av-card-est">
+            <SourceBadge
+              isEstimate
+              title="≈ Estimativa multi-sinal: combina perguntas reais (/questions/search), tamanho da subcategoria, ofertas no catálogo, preço e dias ativos"
+            />
             <span className="av-metric-label">📊 Vendas estimadas</span>
-            <strong className="av-metric-val">{num(estimatedSales)}</strong>
+            <strong className="av-metric-val">≈ {num(estimatedSales)}</strong>
           </div>
 
-          <div className="av-metric-card">
-            <InfoDot title="Ritmo atual de vendas nos últimos 30 dias considerando a posição atual no Top 20, número de ofertas do catálogo e velocidade de perguntas recentes" />
+          <div className="av-metric-card av-card-est">
+            <SourceBadge
+              isEstimate
+              title="≈ Estimativa: Ritmo atual de vendas nos últimos 30 dias enquanto ocupa o Top 20 Mais Vendidos"
+            />
             <span className="av-metric-label">🛒 Ritmo atual (vendas/mês)</span>
-            <strong className="av-metric-val">{num(currentMonthlyPace)}</strong>
+            <strong className="av-metric-val">≈ {num(currentMonthlyPace)}</strong>
           </div>
 
-          {/* Linha 2 */}
-          <div className="av-metric-card">
-            <InfoDot title="Total estimado de visitas acumuladas com base nas vendas e na taxa de conversão do anúncio" />
+          {/* Linha 2 (Estimativas) */}
+          <div className="av-metric-card av-card-est">
+            <SourceBadge
+              isEstimate
+              title="≈ Estimativa: Total de visitas acumuladas (Vendas estimadas ÷ Taxa de conversão)"
+            />
             <span className="av-metric-label">👁️ Visitas</span>
-            <strong className="av-metric-val">{num(estimatedVisits)}</strong>
+            <strong className="av-metric-val">≈ {num(estimatedVisits)}</strong>
           </div>
 
-          <div className="av-metric-card">
-            <InfoDot title="Média de vendas por dia desde a criação do catálogo/anúncio (Vendidos ÷ Dias ativos)" />
+          <div className="av-metric-card av-card-est">
+            <SourceBadge
+              isEstimate
+              title="≈ Estimativa: Média de vendas por dia desde a criação (Vendas estimadas ÷ Dias ativos)"
+            />
             <span className="av-metric-label">🎫 Vendas por dia</span>
-            <strong className="av-metric-val">{num(estimatedDailySales)}</strong>
+            <strong className="av-metric-val">≈ {num(estimatedDailySales)}</strong>
           </div>
 
-          {/* Linha 3 */}
-          <div className="av-metric-card">
-            <InfoDot title="Média histórica de vendas por mês desde a criação (Vendidos ÷ Meses ativos)" />
+          {/* Linha 3 (Estimativas) */}
+          <div className="av-metric-card av-card-est">
+            <SourceBadge
+              isEstimate
+              title="≈ Estimativa: Média histórica de vendas por mês desde a criação (Vendas estimadas ÷ Meses ativos)"
+            />
             <span className="av-metric-label">🛒 Vendas mensais</span>
-            <strong className="av-metric-val">{num(historicalMonthlySales)}/Mês</strong>
+            <strong className="av-metric-val">≈ {num(historicalMonthlySales)}/Mês</strong>
           </div>
 
-          <div className="av-metric-card">
-            <InfoDot title="Taxa de conversão estimada (Vendidos ÷ Visitas × 100)" />
+          <div className="av-metric-card av-card-est">
+            <SourceBadge
+              isEstimate
+              title="≈ Estimativa: Taxa de conversão calculada pela posição no ranking, preço, Full, Frete Grátis e Loja Oficial"
+            />
             <span className="av-metric-label">% Conversão</span>
-            <strong className="av-metric-val">{pct(conversionRatePercent)}</strong>
+            <strong className="av-metric-val">≈ {pct(conversionRatePercent)}</strong>
           </div>
 
-          {/* Linha 4: Datas de criação do Anúncio e do Catálogo */}
-          <div className="av-metric-card">
-            <InfoDot title="Data de criação do anúncio vencedor obtida via GET /items/{id}/description (ou interpolada pelo ID MLB)" />
+          {/* Linha 4: Datas de criação do Anúncio e do Catálogo (Oficiais da API!) */}
+          <div className={itemDateIsEstimated ? "av-metric-card av-card-est" : "av-metric-card"}>
+            <SourceBadge
+              isEstimate={itemDateIsEstimated}
+              title={
+                itemDateIsEstimated
+                  ? "≈ Estimativa: Data interpolada pela sequência monotônica do ID MLB (anúncio sem descrição textual)"
+                  : "✓ Oficial API: Data exata de criação do anúncio via GET /items/{id}/description"
+              }
+            />
             <span className="av-metric-label">📅 Anúncio criado em</span>
-            <strong className="av-metric-val av-date-val">{fmtDate(itemDateCreated)}</strong>
+            <strong className="av-metric-val av-date-val">
+              {itemDateIsEstimated ? `≈ ${fmtDate(itemDateCreated)}` : fmtDate(itemDateCreated)}
+            </strong>
             {itemDaysActive != null && (
-              <span className="av-days-pill">● Há {num(itemDaysActive)} dias</span>
+              <span className="av-days-pill">
+                ● Há {itemDateIsEstimated ? `≈ ${num(itemDaysActive)}` : num(itemDaysActive)} dias
+              </span>
             )}
           </div>
 
-          <div className="av-metric-card">
-            <InfoDot title="Data oficial de criação da ficha de catálogo obtida via GET /products/{id}" />
+          <div className={p.dateCreated ? "av-metric-card" : "av-metric-card av-card-est"}>
+            <SourceBadge
+              isEstimate={!p.dateCreated}
+              title={
+                p.dateCreated
+                  ? "✓ Oficial API: Data exata de criação da ficha de catálogo via GET /products/{id}"
+                  : "≈ Estimativa: Baseada na data do anúncio"
+              }
+            />
             <span className="av-metric-label">📅 Catálogo criado em</span>
             <strong className="av-metric-val av-date-val">
-              {fmtDate(p.dateCreated ?? itemDateCreated)}
+              {p.dateCreated ? fmtDate(p.dateCreated) : `≈ ${fmtDate(itemDateCreated)}`}
             </strong>
             {(p.daysActive ?? itemDaysActive) != null && (
               <span className="av-days-pill">
@@ -327,9 +403,12 @@ export default function ProductCard({
             )}
           </div>
 
-          {/* Linha 5: Imposto (vermelho) e Recebe (verde) */}
+          {/* Linha 5: Imposto e Recebe (Cálculo Exato sobre Preço, Tarifa ML e Frete Oficiais!) */}
           <div className="av-metric-card av-card-red">
-            <InfoDot title="Imposto estimado sobre o preço de venda (ajustável no controle superior)" />
+            <SourceBadge
+              isEstimate={false}
+              title="✓ Cálculo exato sobre o preço de venda com a alíquota de Imposto selecionada no painel superior"
+            />
             <span className="av-metric-label">% Imposto</span>
             <strong className="av-metric-val">
               {fin.estimatedTaxAmount != null ? brl(fin.estimatedTaxAmount) : "—"}
@@ -338,7 +417,10 @@ export default function ProductCard({
           </div>
 
           <div className="av-metric-card av-card-green">
-            <InfoDot title="Valor líquido recebido após descontar Comissão ML, Frete e Imposto (Preço - Comissão - Frete - Imposto)" />
+            <SourceBadge
+              isEstimate={false}
+              title="✓ Cálculo exato sobre dados oficiais da API: Preço Buy Box - Comissão ML (/listing_prices) - Frete (/shipping_options/free) - Imposto"
+            />
             <span className="av-metric-label">👛 Recebe</span>
             <strong className="av-metric-val">
               {fin.netAfterTax != null ? brl(fin.netAfterTax) : "—"}
@@ -348,9 +430,12 @@ export default function ProductCard({
             )}
           </div>
 
-          {/* Linha 6: Recomendação (azul) e Comissão ML (verde) */}
+          {/* Linha 6: Recomendação e Comissão ML (100% Oficial API!) */}
           <div className="av-metric-card av-card-blue">
-            <InfoDot title="Faixa recomendada de custo de aquisição do produto (entre 50% e 90% do valor líquido Recebe)" />
+            <SourceBadge
+              isEstimate={false}
+              title="✓ Cálculo exato: Faixa recomendada de custo de compra do produto (50% a 90% do valor líquido Recebe)"
+            />
             <span className="av-metric-label">🎯 Recomendação</span>
             <strong className="av-metric-val av-rec-val">
               {fin.recommendedCostMin != null && fin.recommendedCostMax != null
@@ -360,8 +445,9 @@ export default function ProductCard({
           </div>
 
           <div className="av-metric-card av-card-green">
-            <InfoDot
-              title={`Comissão oficial do Mercado Livre (/sites/MLB/listing_prices) para anúncio ${p.listingTypeName ?? "Clássico"}`}
+            <SourceBadge
+              isEstimate={false}
+              title={`✓ Oficial API: Comissão exata do Mercado Livre via GET /sites/MLB/listing_prices (${p.listingTypeName ?? "Clássico"})`}
             />
             <span className="av-metric-label">💲 Comissão ML</span>
             <strong className="av-metric-val">
@@ -393,17 +479,19 @@ export default function ProductCard({
           </div>
         )}
 
-        {/* Banner Inferior Azul "Faturando R$ ..." */}
+        {/* Banner Inferior Azul "≈ Faturando R$ ..." */}
         {estimatedTotalRevenue != null && (
-          <div className="av-revenue-banner">
+          <div
+            className="av-revenue-banner"
+            title="≈ Estimativa de faturamento acumulado (Vendas estimadas × Preço) e faturamento mensal no ritmo atual"
+          >
             <div className="av-rev-main">
               <span>📈</span>
-              <strong>Faturando {brl(estimatedTotalRevenue)}</strong>
+              <strong>≈ Faturando {brl(estimatedTotalRevenue)}</strong>
             </div>
             {estimatedMonthlyRevenue != null && (
               <small className="av-rev-sub">
-                Ritmo mensal atual: {brl(estimatedMonthlyRevenue)}/mês · {num(p.questionsTotal ?? 0)}{" "}
-                perguntas no anúncio
+                ≈ Ritmo mensal atual: {brl(estimatedMonthlyRevenue)}/mês
               </small>
             )}
           </div>

@@ -39,6 +39,7 @@ export type Product = {
   daysActive?: number;
   itemDateCreated?: string;
   itemDaysActive?: number;
+  itemDateIsEstimated?: boolean;
 
   // Categoria & Subcategoria (/highlights/MLB/{type}/{id} + /categories/{id})
   categoryId?: string;
